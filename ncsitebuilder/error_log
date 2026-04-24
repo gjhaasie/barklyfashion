@@ -1,0 +1,4 @@
+[11-Apr-2026 19:06:18 UTC] PHP Fatal error:  Uncaught Error: Class "SiteModule" not found in /home/barkgjug/public_html/ncsitebuilder/ga.php:1
+Stack trace:
+#0 {main}
+  thrown in /home/barkgjug/public_html/ncsitebuilder/ga.php on line 1
