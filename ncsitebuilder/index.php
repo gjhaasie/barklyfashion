@@ -560,7 +560,16 @@
 			'Submit' => 'Submit'
 		)
 	));
-	if (!isHttps() && !headers_sent()) {
+	// fix: PHP 5.3-compatible local-dev detection (str_ends_with is PHP 8+, ?? is PHP 7+); exact-equals host check on .test/.local/localhost/127.0.0.1 + REMOTE_ADDR private-range gate (RFC1918 + loopback) so Docker/Vagrant/MAMP-via-container dev setups still bypass HTTPS redirect
+	$bfHost = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '';
+	$bfHostNoPort = strpos($bfHost, ':') !== false ? substr($bfHost, 0, strpos($bfHost, ':')) : $bfHost;
+	$bfRemote = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '';
+	$bfIsPrivate = $bfRemote === '127.0.0.1' || $bfRemote === '::1'
+		|| strpos($bfRemote, '10.') === 0
+		|| strpos($bfRemote, '192.168.') === 0
+		|| (strpos($bfRemote, '172.') === 0 && preg_match('/^172\.(1[6-9]|2[0-9]|3[0-1])\./', $bfRemote));
+	$isLocalDev = $bfIsPrivate && ($bfHostNoPort === 'localhost' || $bfHostNoPort === '127.0.0.1' || substr($bfHostNoPort, -5) === '.test' || substr($bfHostNoPort, -6) === '.local');
+	if (!isHttps() && !headers_sent() && !$isLocalDev) {
 		header('Status: 301 Moved Permanently');
 		header('Location: '.getCurrUrl(false, 'https'), true, 301);
 		exit();

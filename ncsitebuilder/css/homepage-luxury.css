@@ -1,0 +1,1157 @@
+/* Barkly Fashion luxury overrides — second pass.
+   Loads AFTER bundle + homepage-redesign.css.
+   Specificity strategy: target the .wb_content CHILD where bundle paints
+   element backgrounds (otherwise child paints over our parent bg-image).
+   Body prefix `body.bf-luxury` raises specificity by +1 class for safety.
+   !important is used ONLY where the bundle has !important (menu state)
+   or where the framework sets an inline style="..." attribute. */
+
+/* ===== Type system: load Cormorant + Inter (already linked in <head>) ===== */
+
+/* Body + base color */
+body.bf-luxury,
+body.bf-luxury .root {
+  background-color: #FAF7F2;
+  color: #0F0F0F;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ===== HERO ===== */
+
+/* The bundle paints background:#d89e74 on the CHILD .wb_content at (1,1,0).
+   We must target the same child or it will paint over our image. */
+body.bf-luxury #a188dd977fcf19225cd198000252963b > .wb_content {
+  background: #0F0F0F url('../gallery_gen/0d11d69abeafbf99ab32f65428cfed48_642x856_fit.jpg') center 30% / cover no-repeat;
+  min-height: min(72vh, 640px);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+/* fix: vignette moved from inner block to outer ::after so the scrim covers the full-bleed photo instead of a centered card. Outer is already position:relative above. */
+body.bf-luxury #a188dd977fcf19225cd198000252963b > .wb_content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.65) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Inner hero content — full-bleed flex column over the outer's scrim */
+body.bf-luxury #a188dd977fcf1a142290fccacf4359bd {
+  width: 100% !important;
+  max-width: none !important;
+}
+body.bf-luxury #a188dd977fcf1a142290fccacf4359bd > .wb_content {
+  position: relative;
+  z-index: 1;
+  padding: 0 24px;
+  min-height: min(72vh, 640px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* fix: bundle paints background:#d89e74 (tan) on this inner .wb_content. With the
+     inner now full-bleed, that tan was covering the hero photo + outer ::after scrim.
+     Transparent lets the outer photo + vignette show through. */
+  background: transparent !important;
+}
+/* fix: bundle gives some hero children flex-grow, which makes justify-content:center
+   on the parent a no-op (one child eats the slack and pushes siblings to the edges).
+   Pin direct children to flex:0 0 auto so they pack at the vertical center. */
+body.bf-luxury #a188dd977fcf1a142290fccacf4359bd > .wb_content > .wb_element {
+  flex: 0 0 auto !important;
+}
+
+/* Hero H1 — Cormorant italic 300 */
+body.bf-luxury #a188dd977fcf1b9f0f74fe4825af6e46 .wb-stl-heading1,
+body.bf-luxury #a188dd977fcf1b9f0f74fe4825af6e46 .wb-stl-heading1 span {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(48px, 8vw, 96px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #fff;
+  text-shadow: none;
+  margin: 0;
+}
+
+/* Hero sub H3 — Inter 400 14px sentence-case */
+body.bf-luxury #a188dd977fcf1c6c3a1eecbe7019bae2 .wb-stl-heading3,
+body.bf-luxury #a188dd977fcf1c6c3a1eecbe7019bae2 .wb-stl-heading3 span {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.92);
+  text-shadow: none;
+  margin: 24px 0 0;
+}
+
+/* Hero CTA — strip button chrome, become a quiet text link */
+body.bf-luxury #a188dd977fcf1d7e7f63389d4e4a5781 {
+  margin-top: 40px;
+}
+/* fix: dropped most !important — body.bf-luxury #id .wb_button (1,2,1) beats bundle .wb_button (0,1,1) cleanly; only background/box-shadow keep !important since bundle may set those via inline-style or higher-specificity .wb-prevent-layout-click chain */
+body.bf-luxury #a188dd977fcf1d7e7f63389d4e4a5781 .wb_button,
+body.bf-luxury #a188dd977fcf1d7e7f63389d4e4a5781 a.wb_button {
+  background: transparent !important;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: none !important;
+}
+body.bf-luxury #a188dd977fcf1d7e7f63389d4e4a5781 .wrap_button {
+  background: transparent;
+  padding: 0;
+}
+body.bf-luxury #a188dd977fcf1d7e7f63389d4e4a5781 .wrap_button > span {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #fff;
+  border-bottom: 1.5px solid rgba(255,255,255,0.85);
+  padding-bottom: 4px;
+}
+body.bf-luxury #a188dd977fcf1d7e7f63389d4e4a5781 .subtext {
+  display: none;
+}
+body.bf-luxury #a188dd977fcf1d7e7f63389d4e4a5781 a:hover .wrap_button > span {
+  border-bottom-color: #fff;
+}
+body.bf-luxury #a188dd977fcf1d7e7f63389d4e4a5781 a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 6px;
+}
+
+/* ===== HEADER ===== */
+
+/* Bundle paints background:#fff on the CHILD .wb_content. Target same.
+   fix: generalized to [id^="wb_header_"] so any page carrying bf-luxury (Home, About-us,
+   future pages) inherits the cream header. The bf-luxury body gate prevents leakage to
+   Shop or other non-luxury pages. */
+body.bf-luxury [id^="wb_header_"] > .wb_content {
+  background: #FAF7F2;
+  padding: 24px 32px;
+  border-bottom: 1px solid #E8E3DD;
+}
+
+/* fix: logo sized via aspect-ratio so reserved layout matches rendered size (no CLS); HTML width/height attrs are 60x60 */
+body.bf-luxury #a198956ddd7300c5dfc42c66946f0eea img {
+  width: 60px;
+  height: 60px;
+  aspect-ratio: 1 / 1;
+}
+
+/* Wordmark wrapper — kill orange text-shadow + inline line-height */
+body.bf-luxury #a18b7146781600f5a489f1f8c34a45df {
+  text-shadow: none !important; /* bundle sets #ff6b00 orange shadow */
+  line-height: 1 !important;     /* element has inline style="line-height: normal" */
+  margin: 0;
+  padding: 0;
+}
+
+/* Wordmark text (h4.wb-stl-pagetitle) — Inter 500 uppercase tracked */
+body.bf-luxury #a18b7146781600f5a489f1f8c34a45df .wb-stl-pagetitle,
+body.bf-luxury #a18b7146781600f5a489f1f8c34a45df h4 {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-weight: 500 !important;
+  font-style: normal !important;
+  font-size: 18px !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  color: #0F0F0F !important;
+  text-shadow: none !important;
+  margin: 0;
+}
+
+/* Header layout row — center logo + wordmark */
+body.bf-luxury #a188dd977fcf31dc9641cf0f785c94b9 > .wb_content {
+  align-items: center;
+}
+
+/* ===== NAV ===== */
+
+/* Nav UL — bundle sets background:#ffdbbb tan. Override. */
+body.bf-luxury #a188dd977fcf339c1e61edf0f5ebf373 > ul {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none;
+  box-shadow: none;
+}
+
+/* Nav links — Inter 400 12px uppercase tracked, no green */
+body.bf-luxury #a188dd977fcf339c1e61edf0f5ebf373 ul li > a,
+body.bf-luxury #a188dd977fcf339c1e61edf0f5ebf373 ul li > a:link,
+body.bf-luxury #a188dd977fcf339c1e61edf0f5ebf373 ul li > a:visited {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 12px !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: #0F0F0F !important;
+  background: transparent !important;
+  text-decoration: none !important;
+  padding: 12px 16px !important;
+}
+body.bf-luxury #a188dd977fcf339c1e61edf0f5ebf373 ul li > a:hover,
+body.bf-luxury #a188dd977fcf339c1e61edf0f5ebf373 ul li.active > a,
+body.bf-luxury #a188dd977fcf339c1e61edf0f5ebf373 ul li.wb_this_page_menu_item > a {
+  color: #0F0F0F !important;
+  text-decoration: underline !important;
+  text-underline-offset: 4px !important;
+}
+
+/* Dropdown panel */
+body.bf-luxury #a188dd977fcf339c1e61edf0f5ebf373 ul li > ul {
+  background: #FAF7F2 !important;
+  border-top: 1px solid #E8E3DD;
+  box-shadow: none !important;
+  padding: 8px 0;
+  min-width: 200px;
+}
+body.bf-luxury #a188dd977fcf339c1e61edf0f5ebf373 ul li > ul li > a {
+  font-size: 12px !important;
+  letter-spacing: 0.14em !important;
+  padding: 10px 20px !important;
+}
+
+/* ===== BODY SECTION ===== */
+
+/* fix: single body-section text-shadow reset kills the orange/yellow halo the bundle paints
+   on the italic intro paragraph + tile labels. Subtree wildcard so we don't have to chase
+   every text node selector. Existing scattered `text-shadow: none !important` rules below
+   are now redundant but kept for defensive layering. */
+body.bf-luxury #wb_main_a188dd97916a009965c17cb5091b1d29 *,
+body.bf-luxury #wb_main_a188dd97916a009965c17cb5091b1d29 *::before,
+body.bf-luxury #wb_main_a188dd97916a009965c17cb5091b1d29 *::after {
+  text-shadow: none !important;
+}
+
+/* Body section background — off-white not tan */
+body.bf-luxury #wb_main_a188dd97916a009965c17cb5091b1d29 > .wb_content,
+body.bf-luxury #a188dd977fcf1ecbf40fb9b7bacbb54f > .wb_content {
+  background: #FAF7F2;
+}
+
+/* fix: only hide the two Line decorations — keep the row wrapper visible so the sr-only H2 inside stays in the accessibility tree */
+body.bf-luxury #a188dd977fcf20614350b5302cab3023,
+body.bf-luxury #a188dd977fcf22db484e373f547c893e {
+  display: none;
+}
+body.bf-luxury #a188dd977fcf1f9ffa4de6e008af1e04 > .wb_content {
+  margin: 0;
+  padding: 0;
+  min-height: 0;
+}
+
+/* fix: H2 has meaningful text "The Collection" with .bf-sr-only — visually hidden but in document outline; wrapper kept visible at 0 visual size so screen readers can reach the H2 */
+body.bf-luxury .bf-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+body.bf-luxury #a188dd977fcf2111af693ffe360dc7a8 {
+  margin: 0;
+  padding: 0;
+  min-height: 0;
+  height: 0;
+  overflow: visible;
+}
+
+/* Brand-voice paragraph */
+body.bf-luxury #a188dd977fcf23b0c865264e1eaf617d {
+  margin: 64px auto 40px;
+  max-width: 720px;
+  padding: 0 24px;
+}
+body.bf-luxury #a188dd977fcf23b0c865264e1eaf617d .wb-stl-normal {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  font-size: 24px !important;
+  line-height: 1.5 !important;
+  color: #0F0F0F !important;
+  text-align: center !important;
+  letter-spacing: 0 !important;
+}
+
+/* ===== TILES ===== */
+
+/* Tile grid */
+body.bf-luxury #a188dd977fcf24727a4d7d9b65d1410b > .wb_content {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  max-width: 1280px;
+  margin: 0 auto 56px;
+  padding: 0 24px;
+}
+
+/* Each tile container */
+body.bf-luxury #a188dd977fcf25575a2ebc491fec0c3a,
+body.bf-luxury #a188dd977fcf2877bad3e28b60124500,
+body.bf-luxury #a188dd977fcf2bfbdb47e9f6b6227308 {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  width: auto !important;
+  /* fix: tile is one logical click target. Pointer cursor across image AND label so the
+     affordance is unambiguous; user-select:none kills the blue paragraph-selection box
+     visible when a click drags slightly. */
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+body.bf-luxury #a188dd977fcf25575a2ebc491fec0c3a > .wb_content,
+body.bf-luxury #a188dd977fcf2877bad3e28b60124500 > .wb_content,
+body.bf-luxury #a188dd977fcf2bfbdb47e9f6b6227308 > .wb_content {
+  position: relative;
+  background: transparent;
+}
+
+/* Card image wrapper — full width, kill the 86% width + top margin */
+body.bf-luxury #a188dd977fcf2654985af6a77b5ee696,
+body.bf-luxury #a188dd977fcf29fe362448edbb059c83,
+body.bf-luxury #a188dd977fcf2cbe7949d8f923b3d1a1 {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  position: relative;
+}
+
+body.bf-luxury #a188dd977fcf2654985af6a77b5ee696 .wb-picture-wrapper,
+body.bf-luxury #a188dd977fcf29fe362448edbb059c83 .wb-picture-wrapper,
+body.bf-luxury #a188dd977fcf2cbe7949d8f923b3d1a1 .wb-picture-wrapper {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+body.bf-luxury #a188dd977fcf2654985af6a77b5ee696 img,
+body.bf-luxury #a188dd977fcf29fe362448edbb059c83 img,
+body.bf-luxury #a188dd977fcf2cbe7949d8f923b3d1a1 img {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  /* fix: standard easing curve cubic-bezier(0.2,0,0,1); tightened from 300ms ease */
+  transition: opacity 250ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Hover trigger driven by the tile parent so image AND label respond together */
+body.bf-luxury #a188dd977fcf25575a2ebc491fec0c3a:hover #a188dd977fcf2654985af6a77b5ee696 img,
+body.bf-luxury #a188dd977fcf2877bad3e28b60124500:hover #a188dd977fcf29fe362448edbb059c83 img,
+body.bf-luxury #a188dd977fcf2bfbdb47e9f6b6227308:hover #a188dd977fcf2cbe7949d8f923b3d1a1 img {
+  opacity: 0.88;
+}
+/* Active press — quick dip so the click feels grounded */
+body.bf-luxury #a188dd977fcf25575a2ebc491fec0c3a:active #a188dd977fcf2654985af6a77b5ee696 img,
+body.bf-luxury #a188dd977fcf2877bad3e28b60124500:active #a188dd977fcf29fe362448edbb059c83 img,
+body.bf-luxury #a188dd977fcf2bfbdb47e9f6b6227308:active #a188dd977fcf2cbe7949d8f923b3d1a1 img {
+  opacity: 0.82;
+  transition-duration: 80ms;
+}
+
+/* fix: hover hairline driven via inset box-shadow on the picture wrapper so there is no
+   layout shift (border would push pixels). Hover trigger lives on the tile parent so the
+   line shows when hovering image OR label. */
+body.bf-luxury #a188dd977fcf2654985af6a77b5ee696 .wb-picture-wrapper,
+body.bf-luxury #a188dd977fcf29fe362448edbb059c83 .wb-picture-wrapper,
+body.bf-luxury #a188dd977fcf2cbe7949d8f923b3d1a1 .wb-picture-wrapper {
+  box-shadow: inset 0 0 0 0 #0F0F0F;
+  transition: box-shadow 250ms cubic-bezier(0.2, 0, 0, 1);
+}
+body.bf-luxury #a188dd977fcf25575a2ebc491fec0c3a:hover .wb-picture-wrapper,
+body.bf-luxury #a188dd977fcf2877bad3e28b60124500:hover .wb-picture-wrapper,
+body.bf-luxury #a188dd977fcf2bfbdb47e9f6b6227308:hover .wb-picture-wrapper {
+  box-shadow: inset 0 -1px 0 0 #0F0F0F;
+}
+
+/* fix: kill the heavy black gradient bar over the bottom 50% of each image — it read as a
+   product badge, not editorial. Overlay container becomes a static block BELOW the image
+   in the normal flow. Label is now dark text on the cream page background. */
+body.bf-luxury #a192ff7045d60069ca126247830c1de7,
+body.bf-luxury #a192ff723c9a00edd8ea12f6f7eae591,
+body.bf-luxury #a192ff724a8700a30f2ecdd8dea08bc5 {
+  position: static !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 16px 0 0 !important;
+  padding: 0 !important;
+}
+
+body.bf-luxury #a192ff7045d60069ca126247830c1de7 > .wb_content,
+body.bf-luxury #a192ff723c9a00edd8ea12f6f7eae591 > .wb_content,
+body.bf-luxury #a192ff724a8700a30f2ecdd8dea08bc5 > .wb_content {
+  background: transparent !important;
+  padding: 0 !important;
+  display: block;
+  height: auto;
+}
+
+/* Tile overlay click anchor — covers full tile (image + label).
+   fix: with the overlay container now `position: static`, this absolute link skips it as an
+   offset parent and resolves against the tile parent (which already has `position: relative`
+   above). That gives us a single click target spanning image AND label without re-parenting. */
+body.bf-luxury #a192ff7045d60069ca126247830c1de7 > a.wb-layout-link,
+body.bf-luxury #a192ff723c9a00edd8ea12f6f7eae591 > a.wb-layout-link,
+body.bf-luxury #a192ff724a8700a30f2ecdd8dea08bc5 > a.wb-layout-link {
+  pointer-events: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  /* fix: kill the blue rectangle on click-and-hold (mouse focus). Keyboard tab still
+     gets the white inset 2px ring via :focus-visible (defined in homepage-redesign.css).
+     -webkit-tap-highlight-color removes the iOS tap flash.
+     touch-action: manipulation removes the iOS 300ms tap-delay on tile activation. */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+/* fix: keyboard focus on the overlay anchor lifts the parent tile's hover hairline + label color so the focus state matches the hover state (overlay anchor itself stays unstyled — its outline lives on the tile via :focus-within) */
+body.bf-luxury #a188dd977fcf25575a2ebc491fec0c3a:focus-within .wb-picture-wrapper,
+body.bf-luxury #a188dd977fcf2877bad3e28b60124500:focus-within .wb-picture-wrapper,
+body.bf-luxury #a188dd977fcf2bfbdb47e9f6b6227308:focus-within .wb-picture-wrapper {
+  box-shadow: inset 0 -1px 0 0 #0F0F0F;
+}
+body.bf-luxury #a192ff7045d60069ca126247830c1de7 > a.wb-layout-link:focus:not(:focus-visible),
+body.bf-luxury #a192ff723c9a00edd8ea12f6f7eae591 > a.wb-layout-link:focus:not(:focus-visible),
+body.bf-luxury #a192ff724a8700a30f2ecdd8dea08bc5 > a.wb-layout-link:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* The overlay text wrapper inside */
+body.bf-luxury #a192ff7045d60069ca126247830c1de7 .wb_text_element,
+body.bf-luxury #a192ff723c9a00edd8ea12f6f7eae591 .wb_text_element,
+body.bf-luxury #a192ff724a8700a30f2ecdd8dea08bc5 .wb_text_element {
+  position: relative;
+  z-index: 1;
+}
+
+/* fix: tile labels styled via shared .bf-tile-label class instead of brittle tag selectors.
+   fix: label moved from white-on-gradient to dark-on-cream now that it sits below the image
+   in the normal flow (Section A). Roman, not italic — italic was reading as caption/credit. */
+body.bf-luxury .bf-tile-label,
+body.bf-luxury .bf-tile-label span,
+body.bf-luxury .bf-tile-label font {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  font-size: 24px !important;
+  letter-spacing: 0.01em !important;
+  color: #0F0F0F !important;
+  text-shadow: none !important;
+  text-transform: none !important;
+  text-align: left !important;
+  margin: 0 !important;
+  transition: color 250ms cubic-bezier(0.2, 0, 0, 1);
+}
+/* Label warms slightly on tile hover so the text is part of the interaction, not inert */
+body.bf-luxury #a188dd977fcf25575a2ebc491fec0c3a:hover .bf-tile-label,
+body.bf-luxury #a188dd977fcf25575a2ebc491fec0c3a:hover .bf-tile-label span,
+body.bf-luxury #a188dd977fcf2877bad3e28b60124500:hover .bf-tile-label,
+body.bf-luxury #a188dd977fcf2877bad3e28b60124500:hover .bf-tile-label span,
+body.bf-luxury #a188dd977fcf2bfbdb47e9f6b6227308:hover .bf-tile-label,
+body.bf-luxury #a188dd977fcf2bfbdb47e9f6b6227308:hover .bf-tile-label span {
+  color: #4a4a4a !important;
+}
+
+/* fix: removed dead .bf-card-subtext / .bf-secondary-link guards — classes no longer in markup */
+
+/* ===== FOOTER ===== */
+
+/* fix: generalized footer outer to [id^="wb_footer_"] — the dark band needs to cover the
+   page-scoped outer (different ID per page) AND the inner shared #a188dd977fcf404c2a958d6632b1bc23
+   container. Without the generalization, the bundle's tan paint leaked through as wings on
+   either side of the dark inner footer on About-us. */
+/* fix: !important required on the OUTER .wb_content paint — bundle declares
+   `#wb_footer_…>.wb_content { background:#d89e74 }` at specificity (1,1,0). Our class+attribute
+   selector here is (0,3,1), so without !important the bundle wins and the rosy tan paints over
+   our 100vw outer, producing tan side-bands flanking the inner 1200px black band. */
+body.bf-luxury [id^="wb_footer_"] > .wb_content,
+body.bf-luxury #a188dd977fcf404c2a958d6632b1bc23 > .wb_content {
+  background: #0F0F0F !important;
+  padding: 80px 24px;
+}
+
+/* fix: footer side-band leak — bundle declares `body{background-color:#ffdbbb}` (tan) and
+   `#wb_footer_…outer > .wb_content { background:#d89e74 }` (rosy-tan). common-bundle adds
+   `.root>.wb-layout-element { margin:auto !important }` which auto-centers the outer
+   footer wrapper. Painting only the inner .wb_content dark leaves the outer wrapper
+   transparent, so the body tan shows wherever the dark child is narrower than the viewport
+   (scrollbar gutter, max-width caps, auto-margin centering).
+
+   Earlier pass attempted the breakout on the inner .wb_content only; that failed because
+   the outer wrapper still had width:100%/max-width:100% — its own width was constrained to
+   .root's width, which on macOS includes scrollbar reservation, so the negative-margin
+   trick on the child couldn't fully escape.
+
+   Real fix: paint AND breakout the OUTER wrapper to 100vw — once the outer is dark and
+   edge-to-edge, the inner is irrelevant for color. html { overflow-x: clip } is required
+   in addition to body's, since macOS's `overflow-x:clip` on body alone doesn't always
+   suppress horizontal scrollbar reservation. */
+body.bf-luxury [id^="wb_footer_"] {
+  background: #0F0F0F !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+}
+body.bf-luxury [id^="wb_footer_"] > .wb_content {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+/* fix: scoped to bf-luxury body only — global `html { overflow-x: clip }` was leaking into popups, store pages, and admin previews, breaking sticky scroll containment and pages that need horizontal overflow. `:has()` lifts the rule onto <html> only when the body carries bf-luxury, with a body-only fallback for engines without :has() (suppresses the horizontal scrollbar in modern browsers; macOS scrollbar gutter fallback handled by the wb_footer 100vw breakout below). */
+html:has(body.bf-luxury),
+body.bf-luxury {
+  overflow-x: clip;
+}
+/* fix: kill any text-shadow / box-shadow inside the footer subtree — the bundle paints
+   orange `text-shadow:1.41px 1.41px 0 #ff6b00` on several elements; if any of those
+   selectors land inside the footer, the corners read as orange-tinted halos against the
+   dark band. Defensive, applies to every bf-luxury page. */
+body.bf-luxury [id^="wb_footer_"],
+body.bf-luxury [id^="wb_footer_"] *,
+body.bf-luxury [id^="wb_footer_"] *::before,
+body.bf-luxury [id^="wb_footer_"] *::after {
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+/* fix: replaced :empty with explicit IDs — :empty is brittle (whitespace text nodes from framework re-saves break it).
+   ASSUMPTION: the IG icon wrapper a188dd977fcf42771b16abc7d7896e2e is the ONLY direct child of a188dd977fcf41b76c596a7ea3835ef0's content that we want to keep. The IG follow text + copyright are siblings of THIS row (under wb_footer_a188dd97916a009965c17cb5091b1d29 > .wb_content), not children of it, so they are not affected. */
+body.bf-luxury #a188dd977fcf41b76c596a7ea3835ef0 > .wb_content > .wb_element:not(#a188dd977fcf42771b16abc7d7896e2e) {
+  display: none;
+}
+
+body.bf-luxury #a188dd977fcf41b76c596a7ea3835ef0 > .wb_content {
+  background: transparent;
+  justify-content: center;
+}
+
+body.bf-luxury #a188dd977fcf42771b16abc7d7896e2e svg {
+  width: 28px !important;
+  height: 28px !important;
+  color: #fff;
+}
+
+body.bf-luxury #a188dd977fcf45da6fc492493c28b5b1 .wb-stl-normal,
+body.bf-luxury #a188dd977fcf45da6fc492493c28b5b1 .wb-stl-normal span {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 12px !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  color: #fff !important;
+  margin: 16px 0 0 !important;
+}
+
+body.bf-luxury .bf-instagram-follow {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+body.bf-luxury .bf-instagram-follow:hover {
+  text-decoration: underline !important;
+}
+
+body.bf-luxury .bf-copyright {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  text-align: center;
+  margin: 24px 0 0;
+  letter-spacing: 0.10em;
+  text-transform: none;
+}
+
+/* fix: removed global .wb-stl-heading2 fallback — risk of leaking to other pages if bf-luxury body class persists; specific tile rules above already cover homepage */
+
+/* fix: split transitions — img only transitions opacity (already 300ms above); links transition color/underline */
+@media (prefers-reduced-motion: no-preference) {
+  body.bf-luxury #a188dd977fcf1d7e7f63389d4e4a5781 a,
+  body.bf-luxury .bf-instagram-follow {
+    transition: color 200ms ease, border-color 200ms ease, text-decoration-color 200ms ease;
+  }
+}
+
+/* Neutralize prior transforms/shadows from homepage-redesign.css */
+body.bf-luxury #a188dd977fcf1d7e7f63389d4e4a5781 a,
+body.bf-luxury #a192ff7045d60069ca126247830c1de7,
+body.bf-luxury #a192ff723c9a00edd8ea12f6f7eae591,
+body.bf-luxury #a192ff724a8700a30f2ecdd8dea08bc5 {
+  transform: none !important;
+}
+
+/* fix: replaced universal * selector with specific elements — * !important was killing legitimate shadows (focus rings, dropdown panel) */
+body.bf-luxury #a188dd977fcf19225cd198000252963b,
+body.bf-luxury #a188dd977fcf19225cd198000252963b > .wb_content,
+body.bf-luxury [id^="wb_header_"] > .wb_content,
+body.bf-luxury #a188dd977fcf339c1e61edf0f5ebf373,
+body.bf-luxury #a188dd977fcf24727a4d7d9b65d1410b,
+body.bf-luxury #a18b7146781600f5a489f1f8c34a45df,
+body.bf-luxury #a18b7146781600f5a489f1f8c34a45df .wb-stl-pagetitle {
+  box-shadow: none;
+  text-shadow: none;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+  body.bf-luxury #a188dd977fcf24727a4d7d9b65d1410b > .wb_content {
+    flex-direction: column;
+    gap: 12px;
+  }
+  body.bf-luxury #a188dd977fcf19225cd198000252963b > .wb_content {
+    background-position: center 25%;
+    min-height: 480px;
+  }
+  body.bf-luxury #a188dd977fcf1a142290fccacf4359bd > .wb_content {
+    padding: 60px 20px;
+  }
+  body.bf-luxury #a198956ddd7300c5dfc42c66946f0eea img {
+    width: 44px;
+    height: 44px;
+  }
+  body.bf-luxury #wb_header_a188dd97916a009965c17cb5091b1d29 > .wb_content {
+    padding: 16px 20px;
+  }
+  /* fix: on mobile the tiles stack full-width — labels look better centered + slightly smaller */
+  body.bf-luxury .bf-tile-label,
+  body.bf-luxury .bf-tile-label span,
+  body.bf-luxury .bf-tile-label font {
+    text-align: center !important;
+    font-size: 20px !important;
+  }
+}
+/* fix: tighten hero focal point on small phones so dog stays in frame */
+@media (max-width: 480px) {
+  body.bf-luxury #a188dd977fcf19225cd198000252963b > .wb_content {
+    background-position: center 18%;
+  }
+}
+
+/* ===== INTERACTIONS =====
+   At-rest styles live OUTSIDE the reduced-motion guard so the static appearance is
+   identical for users with prefers-reduced-motion: reduce. Only transitions are gated. */
+
+/* Nav links — quiet at rest, light up on hover. Active page already underlined. */
+body.bf-luxury #a188dd977fcf339c1e61edf0f5ebf373 ul li > a,
+body.bf-luxury #a188dd977fcf339c1e61edf0f5ebf373 ul li > a:link,
+body.bf-luxury #a188dd977fcf339c1e61edf0f5ebf373 ul li > a:visited {
+  opacity: 0.7;
+}
+body.bf-luxury #a188dd977fcf339c1e61edf0f5ebf373 ul li > a:hover,
+body.bf-luxury #a188dd977fcf339c1e61edf0f5ebf373 ul li.active > a,
+body.bf-luxury #a188dd977fcf339c1e61edf0f5ebf373 ul li.wb_this_page_menu_item > a {
+  opacity: 1;
+}
+
+/* Hero CTA — active dip, no transform (avoids layout jitter on the parent flex) */
+body.bf-luxury #a188dd977fcf1d7e7f63389d4e4a5781 a:active .wrap_button > span {
+  opacity: 0.7;
+}
+
+/* Footer IG icon + follow link — quiet at rest, full on hover */
+body.bf-luxury #a188dd977fcf42771b16abc7d7896e2e svg,
+body.bf-luxury .bf-instagram-follow {
+  opacity: 0.85;
+}
+body.bf-luxury #a188dd977fcf42771b16abc7d7896e2e a:hover svg,
+body.bf-luxury .bf-instagram-follow:hover {
+  opacity: 1;
+}
+
+/* Transitions — gated by prefers-reduced-motion. Standard easing, 200–250ms hover, 80ms press. */
+@media (prefers-reduced-motion: no-preference) {
+  body.bf-luxury #a188dd977fcf339c1e61edf0f5ebf373 ul li > a {
+    transition: opacity 200ms cubic-bezier(0.2, 0, 0, 1),
+                color 200ms cubic-bezier(0.2, 0, 0, 1),
+                text-decoration-color 200ms cubic-bezier(0.2, 0, 0, 1);
+  }
+  body.bf-luxury #a188dd977fcf1d7e7f63389d4e4a5781 .wrap_button > span {
+    transition: border-color 200ms cubic-bezier(0.2, 0, 0, 1),
+                opacity 80ms cubic-bezier(0.2, 0, 0, 1);
+  }
+  body.bf-luxury #a188dd977fcf42771b16abc7d7896e2e svg,
+  body.bf-luxury .bf-instagram-follow {
+    transition: opacity 200ms cubic-bezier(0.2, 0, 0, 1);
+  }
+}
+
+/* ===== ABOUT US =====
+   Editorial redesign — Hermès / Khaite cadence. Type-only hero, asymmetric
+   image+prose bands with chapter numerals, a full-bleed pull quote, IG reframed
+   as a small Studio note, and a closing signature line. All overrides scoped
+   via the page-specific main-section ID; markup is locked (ncsitebuilder
+   hash-IDs), so layout is achieved with display:contents to dissolve the
+   prose container into the row's grid context.
+
+   IDs in play (stable, page-specific):
+     #wb_main_a188dd97916a02dc5d341a8477c3ea12  page main wrapper
+     #a188dd977fcf0248ea6b62e89768c0f5          page padding wrapper
+     #a188dd977fcf03303004ad3b87787568          H1 wrapper
+     #a188dd977fcf041726e6c836a033acf5          row (becomes the editorial column)
+     #a198ab2eed9f0030e3fae0fd2f3c0820          IG embed (Studio note)
+     #a188dd977fcf06a35aeeedb300e96446          prose container (dissolved)
+     #a188dd977fcf0750c24e084ca7a036f2          first prose (Section I)
+     #a188dd977fcf083f63308fdfdd2b203e          Section II container
+     #a188dd977fcf0931ef3f581968661969          H2 wrapper
+     #a188dd977fcf0a3de0a228903d03054d          second prose (Section II)
+*/
+
+/* A. FOOTER — leak fix lives in the shared FOOTER section above (now generalized to all
+   bf-luxury pages via [id^="wb_footer_"] + body.bf-luxury overflow-x:clip). The previous
+   :has(#wb_main_…About-us…) scope was removed since the bug is sitewide and the bf-luxury
+   class already gates Home + About-us against Shop. */
+
+/* B. Page chrome — cream canvas + comfortable vertical rhythm.
+   Padding bumped (vs. prior pass) to give the editorial layout room to breathe. */
+body.bf-luxury #wb_main_a188dd97916a02dc5d341a8477c3ea12 > .wb_content,
+body.bf-luxury #a188dd977fcf0248ea6b62e89768c0f5 > .wb_content {
+  background: #FAF7F2;
+  padding: 0 0 120px;
+}
+
+/* C. Subtree text-shadow reset — kills the bundle's inherited orange halo. */
+body.bf-luxury #wb_main_a188dd97916a02dc5d341a8477c3ea12 *,
+body.bf-luxury #wb_main_a188dd97916a02dc5d341a8477c3ea12 *::before,
+body.bf-luxury #wb_main_a188dd97916a02dc5d341a8477c3ea12 *::after {
+  text-shadow: none !important;
+}
+
+/* D. HERO — type-only, generous vertical room.
+   ::before (overline) and ::after (hairline) live on the H1 wrapper div, NOT on
+   the heading itself, so they sit outside the italic and centered cleanly. */
+body.bf-luxury #a188dd977fcf03303004ad3b87787568 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: clamp(96px, 12vw, 160px) 24px 64px;
+  max-width: none !important;
+  margin: 0 !important;
+}
+body.bf-luxury #a188dd977fcf03303004ad3b87787568::before {
+  content: "Our House";
+  display: block;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(15, 15, 15, 0.55);
+  margin-bottom: 40px;
+}
+body.bf-luxury #a188dd977fcf03303004ad3b87787568::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: rgba(15, 15, 15, 0.35);
+  margin: 56px auto 0;
+}
+body.bf-luxury #a188dd977fcf03303004ad3b87787568 .wb-stl-heading1,
+body.bf-luxury #a188dd977fcf03303004ad3b87787568 .wb-stl-heading1 span {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-style: italic !important;
+  font-weight: 300 !important;
+  font-size: clamp(44px, 7vw, 88px) !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.015em !important;
+  color: #0F0F0F !important;
+  text-align: center !important;
+  max-width: 14ch;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+/* E. EDITORIAL COLUMN — the row container becomes the page's editorial spine.
+   prose-container dissolves via display:contents so first-prose, Section II,
+   and the IG embed become layout siblings of the row's grid. This lets us
+   place the IG between Section I and Section II without touching markup. */
+body.bf-luxury #a188dd977fcf041726e6c836a033acf5 > .wb_content {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 96px;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 32px;
+  background: transparent !important;
+}
+body.bf-luxury #a188dd977fcf06a35aeeedb300e96446,
+body.bf-luxury #a188dd977fcf06a35aeeedb300e96446 > .wb_content {
+  display: contents !important;
+}
+
+/* Layout order (flex/grid order on dissolved children).
+   1 = Section I (first-prose, with image ::before in left column)
+   2 = IG Studio note
+   3 = Section II (with image ::after in right column) */
+body.bf-luxury #a188dd977fcf0750c24e084ca7a036f2 { order: 1; }
+body.bf-luxury #a198ab2eed9f0030e3fae0fd2f3c0820 { order: 2; }
+body.bf-luxury #a188dd977fcf083f63308fdfdd2b203e { order: 3; }
+
+/* F. SECTION I — Craft. Image on the left in a reserved column, numeral + prose
+   stacked in normal flow on the right via padding-left. The pull quote (last <p>)
+   breaks out of the column with negative margin to span the full editorial width.
+
+   Reserved-column approach (vs. CSS grid) chosen because the prose block holds
+   numeral pseudo + multiple <p>s with different visual roles; document flow on
+   the right is far cleaner than juggling grid-row placements and gap math.
+
+   Image height = prose block natural height (top:0; bottom:0 absolute). Width =
+   reserved column. background-size:cover keeps the dog centered regardless of
+   prose length. The asymmetry — image as tall as the text, not taller — reads
+   editorial without a runaway portrait. */
+body.bf-luxury #a188dd977fcf0750c24e084ca7a036f2 {
+  position: relative;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 0 0 calc(clamp(280px, 38vw, 440px) + clamp(40px, 5vw, 80px));
+  background: transparent !important;
+  min-height: 480px;
+}
+body.bf-luxury #a188dd977fcf0750c24e084ca7a036f2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: clamp(280px, 38vw, 440px);
+  background: #d8cfc4 url('../gallery_gen/5cd04da54ac077af0502356a4c2cb327_678x904_fit.jpg') center 30% / cover no-repeat;
+}
+body.bf-luxury #a188dd977fcf0750c24e084ca7a036f2::after {
+  content: "I.";
+  display: block;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 32px;
+  letter-spacing: 0.04em;
+  color: rgba(15, 15, 15, 0.45);
+  margin: 0 0 28px;
+}
+
+/* Section I prose <p>s. Default body styling, then :last-child overrides as
+   pull quote with negative-margin breakout. */
+body.bf-luxury #a188dd977fcf0750c24e084ca7a036f2 .wb-stl-normal {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 1.75 !important;
+  color: #1a1a1a !important;
+  text-align: left !important;
+  letter-spacing: 0 !important;
+  margin: 0 0 24px !important;
+  max-width: 52ch;
+}
+
+/* PULL QUOTE — second <p> in Section I. Sits centered within the prose column,
+   below the small-house paragraphs. Hairline above marks it as a held-breath
+   line. Italic display weight gives it the visual punch the line earns.
+   fix: switched from :last-child to :nth-of-type(2) — ncsitebuilder is known to
+   inject stray whitespace <p> nodes on re-save (same brittleness that motivated
+   the explicit-ID replacement of :empty earlier in this sheet). nth-of-type(2)
+   pins the styling to "the second <p>" specifically — the line "No two pieces
+   are exactly alike. The fabric runs out before we do." — and won't drift if a
+   trailing empty paragraph appears. */
+body.bf-luxury #a188dd977fcf0750c24e084ca7a036f2 .wb-stl-normal:nth-of-type(2) {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-style: italic !important;
+  font-weight: 300 !important;
+  font-size: clamp(26px, 3.4vw, 38px) !important;
+  line-height: 1.4 !important;
+  color: #2a2620 !important;
+  text-align: center !important;
+  letter-spacing: -0.005em !important;
+  max-width: 24ch !important;
+  margin: 80px auto 0 !important;
+  padding: 56px 24px 0 !important;
+  position: relative;
+}
+body.bf-luxury #a188dd977fcf0750c24e084ca7a036f2 .wb-stl-normal:nth-of-type(2)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 1px;
+  background: rgba(15, 15, 15, 0.35);
+}
+
+/* G. STUDIO NOTE — the IG embed, reframed as a small editorial moment between
+   Section I and Section II. Contained 380px max-width, centered, with a
+   "From the Studio" overline and hairlines top + bottom. */
+body.bf-luxury #a198ab2eed9f0030e3fae0fd2f3c0820 {
+  width: 100% !important;
+  max-width: 380px !important;
+  margin: 0 auto !important;
+  aspect-ratio: 9 / 16;
+  background: #0F0F0F;
+  position: relative;
+  /* hairline above acts as the section divider */
+}
+body.bf-luxury #a198ab2eed9f0030e3fae0fd2f3c0820 iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: 0 !important;
+  display: block;
+}
+/* Wrap the IG with overline + hairlines via the order-2 element's surroundings.
+   Since we can't add markup, attach the overline to the IG container directly.
+   Using a sibling-of-self technique via box-shadow + outline isn't possible for
+   text — instead, place "FROM THE STUDIO" as a ::before on the row's .wb_content
+   that is positioned via order. Simpler: put the overline ABOVE the IG by
+   stacking the order-2 IG inside a flex column and using a tiny pseudo on it.
+   We use the IG's own container ::before since iframes can have sibling pseudos
+   on their parent — IG embed is itself a wb_element div containing the iframe,
+   so ::before goes on that wrapper. */
+body.bf-luxury #a198ab2eed9f0030e3fae0fd2f3c0820::before {
+  content: "From the Studio";
+  position: absolute;
+  bottom: calc(100% + 32px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(15, 15, 15, 0.55);
+  white-space: nowrap;
+}
+/* Hairline above the IG block — drawn as a thin div via another pseudo wouldn't
+   reach across the page. Use the row's gap for spacing; mark the boundary with
+   a centered hairline above the overline. */
+body.bf-luxury #a198ab2eed9f0030e3fae0fd2f3c0820::after {
+  content: "";
+  position: absolute;
+  bottom: calc(100% + 80px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 1px;
+  background: rgba(15, 15, 15, 0.35);
+}
+
+/* H. SECTION II — Materials. Mirrored asymmetric grid: prose left, image right.
+   Image (d897ec... white maltese, floral bandana) injected via ::after on the
+   inner .wb_content. */
+body.bf-luxury #a188dd977fcf083f63308fdfdd2b203e {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+body.bf-luxury #a188dd977fcf083f63308fdfdd2b203e > .wb_content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  grid-template-areas:
+    "numeral img"
+    "h2      img"
+    "txt     img";
+  column-gap: 80px;
+  row-gap: 0;
+  align-items: start;
+  background: transparent !important;
+  padding: 0 !important;
+}
+body.bf-luxury #a188dd977fcf083f63308fdfdd2b203e > .wb_content::before {
+  content: "II.";
+  grid-area: numeral;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 32px;
+  letter-spacing: 0.04em;
+  color: rgba(15, 15, 15, 0.45);
+  padding-top: 56px;
+  margin-bottom: 12px;
+}
+body.bf-luxury #a188dd977fcf083f63308fdfdd2b203e > .wb_content::after {
+  content: "";
+  grid-area: img;
+  align-self: stretch;
+  width: 100%;
+  aspect-ratio: 620 / 826;
+  background: #d8cfc4 url('../gallery_gen/d897ec83128b752dd02dd6532f2059ad_620x826_fit.jpg') center / cover no-repeat;
+  background-position: center 35%;
+  margin-top: 56px;
+}
+body.bf-luxury #a188dd977fcf0931ef3f581968661969 {
+  grid-area: h2;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+body.bf-luxury #a188dd977fcf0931ef3f581968661969 .wb-stl-heading2,
+body.bf-luxury #a188dd977fcf0931ef3f581968661969 .wb-stl-heading2 span {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  font-size: clamp(30px, 4vw, 44px) !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.01em !important;
+  color: #0F0F0F !important;
+  text-align: left !important;
+  margin: 0 0 32px !important;
+  max-width: 18ch;
+}
+body.bf-luxury #a188dd977fcf0a3de0a228903d03054d {
+  grid-area: txt;
+  position: relative;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+body.bf-luxury #a188dd977fcf0a3de0a228903d03054d .wb-stl-normal,
+body.bf-luxury #a188dd977fcf0a3de0a228903d03054d .wb-stl-normal span {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 1.75 !important;
+  color: #1a1a1a !important;
+  text-align: left !important;
+  letter-spacing: 0 !important;
+  margin: 0 0 24px !important;
+  max-width: 52ch;
+}
+/* fix: pin to nth-of-type(2) instead of :last-child for the same reason as the
+   pull-quote selector above — Section II prose has exactly 2 <p>s; framework
+   re-saves can inject stray trailing whitespace <p>s that would otherwise
+   absorb this margin reset. */
+body.bf-luxury #a188dd977fcf0a3de0a228903d03054d .wb-stl-normal:nth-of-type(2) {
+  margin-bottom: 0 !important;
+}
+
+/* I. CLOSING SIGNATURE — Cormorant italic line beneath the section, full-width
+   row in the Section II grid, with a hairline above. */
+body.bf-luxury #a188dd977fcf0a3de0a228903d03054d::after {
+  content: "Made by hand. Numbered before it leaves the workroom.";
+  display: block;
+  grid-column: 1 / -1;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(18px, 1.8vw, 22px);
+  line-height: 1.5;
+  color: rgba(15, 15, 15, 0.65);
+  text-align: center;
+  margin: 96px auto 0;
+  padding-top: 40px;
+  max-width: 40ch;
+  position: relative;
+}
+body.bf-luxury #a188dd977fcf0a3de0a228903d03054d::before {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: rgba(15, 15, 15, 0.35);
+  margin: 80px auto 0;
+}
+
+/* J. MOBILE — collapse both grids to single column, image first.
+   The Section I grid: image stays in row 1, prose moves below it (row 2),
+   pull quote stays full width (row 3).
+   The Section II grid: areas reflow vertically. */
+@media (max-width: 768px) {
+  body.bf-luxury #wb_main_a188dd97916a02dc5d341a8477c3ea12 > .wb_content,
+  body.bf-luxury #a188dd977fcf0248ea6b62e89768c0f5 > .wb_content {
+    padding: 0 0 72px;
+  }
+  body.bf-luxury #a188dd977fcf03303004ad3b87787568 {
+    padding: 72px 20px 48px;
+  }
+  body.bf-luxury #a188dd977fcf03303004ad3b87787568::before {
+    margin-bottom: 28px;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+  }
+  body.bf-luxury #a188dd977fcf03303004ad3b87787568::after {
+    margin-top: 40px;
+  }
+  body.bf-luxury #a188dd977fcf041726e6c836a033acf5 > .wb_content {
+    gap: 64px !important;
+    padding: 0 20px !important;
+  }
+  /* Section I → single column, image first then prose. Drop the reserved
+     left column; ::before becomes a block-level image above the prose. */
+  body.bf-luxury #a188dd977fcf0750c24e084ca7a036f2 {
+    padding: 0 !important;
+    min-height: 0;
+  }
+  body.bf-luxury #a188dd977fcf0750c24e084ca7a036f2::before {
+    position: static;
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    margin-bottom: 32px;
+  }
+  body.bf-luxury #a188dd977fcf0750c24e084ca7a036f2::after {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+  /* fix: nth-of-type(2) match for the desktop pull-quote selector above */
+  body.bf-luxury #a188dd977fcf0750c24e084ca7a036f2 .wb-stl-normal:nth-of-type(2) {
+    padding: 48px 0 0 !important;
+    margin: 56px auto 0 !important;
+  }
+  /* Studio note overlines tighter */
+  body.bf-luxury #a198ab2eed9f0030e3fae0fd2f3c0820 {
+    max-width: 320px !important;
+  }
+  body.bf-luxury #a198ab2eed9f0030e3fae0fd2f3c0820::before {
+    bottom: calc(100% + 24px);
+  }
+  body.bf-luxury #a198ab2eed9f0030e3fae0fd2f3c0820::after {
+    bottom: calc(100% + 64px);
+  }
+  /* Section II → single column, image then numeral, h2, prose.
+     Closing signature is rendered as ::after on the txt-area host (second-prose),
+     so it lives inside that cell and doesn't need its own named area.
+     fix: dropped unused "sig" area to match the desktop template. */
+  body.bf-luxury #a188dd977fcf083f63308fdfdd2b203e > .wb_content {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "img"
+      "numeral"
+      "h2"
+      "txt";
+    column-gap: 0;
+    row-gap: 0;
+  }
+  body.bf-luxury #a188dd977fcf083f63308fdfdd2b203e > .wb_content::after {
+    aspect-ratio: 4 / 5;
+    margin-top: 0;
+  }
+  body.bf-luxury #a188dd977fcf083f63308fdfdd2b203e > .wb_content::before {
+    padding-top: 32px;
+    font-size: 26px;
+  }
+  body.bf-luxury #a188dd977fcf0a3de0a228903d03054d::before {
+    margin-top: 56px;
+  }
+  body.bf-luxury #a188dd977fcf0a3de0a228903d03054d::after {
+    margin-top: 56px;
+    font-size: 18px;
+  }
+}

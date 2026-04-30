@@ -1,0 +1,16 @@
+# Dev-only artifacts
+router.php
+*.log
+ncsitebuilder/dat/project.db
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+# fix: secrets, deps, and PHP error dumps
+.env
+.env.*
+node_modules/
+vendor/
+error_log
+*.bak

@@ -1,0 +1,338 @@
+/* Barkly Fashion Shop redesign — slick modern retail.
+   Loads AFTER homepage-redesign.css and homepage-luxury.css.
+
+   The Shop keeps `bf-luxury` on the body (which activates the shared
+   header + footer chrome from homepage-luxury.css), but the Shop body itself
+   is NOT in the luxury editorial register — it's full Inter, retail.
+   Future cleanup: split shared chrome into a `bf-shared-chrome` class so the
+   Shop doesn't inherit the misleading "luxury" semantics.
+
+   Two body classes gate listing vs PDP behavior:
+     body.bf-luxury.bf-shop-listing  → /Shop/
+     body.bf-luxury.bf-shop-pdp      → /Shop/{slug}/
+   Both classes are set by PHP route detection in the Shop page.
+
+   Specificity strategy: every selector is scoped under
+     body.bf-luxury(.bf-shop-listing|.bf-shop-pdp) #wb_main_a188dd97916a01fb85848aa7afb9175e ...
+   so nothing leaks. !important is used only to outrank specific bundle rules
+   (each occurrence is annotated). Standard easing: cubic-bezier(0.2, 0, 0, 1),
+   hover 250ms, press 80ms — matches homepage-luxury.css. */
+
+/* ===== 1. PAGE BACKGROUND — defeat framework tan paint ===== */
+
+/* fix: bundle paints `body { background-color: #ffdbbb }` (tan). Body-class
+   selector is (0,3,1) which beats bundle's (0,0,1); !important required because
+   the bundle rule itself uses background-color on body and we want this to
+   stick across both routes regardless of any later inline cascade. */
+body.bf-luxury.bf-shop-listing,
+body.bf-luxury.bf-shop-pdp {
+  background: #FAF7F2 !important;
+}
+
+/* Page main wrapper — anchor the cream background through the content column
+   and pad the bottom so cards don't kiss the footer chrome. */
+body.bf-luxury #wb_main_a188dd97916a01fb85848aa7afb9175e > .wb_content {
+  background: #FAF7F2;
+  padding: 0 0 96px;
+}
+
+/* fix: bundle paints `#a188dd977fcf0e03ffaaf8616cac2abc > .wb_content
+   { background: #ffdbbb }` (tan) — this is the actual giant tan box that
+   wraps hero + decorative photo strip + Store grid on both routes.
+   Targeting the CHILD `> .wb_content` matches the bundle's specificity
+   pattern; (0,3,1) beats the bundle's (0,1,1) for both `bf-shop-listing`
+   and `bf-shop-pdp` body class qualifiers. */
+body.bf-luxury.bf-shop-listing #a188dd977fcf0e03ffaaf8616cac2abc > .wb_content,
+body.bf-luxury.bf-shop-pdp #a188dd977fcf0e03ffaaf8616cac2abc > .wb_content {
+  background: transparent !important;
+}
+
+/* fix: defensive — also kill any background on the Store ID element, its
+   child .wb_content, and the inner .wb-store wrapper. The shop bundle ships
+   no rosy paint on these in this cut, but the Network Solutions site builder
+   admin can re-emit the bundle with a tan store background if anyone toggles
+   the Store element's color in the UI. !important outranks the inline-style
+   the framework injects on Store wrappers. */
+body.bf-luxury #a188dd977fcf157d59d3babd94038204,
+body.bf-luxury #a188dd977fcf157d59d3babd94038204 > .wb_content,
+body.bf-luxury #a188dd977fcf157d59d3babd94038204 .wb-store {
+  background: transparent !important;
+}
+
+/* fix: bundle adds `text-shadow: 1.41px 1.41px 0 #ff6b00` (orange offset shadow)
+   on text elements via wildcard rules. Subtree reset under the page main wrapper
+   so every Shop text node renders clean. !important required because the bundle
+   rule uses `*` which we can't outrank by specificity alone — only by !important
+   on a more specific selector. */
+body.bf-luxury #wb_main_a188dd97916a01fb85848aa7afb9175e *,
+body.bf-luxury #wb_main_a188dd97916a01fb85848aa7afb9175e *::before,
+body.bf-luxury #wb_main_a188dd97916a01fb85848aa7afb9175e *::after {
+  text-shadow: none !important;
+}
+
+/* ===== 2. HIDE THREE-PHOTO STRIP ===== */
+
+/* The three-photo decorative strip is a holdover from an older Shop layout —
+   the new hero + grid carries the visual weight, so the strip is dead weight. */
+body.bf-luxury #a188dd977fcf11be6f1c55d09510b0ac {
+  display: none;
+}
+
+/* ===== 3. HERO — listing only, full Inter ===== */
+
+/* fix: bundle constrains hero element widths and adds margin auto. We override
+   max-width and margin on the wrapper because we want the hero to be a
+   full-bleed flex column with internal padding, not a centered card. */
+body.bf-luxury.bf-shop-listing #a188dd977fcf0e03ffaaf8616cac2abc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: clamp(72px, 8vw, 112px) 24px 56px;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+/* H1 — chain `.bf-shop-h1` + `.wb-stl-heading1` for safety against any framework
+   heading style class. fix: every property here is !important because the
+   bundle's `.wb-stl-heading1` rule is (0,1,0) AND the framework can also paint
+   inline `style="..."` on heading wrappers; we need to win both vectors. */
+body.bf-luxury.bf-shop-listing #a188dd977fcf0f7a0b03ad26ccae7624 .wb-stl-heading1.bf-shop-h1,
+body.bf-luxury.bf-shop-listing #a188dd977fcf0f7a0b03ad26ccae7624 .bf-shop-h1 {
+  font-family: 'Inter', system-ui, sans-serif !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  font-size: clamp(28px, 4vw, 44px) !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: #0F0F0F !important;
+  text-align: center !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Subhead — Inter 400 15px, soft body color, centered, max-width for readability.
+   No !important needed: body.bf-luxury.bf-shop-listing #id .bf-shop-subhead is
+   (0,4,1) and beats anything the bundle paints on a class-only selector. */
+body.bf-luxury.bf-shop-listing #a188dd977fcf0f7a0b03ad26ccae7624 .bf-shop-subhead {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(15, 15, 15, 0.65);
+  text-align: center;
+  max-width: 52ch;
+  margin: 24px auto 0;
+  padding: 0;
+}
+
+/* ===== 4. FILTER CHROME — fully hidden (both routes) ===== */
+
+/* The bundle filter UI is the wrong vibe for this Shop — we don't need
+   price/category filters. Hide outright on both routes. The prior
+   `display: contents` chain on Bootstrap cols was fragile and leaked layout
+   bugs into other pages — ripped out entirely. */
+body.bf-luxury #wb_main_a188dd97916a01fb85848aa7afb9175e .wb-store-filters {
+  display: none;
+}
+
+/* ===== 5. PRODUCT GRID (listing only) ===== */
+
+/* fix: bundle sets `text-align: center` on .wb-store-list which centers the
+   single grid child div but also centers any text inside cards. Override to
+   `left` so card text is naturally left-aligned. */
+body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-list {
+  max-width: 1280px;
+  margin: 0 auto 96px;
+  padding: 0 24px;
+  list-style: none;
+  text-align: left;
+}
+
+/* The unclassed direct child div of .wb-store-list is the grid container. */
+body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-list > div {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px 16px;
+}
+
+/* fix: normalized breakpoints to shared 1024 / 768 / 480 set so iPad-portrait (768–1023) doesn't get shop's 2-col grid mixed with luxury's mobile header treatment */
+@media (max-width: 1024px) {
+  body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-list > div {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-list > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+}
+
+/* ===== 6. PRODUCT CARD — listing ===== */
+
+/* fix: bundle sets `.wb-store-item { display: inline-block; padding: 0 10px;
+   max-width: 252px }` plus `width` on some variants. Since we're using grid,
+   we want the item to fill its grid cell as a block — neutralize the legacy
+   inline-block layout. !important on width/max-width/float because bundle
+   rules carry those properties at (0,2,0) and we need to override predictably
+   regardless of grid cell sizing intermediaries. */
+body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-item {
+  position: relative;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  width: auto !important;
+  max-width: none !important;
+  float: none !important;
+  display: block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* ===== 7. THUMB — 4:5 portrait, defensive resets ===== */
+
+/* fix: bundle sets `.wb-store-thumb { width: 252px; height: 252px;
+   border: 1px solid #b3b1b3 }`. We want full-width fluid thumbs in a 4:5
+   portrait ratio with no border. !important on margin/padding because the
+   bundle adds spacing in multiple places (padding inside the thumb, margin on
+   the wrapping div) and a clean baseline is non-negotiable. */
+body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-thumb {
+  width: 100%;
+  height: auto;
+  border: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+  position: relative;
+}
+
+/* fix: bundle uses `.wb-store-thumb:before { content: ""; display: inline-block;
+   vertical-align: middle; height: 100%; margin-left: -4px }` to vertically
+   center the image inside a fixed-square thumb. Useless once we drop the fixed
+   square — kill it so it doesn't push our pseudo-content layout around. */
+body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-thumb::before {
+  content: none;
+  display: none;
+}
+
+/* fix: bundle sets `.wb-store-thumb a { padding: 2px; line-height: 17px }`
+   which adds whitespace inside the link and creates a phantom inline-line-box
+   under the image. Reset both to zero. */
+body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-thumb a {
+  display: block;
+  padding: 0;
+  line-height: 0;
+  background: transparent;
+}
+
+/* fix: common bundle sets `.wb-store-thumb img { position: absolute; left: 0;
+   top: 0; width: 100%; height: 100% }` to fill a fixed-square wrapper. With our
+   `height: auto` wrapper, an absolutely-positioned img provides no flow content
+   to size the wrapper — wrapper collapses to 0 and `overflow: hidden` clips the
+   img to invisible. Force `position: static` so the img participates in flow,
+   then `aspect-ratio: 4/5` on the img sizes BOTH the img AND its wrapper.
+   !important on position is required because the bundle rule (0,1,1) ties
+   on specificity with `.wb-mob-store .wb-store-thumb img { position: relative }`
+   on mobile; we need this to be deterministic across both. The !important on
+   width/height defeats the bundle's `height: 100%` and any framework-injected
+   inline width/height attributes on <img>. */
+body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-thumb img {
+  position: static !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100%;
+  /* fix: aspect-ratio is unsupported in Safari < 15 / older Edge; @supports check falls back to padding-bottom hack on the wrapper for browsers that need it (handled in the wrapper rule below) */
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  opacity: 0.92;
+}
+/* fix: padding-bottom 4:5 fallback for browsers without aspect-ratio support — wrapper holds the box, img fills it absolutely */
+@supports not (aspect-ratio: 4 / 5) {
+  body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-thumb {
+    padding-top: 125%;
+    height: 0;
+  }
+  body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-thumb img {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    height: 100% !important;
+  }
+}
+
+/* Whole-card hover lifts the slight desaturation hint — no transform, no zoom,
+   just an honest opacity bump that says "this card is alive". */
+body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-item:hover .wb-store-thumb img {
+  opacity: 1;
+}
+
+/* ===== 8. CARD TEXT — Inter retail register ===== */
+
+body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-name {
+  margin: 12px 0 0;
+}
+
+body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-name a {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #0F0F0F;
+  text-decoration: none;
+  display: block;
+}
+
+/* The price is a quiet, factual data point — no decoration. */
+body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-price {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: rgba(15, 15, 15, 0.55);
+  margin: 4px 0 0;
+  letter-spacing: 0;
+  text-shadow: none;
+}
+
+/* ===== 9. FOCUS RING (keyboard accessibility) ===== */
+
+/* fix: per-anchor outlines look noisy when the whole card is the target. Kill
+   them on the anchors and project a single card-level ring instead, gated on
+   :has(a:focus-visible) so the ring only appears when an inner link is the
+   keyboard-focused target — never on mouse click. */
+/* fix: only suppress focus on the inner anchors when :has() is available to project a single card-level ring; otherwise keep per-anchor :focus-visible outlines so older Firefox ESR / pre-15.4 Safari users still see a focus indicator */
+@supports selector(:has(a)) {
+  body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-thumb a:focus,
+  body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-name a:focus {
+    outline: none;
+  }
+  body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-item:has(a:focus-visible) {
+    outline: 2px solid #0F0F0F;
+    outline-offset: 4px;
+  }
+}
+/* Per-anchor fallback ring (kept visible by default; suppressed only when :has() upgrades the experience above) */
+body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-thumb a:focus-visible,
+body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-name a:focus-visible {
+  outline: 2px solid #0F0F0F;
+  outline-offset: 2px;
+}
+
+/* ===== 10. REDUCED MOTION ===== */
+
+/* Transitions only declared inside `prefers-reduced-motion: no-preference` —
+   so motion-sensitive users get instant state changes with zero animation.
+   Easing matches homepage-luxury.css standard: cubic-bezier(0.2, 0, 0, 1). */
+@media (prefers-reduced-motion: no-preference) {
+  body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-thumb img {
+    transition: opacity 250ms cubic-bezier(0.2, 0, 0, 1);
+  }
+}
