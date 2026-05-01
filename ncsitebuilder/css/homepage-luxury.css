@@ -11,8 +11,8 @@
 /* Body + base color */
 body.bf-luxury,
 body.bf-luxury .root {
-  background-color: #FAF7F2;
-  color: #0F0F0F;
+  background-color: #F5EDE0;
+  color: #2A1A10;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
@@ -21,7 +21,7 @@ body.bf-luxury .root {
 /* The bundle paints background:#d89e74 on the CHILD .wb_content at (1,1,0).
    We must target the same child or it will paint over our image. */
 body.bf-luxury #a188dd977fcf19225cd198000252963b > .wb_content {
-  background: #0F0F0F url('../gallery_gen/0d11d69abeafbf99ab32f65428cfed48_642x856_fit.jpg') center 30% / cover no-repeat;
+  background: #2A1A10 url('../gallery_gen/0d11d69abeafbf99ab32f65428cfed48_642x856_fit.jpg') center 30% / cover no-repeat;
   min-height: min(72vh, 640px);
   padding: 0;
   position: relative;
@@ -32,7 +32,8 @@ body.bf-luxury #a188dd977fcf19225cd198000252963b > .wb_content::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.65) 100%);
+  /* fix: deeper, less-warm scrim — espresso at 0.30/0.65 lightened the hero vignette vs pure black; bumped to deep-cocoa 0.40/0.72 to keep white H1 fully legible over the photo */
+  background: linear-gradient(180deg, rgba(20,12,6,0.40) 0%, rgba(20,12,6,0.72) 100%);
   pointer-events: none;
   z-index: 0;
 }
@@ -137,9 +138,9 @@ body.bf-luxury #a188dd977fcf1d7e7f63389d4e4a5781 a:focus-visible {
    future pages) inherits the cream header. The bf-luxury body gate prevents leakage to
    Shop or other non-luxury pages. */
 body.bf-luxury [id^="wb_header_"] > .wb_content {
-  background: #FAF7F2;
+  background: #F5EDE0;
   padding: 24px 32px;
-  border-bottom: 1px solid #E8E3DD;
+  border-bottom: 1px solid #D9C9B3;
 }
 
 /* fix: logo sized via aspect-ratio so reserved layout matches rendered size (no CLS); HTML width/height attrs are 60x60 */
@@ -166,7 +167,7 @@ body.bf-luxury #a18b7146781600f5a489f1f8c34a45df h4 {
   font-size: 18px !important;
   letter-spacing: 0.22em !important;
   text-transform: uppercase !important;
-  color: #0F0F0F !important;
+  color: #8E4220 !important;
   text-shadow: none !important;
   margin: 0;
 }
@@ -195,7 +196,7 @@ body.bf-luxury #a188dd977fcf339c1e61edf0f5ebf373 ul li > a:visited {
   font-size: 12px !important;
   letter-spacing: 0.18em !important;
   text-transform: uppercase !important;
-  color: #0F0F0F !important;
+  color: #2A1A10 !important;
   background: transparent !important;
   text-decoration: none !important;
   padding: 12px 16px !important;
@@ -203,15 +204,15 @@ body.bf-luxury #a188dd977fcf339c1e61edf0f5ebf373 ul li > a:visited {
 body.bf-luxury #a188dd977fcf339c1e61edf0f5ebf373 ul li > a:hover,
 body.bf-luxury #a188dd977fcf339c1e61edf0f5ebf373 ul li.active > a,
 body.bf-luxury #a188dd977fcf339c1e61edf0f5ebf373 ul li.wb_this_page_menu_item > a {
-  color: #0F0F0F !important;
+  color: #2A1A10 !important;
   text-decoration: underline !important;
   text-underline-offset: 4px !important;
 }
 
 /* Dropdown panel */
 body.bf-luxury #a188dd977fcf339c1e61edf0f5ebf373 ul li > ul {
-  background: #FAF7F2 !important;
-  border-top: 1px solid #E8E3DD;
+  background: #F5EDE0 !important;
+  border-top: 1px solid #D9C9B3;
   box-shadow: none !important;
   padding: 8px 0;
   min-width: 200px;
@@ -237,7 +238,7 @@ body.bf-luxury #wb_main_a188dd97916a009965c17cb5091b1d29 *::after {
 /* Body section background — off-white not tan */
 body.bf-luxury #wb_main_a188dd97916a009965c17cb5091b1d29 > .wb_content,
 body.bf-luxury #a188dd977fcf1ecbf40fb9b7bacbb54f > .wb_content {
-  background: #FAF7F2;
+  background: #F5EDE0;
 }
 
 /* fix: only hide the two Line decorations — keep the row wrapper visible so the sr-only H2 inside stays in the accessibility tree */
@@ -283,7 +284,7 @@ body.bf-luxury #a188dd977fcf23b0c865264e1eaf617d .wb-stl-normal {
   font-weight: 400 !important;
   font-size: 24px !important;
   line-height: 1.5 !important;
-  color: #0F0F0F !important;
+  color: #2A1A10 !important;
   text-align: center !important;
   letter-spacing: 0 !important;
 }
@@ -371,13 +372,13 @@ body.bf-luxury #a188dd977fcf2bfbdb47e9f6b6227308:active #a188dd977fcf2cbe7949d8f
 body.bf-luxury #a188dd977fcf2654985af6a77b5ee696 .wb-picture-wrapper,
 body.bf-luxury #a188dd977fcf29fe362448edbb059c83 .wb-picture-wrapper,
 body.bf-luxury #a188dd977fcf2cbe7949d8f923b3d1a1 .wb-picture-wrapper {
-  box-shadow: inset 0 0 0 0 #0F0F0F;
+  box-shadow: inset 0 0 0 0 #2A1A10;
   transition: box-shadow 250ms cubic-bezier(0.2, 0, 0, 1);
 }
 body.bf-luxury #a188dd977fcf25575a2ebc491fec0c3a:hover .wb-picture-wrapper,
 body.bf-luxury #a188dd977fcf2877bad3e28b60124500:hover .wb-picture-wrapper,
 body.bf-luxury #a188dd977fcf2bfbdb47e9f6b6227308:hover .wb-picture-wrapper {
-  box-shadow: inset 0 -1px 0 0 #0F0F0F;
+  box-shadow: inset 0 -1px 0 0 #2A1A10;
 }
 
 /* fix: kill the heavy black gradient bar over the bottom 50% of each image — it read as a
@@ -428,7 +429,7 @@ body.bf-luxury #a192ff724a8700a30f2ecdd8dea08bc5 > a.wb-layout-link {
 body.bf-luxury #a188dd977fcf25575a2ebc491fec0c3a:focus-within .wb-picture-wrapper,
 body.bf-luxury #a188dd977fcf2877bad3e28b60124500:focus-within .wb-picture-wrapper,
 body.bf-luxury #a188dd977fcf2bfbdb47e9f6b6227308:focus-within .wb-picture-wrapper {
-  box-shadow: inset 0 -1px 0 0 #0F0F0F;
+  box-shadow: inset 0 -1px 0 0 #2A1A10;
 }
 body.bf-luxury #a192ff7045d60069ca126247830c1de7 > a.wb-layout-link:focus:not(:focus-visible),
 body.bf-luxury #a192ff723c9a00edd8ea12f6f7eae591 > a.wb-layout-link:focus:not(:focus-visible),
@@ -455,7 +456,7 @@ body.bf-luxury .bf-tile-label font {
   font-weight: 500 !important;
   font-size: 24px !important;
   letter-spacing: 0.01em !important;
-  color: #0F0F0F !important;
+  color: #2A1A10 !important;
   text-shadow: none !important;
   text-transform: none !important;
   text-align: left !important;
@@ -469,7 +470,7 @@ body.bf-luxury #a188dd977fcf2877bad3e28b60124500:hover .bf-tile-label,
 body.bf-luxury #a188dd977fcf2877bad3e28b60124500:hover .bf-tile-label span,
 body.bf-luxury #a188dd977fcf2bfbdb47e9f6b6227308:hover .bf-tile-label,
 body.bf-luxury #a188dd977fcf2bfbdb47e9f6b6227308:hover .bf-tile-label span {
-  color: #4a4a4a !important;
+  color: #6B4F3C !important;
 }
 
 /* fix: removed dead .bf-card-subtext / .bf-secondary-link guards — classes no longer in markup */
@@ -486,7 +487,7 @@ body.bf-luxury #a188dd977fcf2bfbdb47e9f6b6227308:hover .bf-tile-label span {
    our 100vw outer, producing tan side-bands flanking the inner 1200px black band. */
 body.bf-luxury [id^="wb_footer_"] > .wb_content,
 body.bf-luxury #a188dd977fcf404c2a958d6632b1bc23 > .wb_content {
-  background: #0F0F0F !important;
+  background: #2A1A10 !important;
   padding: 80px 24px;
 }
 
@@ -507,7 +508,7 @@ body.bf-luxury #a188dd977fcf404c2a958d6632b1bc23 > .wb_content {
    in addition to body's, since macOS's `overflow-x:clip` on body alone doesn't always
    suppress horizontal scrollbar reservation. */
 body.bf-luxury [id^="wb_footer_"] {
-  background: #0F0F0F !important;
+  background: #2A1A10 !important;
   width: 100vw !important;
   max-width: 100vw !important;
   margin-left: calc(50% - 50vw) !important;
@@ -725,7 +726,7 @@ body.bf-luxury .bf-instagram-follow:hover {
    Padding bumped (vs. prior pass) to give the editorial layout room to breathe. */
 body.bf-luxury #wb_main_a188dd97916a02dc5d341a8477c3ea12 > .wb_content,
 body.bf-luxury #a188dd977fcf0248ea6b62e89768c0f5 > .wb_content {
-  background: #FAF7F2;
+  background: #F5EDE0;
   padding: 0 0 120px;
 }
 
@@ -756,7 +757,7 @@ body.bf-luxury #a188dd977fcf03303004ad3b87787568::before {
   font-size: 12px;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: rgba(15, 15, 15, 0.55);
+  color: #8E4220;
   margin-bottom: 40px;
 }
 body.bf-luxury #a188dd977fcf03303004ad3b87787568::after {
@@ -764,7 +765,7 @@ body.bf-luxury #a188dd977fcf03303004ad3b87787568::after {
   display: block;
   width: 48px;
   height: 1px;
-  background: rgba(15, 15, 15, 0.35);
+  background: rgba(42, 26, 16, 0.35);
   margin: 56px auto 0;
 }
 body.bf-luxury #a188dd977fcf03303004ad3b87787568 .wb-stl-heading1,
@@ -775,7 +776,7 @@ body.bf-luxury #a188dd977fcf03303004ad3b87787568 .wb-stl-heading1 span {
   font-size: clamp(44px, 7vw, 88px) !important;
   line-height: 1.05 !important;
   letter-spacing: -0.015em !important;
-  color: #0F0F0F !important;
+  color: #2A1A10 !important;
   text-align: center !important;
   max-width: 14ch;
   margin: 0 auto !important;
@@ -836,7 +837,7 @@ body.bf-luxury #a188dd977fcf0750c24e084ca7a036f2::before {
   bottom: 0;
   left: 0;
   width: clamp(280px, 38vw, 440px);
-  background: #d8cfc4 url('../gallery_gen/5cd04da54ac077af0502356a4c2cb327_678x904_fit.jpg') center 30% / cover no-repeat;
+  background: #E6C9A8 url('../gallery_gen/5cd04da54ac077af0502356a4c2cb327_678x904_fit.jpg') center 30% / cover no-repeat;
 }
 body.bf-luxury #a188dd977fcf0750c24e084ca7a036f2::after {
   content: "I.";
@@ -846,7 +847,7 @@ body.bf-luxury #a188dd977fcf0750c24e084ca7a036f2::after {
   font-weight: 400;
   font-size: 32px;
   letter-spacing: 0.04em;
-  color: rgba(15, 15, 15, 0.45);
+  color: rgba(42, 26, 16, 0.45);
   margin: 0 0 28px;
 }
 
@@ -857,7 +858,7 @@ body.bf-luxury #a188dd977fcf0750c24e084ca7a036f2 .wb-stl-normal {
   font-weight: 400 !important;
   font-size: 16px !important;
   line-height: 1.75 !important;
-  color: #1a1a1a !important;
+  color: #2A1A10 !important;
   text-align: left !important;
   letter-spacing: 0 !important;
   margin: 0 0 24px !important;
@@ -879,7 +880,7 @@ body.bf-luxury #a188dd977fcf0750c24e084ca7a036f2 .wb-stl-normal:nth-of-type(2) {
   font-weight: 300 !important;
   font-size: clamp(26px, 3.4vw, 38px) !important;
   line-height: 1.4 !important;
-  color: #2a2620 !important;
+  color: #2A1A10 !important;
   text-align: center !important;
   letter-spacing: -0.005em !important;
   max-width: 24ch !important;
@@ -895,7 +896,7 @@ body.bf-luxury #a188dd977fcf0750c24e084ca7a036f2 .wb-stl-normal:nth-of-type(2)::
   transform: translateX(-50%);
   width: 32px;
   height: 1px;
-  background: rgba(15, 15, 15, 0.35);
+  background: rgba(42, 26, 16, 0.35);
 }
 
 /* G. STUDIO NOTE — the IG embed, reframed as a small editorial moment between
@@ -906,7 +907,7 @@ body.bf-luxury #a198ab2eed9f0030e3fae0fd2f3c0820 {
   max-width: 380px !important;
   margin: 0 auto !important;
   aspect-ratio: 9 / 16;
-  background: #0F0F0F;
+  background: #2A1A10;
   position: relative;
   /* hairline above acts as the section divider */
 }
@@ -936,7 +937,7 @@ body.bf-luxury #a198ab2eed9f0030e3fae0fd2f3c0820::before {
   font-size: 11px;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: rgba(15, 15, 15, 0.55);
+  color: #8E4220;
   white-space: nowrap;
 }
 /* Hairline above the IG block — drawn as a thin div via another pseudo wouldn't
@@ -950,7 +951,7 @@ body.bf-luxury #a198ab2eed9f0030e3fae0fd2f3c0820::after {
   transform: translateX(-50%);
   width: 48px;
   height: 1px;
-  background: rgba(15, 15, 15, 0.35);
+  background: rgba(42, 26, 16, 0.35);
 }
 
 /* H. SECTION II — Materials. Mirrored asymmetric grid: prose left, image right.
@@ -984,7 +985,7 @@ body.bf-luxury #a188dd977fcf083f63308fdfdd2b203e > .wb_content::before {
   font-weight: 400;
   font-size: 32px;
   letter-spacing: 0.04em;
-  color: rgba(15, 15, 15, 0.45);
+  color: rgba(42, 26, 16, 0.45);
   padding-top: 56px;
   margin-bottom: 12px;
 }
@@ -994,7 +995,7 @@ body.bf-luxury #a188dd977fcf083f63308fdfdd2b203e > .wb_content::after {
   align-self: stretch;
   width: 100%;
   aspect-ratio: 620 / 826;
-  background: #d8cfc4 url('../gallery_gen/d897ec83128b752dd02dd6532f2059ad_620x826_fit.jpg') center / cover no-repeat;
+  background: #E6C9A8 url('../gallery_gen/d897ec83128b752dd02dd6532f2059ad_620x826_fit.jpg') center / cover no-repeat;
   background-position: center 35%;
   margin-top: 56px;
 }
@@ -1011,7 +1012,7 @@ body.bf-luxury #a188dd977fcf0931ef3f581968661969 .wb-stl-heading2 span {
   font-size: clamp(30px, 4vw, 44px) !important;
   line-height: 1.15 !important;
   letter-spacing: -0.01em !important;
-  color: #0F0F0F !important;
+  color: #2A1A10 !important;
   text-align: left !important;
   margin: 0 0 32px !important;
   max-width: 18ch;
@@ -1028,7 +1029,7 @@ body.bf-luxury #a188dd977fcf0a3de0a228903d03054d .wb-stl-normal span {
   font-weight: 400 !important;
   font-size: 16px !important;
   line-height: 1.75 !important;
-  color: #1a1a1a !important;
+  color: #2A1A10 !important;
   text-align: left !important;
   letter-spacing: 0 !important;
   margin: 0 0 24px !important;
@@ -1053,7 +1054,8 @@ body.bf-luxury #a188dd977fcf0a3de0a228903d03054d::after {
   font-weight: 300;
   font-size: clamp(18px, 1.8vw, 22px);
   line-height: 1.5;
-  color: rgba(15, 15, 15, 0.65);
+  /* fix: solid #5C4533 (~5:1 on cream) instead of espresso@0.65 (~2.7:1) — closing-signature copy must hit AA */
+  color: #5C4533;
   text-align: center;
   margin: 96px auto 0;
   padding-top: 40px;
@@ -1065,7 +1067,7 @@ body.bf-luxury #a188dd977fcf0a3de0a228903d03054d::before {
   display: block;
   width: 32px;
   height: 1px;
-  background: rgba(15, 15, 15, 0.35);
+  background: rgba(42, 26, 16, 0.35);
   margin: 80px auto 0;
 }
 

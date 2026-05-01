@@ -26,13 +26,13 @@
    stick across both routes regardless of any later inline cascade. */
 body.bf-luxury.bf-shop-listing,
 body.bf-luxury.bf-shop-pdp {
-  background: #FAF7F2 !important;
+  background: #F5EDE0 !important;
 }
 
 /* Page main wrapper — anchor the cream background through the content column
    and pad the bottom so cards don't kiss the footer chrome. */
 body.bf-luxury #wb_main_a188dd97916a01fb85848aa7afb9175e > .wb_content {
-  background: #FAF7F2;
+  background: #F5EDE0;
   padding: 0 0 96px;
 }
 
@@ -105,7 +105,7 @@ body.bf-luxury.bf-shop-listing #a188dd977fcf0f7a0b03ad26ccae7624 .bf-shop-h1 {
   font-size: clamp(28px, 4vw, 44px) !important;
   letter-spacing: 0.06em !important;
   text-transform: uppercase !important;
-  color: #0F0F0F !important;
+  color: #2A1A10 !important;
   text-align: center !important;
   line-height: 1.2 !important;
   margin: 0 !important;
@@ -120,7 +120,8 @@ body.bf-luxury.bf-shop-listing #a188dd977fcf0f7a0b03ad26ccae7624 .bf-shop-subhea
   font-weight: 400;
   font-size: 15px;
   line-height: 1.5;
-  color: rgba(15, 15, 15, 0.65);
+  /* fix: solid #5C4533 (~5:1 on cream) instead of espresso@0.65 (~2.7:1) — shop subhead is body copy, must hit AA */
+  color: #5C4533;
   text-align: center;
   max-width: 52ch;
   margin: 24px auto 0;
@@ -286,7 +287,7 @@ body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-name 
   font-size: 14px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #0F0F0F;
+  color: #2A1A10;
   text-decoration: none;
   display: block;
 }
@@ -296,7 +297,8 @@ body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-price
   font-family: 'Inter', system-ui, sans-serif;
   font-weight: 400;
   font-size: 14px;
-  color: rgba(15, 15, 15, 0.55);
+  /* fix: solid #5C4533 (~5:1 on cream) instead of espresso@0.55 (~2.0:1) — product price is essential information, must hit AA */
+  color: #5C4533;
   margin: 4px 0 0;
   letter-spacing: 0;
   text-shadow: none;
@@ -315,14 +317,14 @@ body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-price
     outline: none;
   }
   body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-item:has(a:focus-visible) {
-    outline: 2px solid #0F0F0F;
+    outline: 2px solid #2A1A10;
     outline-offset: 4px;
   }
 }
 /* Per-anchor fallback ring (kept visible by default; suppressed only when :has() upgrades the experience above) */
 body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-thumb a:focus-visible,
 body.bf-luxury.bf-shop-listing #a188dd977fcf157d59d3babd94038204 .wb-store-name a:focus-visible {
-  outline: 2px solid #0F0F0F;
+  outline: 2px solid #2A1A10;
   outline-offset: 2px;
 }
 

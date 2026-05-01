@@ -2,7 +2,7 @@
 
 /* fix: hero color + min-height; image painted by luxury sheet on .wb_content child. Fallback image declared on parent so a luxury-sheet failure still shows a photo */
 #a188dd977fcf19225cd198000252963b {
-  background-color: #0F0F0F;
+  background-color: #2A1A10;
   background-image: url('../gallery_gen/0d11d69abeafbf99ab32f65428cfed48_642x856_fit.jpg');
   background-size: cover;
   background-position: center 30%;
@@ -13,7 +13,7 @@
 
 /* Hero inner: dark gradient overlay so white text stays legible on photo */
 #a188dd977fcf1a142290fccacf4359bd {
-  background-image: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 100%);
+  background-image: linear-gradient(180deg, rgba(42,26,16,0.15) 0%, rgba(42,26,16,0.55) 100%);
   position: relative;
   z-index: 1;
   color: #fff;

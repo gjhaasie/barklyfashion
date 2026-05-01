@@ -28,9 +28,9 @@
 	<link href="css/common-bundle.css?ts=20250816001332" rel="stylesheet" type="text/css" />
 	<?php /* fix: removed legacy Open Sans / Source Sans Pro / Playfair Display Google Fonts — Shop is now Inter only via shop-redesign.css */ ?>
 	<link href="css/a188dd97916a01fb85848aa7afb9175e-bundle.css?ts=20250816001332" rel="stylesheet" type="text/css" id="wb-page-stylesheet" />
-	<link rel="stylesheet" href="css/homepage-redesign.css?ts=20260430s" type="text/css">
-	<link rel="stylesheet" href="css/homepage-luxury.css?ts=20260430s" type="text/css">
-	<link rel="stylesheet" href="css/shop-redesign.css?ts=20260430s" type="text/css">
+	<link rel="stylesheet" href="css/homepage-redesign.css?ts=20260430warm" type="text/css">
+	<link rel="stylesheet" href="css/homepage-luxury.css?ts=20260430warm" type="text/css">
+	<link rel="stylesheet" href="css/shop-redesign.css?ts=20260430warm" type="text/css">
 	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" media="print" onload="this.media='all';this.onload=null">
 	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap"></noscript>

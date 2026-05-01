@@ -29,13 +29,13 @@
 	<?php /* fix: removed legacy Open Sans / Source Sans Pro / Playfair Display Google Fonts — homepage is now Inter + Cormorant only via luxury sheet */ ?>
 	<link href="css/a188dd97916a009965c17cb5091b1d29-bundle.css?ts=20250816001332" rel="stylesheet" type="text/css" id="wb-page-stylesheet" />
 	<link rel="preload" as="image" href="gallery_gen/0d11d69abeafbf99ab32f65428cfed48_642x856_fit.jpg" fetchpriority="high">
-	<link rel="stylesheet" href="css/homepage-redesign.css?ts=20260430i" type="text/css">
+	<link rel="stylesheet" href="css/homepage-redesign.css?ts=20260430warm" type="text/css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" media="print" onload="this.media='all';this.onload=null">
 	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap"></noscript>
-	<link rel="stylesheet" href="css/homepage-luxury.css?ts=20260430m" type="text/css">
+	<link rel="stylesheet" href="css/homepage-luxury.css?ts=20260430warm" type="text/css">
 	<ga-code/><meta name="msvalidate.01" content="D05EFC1E04EBD851B3BBC04C41CA6680" /><link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png"><link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png"><link rel="apple-touch-icon" type="image/png" sizes="152x152" href="gallery/favicons/favicon-152x152.png"><link rel="icon" type="image/png" sizes="152x152" href="gallery/favicons/favicon-152x152.png"><link rel="apple-touch-icon" type="image/png" sizes="180x180" href="gallery/favicons/favicon-180x180.png"><link rel="icon" type="image/png" sizes="180x180" href="gallery/favicons/favicon-180x180.png"><link rel="icon" type="image/png" sizes="192x192" href="gallery/favicons/favicon-192x192.png"><link rel="apple-touch-icon" type="image/png" sizes="60x60" href="gallery/favicons/favicon-60x60.png"><link rel="icon" type="image/png" sizes="60x60" href="gallery/favicons/favicon-60x60.png"><link rel="apple-touch-icon" type="image/png" sizes="76x76" href="gallery/favicons/favicon-76x76.png"><link rel="icon" type="image/png" sizes="76x76" href="gallery/favicons/favicon-76x76.png"><link rel="icon" type="image/png" href="gallery/favicons/favicon.png"><meta name="google-site-verification" content="" />
 	<script type="text/javascript">
 	window.useTrailingSlashes = true;
