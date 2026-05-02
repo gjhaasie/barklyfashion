@@ -43,6 +43,7 @@ RewriteRule ^\.well-known/.+ - [L]
 
 
 DirectoryIndex index.php index.cgi index.html
+RewriteRule ^$ index.php [L,QSA]
 RewriteCond %{REQUEST_FILENAME} !-f [OR]
 RewriteCond %{REQUEST_URI} ^\/(js\/(main\.js|bootstrap\.min\.js)|css\/([0-9a-f]+\.css|common\.css|site\.css|bootstrap\.min\.css)|sitemap\.xml)$
 RewriteCond %{REQUEST_FILENAME} !-d
