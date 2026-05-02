@@ -816,9 +816,10 @@ button { font: inherit; cursor: pointer; }
   .notify-form button { width: 100%; }
   .product-info h3 { word-break: break-word; }
   .footer-inner { grid-template-columns: 1fr; gap: 32px; }
-  .nav-left, .nav-right { display: none; }
-  .nav { grid-template-columns: 1fr auto 1fr; }
-  .brand-logo { height: 44px; }
+  .nav { grid-template-columns: 1fr auto 1fr; padding: 12px 16px; gap: 8px; }
+  .nav-left, .nav-right { gap: 12px; font-size: 10px; letter-spacing: 0.12em; }
+  .nav-left { justify-content: flex-start; }
+  .brand-logo { height: 40px; }
   .brand-name { font-size: 22px; }
   .shop-head { grid-template-columns: 1fr; }
   .specs { grid-template-columns: 1fr; }
