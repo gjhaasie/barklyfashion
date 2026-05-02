@@ -1,4 +1,4 @@
-<?php /* WARNING: this Shop page has surgical retail-redesign edits (body.bf-luxury + bf-shop-listing|bf-shop-pdp class, route-detection, conditional hero). Re-saving from the Network Solutions site builder UI WILL wipe these edits. Co-edit homepage-redesign.css, homepage-luxury.css, and shop-redesign.css alongside any structural change. */ ?>
+<?php /* WARNING: this Shop page has surgical retail-redesign edits (body.bf-luxury + bf-shop-listing|bf-shop-pdp class, route-detection, conditional hero, PDP contact CTA injected as sibling of the Store element near line 238). Re-saving from the Network Solutions site builder UI WILL wipe these edits. Co-edit homepage-redesign.css, homepage-luxury.css, and shop-redesign.css alongside any structural change. */ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -235,7 +235,214 @@ $shopBodyClass = $isShopListing ? 'bf-shop-listing' : 'bf-shop-pdp';
 		'phone' => true
 	),
 	'tag' => 'p'
-)); ?></div></div></div></div></div></div><div id="wb_footer_a188dd97916a01fb85848aa7afb9175e" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a188dd977fcf404c2a958d6632b1bc23" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a188dd977fcf41b76c596a7ea3835ef0" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a188dd977fcf42771b16abc7d7896e2e" class="wb_element wb_element_picture" data-plugin="Picture" title=""><div class="wb_picture_wrap" style="height: 100%"><div class="wb-picture-wrapper" style="overflow: visible; display: flex"><a href="https://www.instagram.com/barklyfashion/" target="_blank" rel="noopener noreferrer" aria-label="Barkly on Instagram"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="40" height="auto" viewBox="0 0 1793.982 1793.982" style="direction: ltr; color:#ffffff"><text x="129.501415" y="1537.02" font-size="1792" fill="currentColor" style='font-family: "FontAwesome"'></text></svg></a></div></div></div></div></div><div id="a188dd977fcf45da6fc492493c28b5b1" class="wb_element wb_text_element" data-plugin="TextArea" style=" line-height: normal;"><p class="wb-stl-normal" style="text-align: center;"><span style="color:rgba(255,255,255,1);"><a class="bf-instagram-follow" href="https://www.instagram.com/barklyfashion/" target="_blank" rel="noopener noreferrer">Follow @barklyfashion</a></span></p><p class="bf-copyright">&copy; <?php echo date('Y'); ?> Barkly. All rights reserved.</p></div></div></div><div id="wb_footer_c" class="wb_element" data-plugin="WB_Footer" style="text-align: center; width: 100%;"><div class="wb_footer"></div><script type="text/javascript">
+)); ?></div></div><?php /* WARNING: surgical PDP contact CTA — sibling of the Store element, gated by !$isShopListing. Posts to FormSubmit.co (free relay, no backend) which forwards to amir.akp1@gmail.com. First submission requires Amir to click a one-time verification email from FormSubmit. AJAX path uses /ajax/{email} JSON endpoint; no-JS fallback uses native POST + _next redirect to ?notified=1. Inline JS below relocates this node into .wb-store-properties so it sits in the right meta column under the price. Re-saving from the site builder UI WILL wipe this block. */ ?><?php if (!$isShopListing):
+	$bfPdpPath = parse_url(isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '', PHP_URL_PATH);
+	$bfPdpSlug = basename(rtrim((string) $bfPdpPath, '/'));
+	// strip slug to [A-Za-z0-9_-] so attacker-fabricated paths cannot reflect arbitrary content into Amir's email subject / product field
+	$bfPdpSlugClean = preg_replace('/[^A-Za-z0-9_-]/', '', $bfPdpSlug);
+	$bfPdpName = ($bfPdpSlugClean !== null && $bfPdpSlugClean !== '') ? $bfPdpSlugClean : 'this piece';
+	$bfPdpNameSafe = htmlspecialchars($bfPdpName, ENT_QUOTES, 'UTF-8');
+	$bfPdpScheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+	// allowlist Host header so a forged Host can't turn the FormSubmit `_next` redirect into an open-redirect to attacker.com
+	$bfPdpHostRaw = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '';
+	$bfPdpAllowedHosts = array('barklyfashion.com', 'www.barklyfashion.com', 'localhost', 'localhost:8000', '127.0.0.1', '127.0.0.1:8000');
+	$bfPdpHost = in_array($bfPdpHostRaw, $bfPdpAllowedHosts, true) ? $bfPdpHostRaw : 'www.barklyfashion.com';
+	$bfPdpReturn = $bfPdpScheme . '://' . $bfPdpHost . $bfPdpPath . '?notified=1';
+	$bfPdpReturnSafe = htmlspecialchars($bfPdpReturn, ENT_QUOTES, 'UTF-8');
+	$bfPdpSubjectSafe = htmlspecialchars('Barkly enquiry: ' . $bfPdpName, ENT_QUOTES, 'UTF-8');
+	$bfPdpProductAttr = htmlspecialchars($bfPdpName, ENT_QUOTES, 'UTF-8');
+	$bfPdpSubjectAttr = htmlspecialchars('Barkly enquiry: ' . $bfPdpName, ENT_QUOTES, 'UTF-8');
+	$bfPdpNotified = isset($_GET['notified']) && $_GET['notified'] === '1';
+?><?php /* data-bf-product / data-bf-subject hold the cleaned slug + subject for JSON body use, separate from the HTML-context-escaped hidden inputs that the no-JS native POST relies on. Both values are derived from the [A-Za-z0-9_-]-stripped slug so htmlspecialchars is a no-op today, but the data-attr path stays correct if the slug allowlist is ever loosened. */ ?><div class="bf-pdp-contact" role="complementary" aria-label="Enquire about this piece" data-bf-pdp-contact data-bf-product="<?php echo $bfPdpProductAttr; ?>" data-bf-subject="<?php echo $bfPdpSubjectAttr; ?>">
+<?php if ($bfPdpNotified): ?>
+	<p class="bf-pdp-contact-success">Noted. We'll be in touch the moment this piece is ready to wear.</p>
+<?php else: ?>
+	<p class="bf-pdp-contact-lede">Leave your email, and we'll write to you the moment this piece is ready to wear.</p>
+	<form class="bf-pdp-contact-form" action="https://formsubmit.co/amir.akp1@gmail.com" method="POST">
+		<?php /* honeypot first so naive bots fill it before reaching the real email field; hidden meta fields adjacent to honeypot; visible inputs and submit last */ ?>
+		<input type="text" name="_honey" value="" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
+		<input type="hidden" name="product" value="<?php echo $bfPdpNameSafe; ?>" />
+		<input type="hidden" name="_subject" value="<?php echo $bfPdpSubjectSafe; ?>" />
+		<input type="hidden" name="_template" value="table" />
+		<?php /* _captcha=true protects the no-JS native POST path. AJAX path drops it (reCAPTCHA can't render via JSON). */ ?>
+		<input type="hidden" name="_captcha" value="true" />
+		<input type="hidden" name="_next" value="<?php echo $bfPdpReturnSafe; ?>" />
+		<label class="bf-pdp-contact-input-wrap">
+			<span class="bf-pdp-contact-input-label">Email address</span>
+			<input type="email" name="email" class="bf-pdp-contact-input" placeholder="your email address" required autocomplete="email" />
+		</label>
+		<button type="submit" class="bf-pdp-contact-btn">Notify me</button>
+		<p class="bf-pdp-contact-error" aria-live="polite" hidden></p>
+		<p class="bf-pdp-contact-privacy">We'll only use your email to write to you about this piece. Submissions are processed by <a href="https://formsubmit.co/privacy-policy" target="_blank" rel="noopener noreferrer">FormSubmit</a>.</p>
+	</form>
+	<div class="bf-pdp-modal" role="dialog" aria-modal="true" aria-labelledby="bf-pdp-modal-title" aria-hidden="true" hidden>
+		<div class="bf-pdp-modal-backdrop" data-bf-pdp-modal-dismiss></div>
+		<div class="bf-pdp-modal-card" role="document">
+			<button type="button" class="bf-pdp-modal-close" aria-label="Close" data-bf-pdp-modal-dismiss>&times;</button>
+			<h2 class="bf-pdp-modal-title" id="bf-pdp-modal-title">Noted, with thanks.</h2>
+			<p class="bf-pdp-modal-body">Your email is with us. We'll write to you the moment this piece is ready to wear &mdash; nothing more, nothing less.</p>
+		</div>
+	</div>
+<?php endif; ?>
+</div>
+<script>
+// Block-relocator: move the contact widget into .wb-store-properties (right meta column).
+(function(){
+	var observer = null;
+	function bfMoveContact(){
+		var src = document.querySelector('[data-bf-pdp-contact]');
+		var dest = document.querySelector('.wb-store-properties');
+		if (src && dest && src.parentNode !== dest) {
+			src.classList.add('bf-pdp-contact--inline');
+			dest.appendChild(src);
+		}
+	}
+	function bfInit(){
+		bfMoveContact();
+		if (typeof MutationObserver !== 'undefined') {
+			var target = document.querySelector('.wb-store-details') || document.body;
+			if (target) {
+				observer = new MutationObserver(bfMoveContact);
+				observer.observe(target, { childList: true, subtree: true });
+				setTimeout(function(){ if (observer) { observer.disconnect(); observer = null; } }, 5000);
+			}
+		}
+	}
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', bfInit);
+	} else {
+		bfInit();
+	}
+})();
+
+// AJAX submit + modal. Native POST fallback survives if this script never runs (form action/method/_next still go to FormSubmit's redirect flow which the ?notified=1 PHP branch handles).
+// Note: AJAX path drops _captcha because reCAPTCHA cannot render via a JSON request. Spam defense on the AJAX path is the _honey honeypot + FormSubmit's per-recipient rate limiting; the no-JS native POST path keeps _captcha=true.
+(function(){
+	function init(){
+		var root = document.querySelector('[data-bf-pdp-contact]');
+		if (!root) return;
+		var form = root.querySelector('.bf-pdp-contact-form');
+		var modal = document.querySelector('.bf-pdp-modal');
+		if (!form || !modal) return;
+		var btn = form.querySelector('.bf-pdp-contact-btn');
+		var emailInput = form.querySelector('input[name="email"]');
+		var honeyInput = form.querySelector('input[name="_honey"]');
+		var errEl = form.querySelector('.bf-pdp-contact-error');
+		var dismissEls = modal.querySelectorAll('[data-bf-pdp-modal-dismiss]');
+		var closeBtn = modal.querySelector('.bf-pdp-modal-close');
+		var lastFocus = null;
+		var hideTimer = null;
+
+		function setError(msg){
+			if (!errEl) return;
+			if (msg) {
+				errEl.textContent = msg;
+				errEl.removeAttribute('hidden');
+			} else {
+				errEl.textContent = '';
+				errEl.setAttribute('hidden', '');
+			}
+		}
+		function focusables(){
+			return modal.querySelectorAll('button, [href], input:not([type="hidden"]), [tabindex]:not([tabindex="-1"])');
+		}
+		function trap(e){
+			if (e.key === 'Escape') { closeModal(); return; }
+			if (e.key !== 'Tab') return;
+			var f = focusables();
+			if (!f.length) { e.preventDefault(); return; }
+			if (f.length === 1) { e.preventDefault(); f[0].focus(); return; }
+			var first = f[0], last = f[f.length - 1];
+			if (e.shiftKey && document.activeElement === first) { last.focus(); e.preventDefault(); }
+			else if (!e.shiftKey && document.activeElement === last) { first.focus(); e.preventDefault(); }
+		}
+		function openModal(){
+			lastFocus = document.activeElement;
+			if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
+			if (modal.parentNode !== document.body) document.body.appendChild(modal);
+			modal.removeAttribute('hidden');
+			requestAnimationFrame(function(){ modal.classList.add('is-open'); });
+			modal.setAttribute('aria-hidden', 'false');
+			document.addEventListener('keydown', trap);
+			if (closeBtn && closeBtn.focus) closeBtn.focus();
+		}
+		function closeModal(){
+			modal.classList.remove('is-open');
+			modal.setAttribute('aria-hidden', 'true');
+			document.removeEventListener('keydown', trap);
+			hideTimer = setTimeout(function(){ modal.setAttribute('hidden', ''); hideTimer = null; }, 250);
+			if (lastFocus && lastFocus.focus) try { lastFocus.focus(); } catch (e) {}
+		}
+		for (var i = 0; i < dismissEls.length; i++) {
+			dismissEls[i].addEventListener('click', function(e){
+				e.preventDefault();
+				closeModal();
+			});
+		}
+
+		form.addEventListener('submit', function(e){
+			if (honeyInput && honeyInput.value) {
+				e.preventDefault();
+				openModal();
+				return;
+			}
+			if (typeof fetch !== 'function') return;
+			e.preventDefault();
+			setError('');
+			var email = emailInput && emailInput.value ? emailInput.value.trim() : '';
+			if (!email) {
+				setError('Please enter a valid email address.');
+				if (emailInput) emailInput.focus();
+				return;
+			}
+			var product = root.getAttribute('data-bf-product') || (form.querySelector('input[name="product"]') || {}).value || '';
+			var subject = root.getAttribute('data-bf-subject') || (form.querySelector('input[name="_subject"]') || {}).value || ('Barkly enquiry: ' + product);
+			if (!btn.dataset.originalLabel) btn.dataset.originalLabel = btn.textContent;
+			btn.disabled = true;
+			btn.textContent = 'Sending';
+			form.classList.add('is-loading');
+
+			fetch('https://formsubmit.co/ajax/amir.akp1@gmail.com', {
+				method: 'POST',
+				headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					email: email,
+					product: product,
+					_subject: subject
+				})
+			}).then(function(r){
+				return r.json().then(function(j){ return { ok: r.ok, body: j }; });
+			}).then(function(res){
+				form.classList.remove('is-loading');
+				var body = res.body || {};
+				var success = String(body.success).toLowerCase() === 'true';
+				// FormSubmit's activation-pending response is treated as success: the submission is held by the relay and delivers after the recipient clicks the one-time activation link.
+				var msg = (body.message || '').toLowerCase();
+				var activationPending = msg.indexOf('activation') !== -1 || msg.indexOf('activate') !== -1;
+				if (res.ok && (success || activationPending)) {
+					form.reset();
+					openModal();
+				} else {
+					btn.disabled = false;
+					btn.textContent = btn.dataset.originalLabel;
+					setError(body.message || 'Something went amiss. Please try again.');
+				}
+			}).catch(function(){
+				form.classList.remove('is-loading');
+				btn.disabled = false;
+				btn.textContent = btn.dataset.originalLabel;
+				setError("Couldn't reach our mail relay. Please try again in a moment.");
+			});
+		});
+	}
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', init);
+	} else {
+		init();
+	}
+})();
+</script>
+<?php endif; ?></div></div></div></div><div id="wb_footer_a188dd97916a01fb85848aa7afb9175e" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a188dd977fcf404c2a958d6632b1bc23" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-vertical"><div id="a188dd977fcf41b76c596a7ea3835ef0" class="wb_element wb-layout-element" data-plugin="LayoutElement"><div class="wb_content wb-layout-horizontal"><div id="a188dd977fcf42771b16abc7d7896e2e" class="wb_element wb_element_picture" data-plugin="Picture" title=""><div class="wb_picture_wrap" style="height: 100%"><div class="wb-picture-wrapper" style="overflow: visible; display: flex"><a href="https://www.instagram.com/barklyfashion/" target="_blank" rel="noopener noreferrer" aria-label="Barkly on Instagram"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="40" height="auto" viewBox="0 0 1793.982 1793.982" style="direction: ltr; color:#ffffff"><text x="129.501415" y="1537.02" font-size="1792" fill="currentColor" style='font-family: "FontAwesome"'></text></svg></a></div></div></div></div></div><div id="a188dd977fcf45da6fc492493c28b5b1" class="wb_element wb_text_element" data-plugin="TextArea" style=" line-height: normal;"><p class="wb-stl-normal" style="text-align: center;"><span style="color:rgba(255,255,255,1);"><a class="bf-instagram-follow" href="https://www.instagram.com/barklyfashion/" target="_blank" rel="noopener noreferrer">Follow @barklyfashion</a></span></p><p class="bf-copyright">&copy; <?php echo date('Y'); ?> Barkly. All rights reserved.</p></div></div></div><div id="wb_footer_c" class="wb_element" data-plugin="WB_Footer" style="text-align: center; width: 100%;"><div class="wb_footer"></div><script type="text/javascript">
 			$(function() {
 				var footer = $(".wb_footer");
 				var html = (footer.html() + "").replace(/^\s+|\s+$/g, "");

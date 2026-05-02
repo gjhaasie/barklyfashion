@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Shop — Barkly Fashion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body data-screen-label="03 Shop">
+
+<div class="announce">
+  <span>Made to order · small batches · sewn in Berkeley</span>
+  <em>·</em>
+  <span>Lot 04 of the Scarlet Brocade now in production</span>
+</div>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <div class="nav-left">
+      <a href="shop.html" class="is-active">Shop</a>
+      <a href="about.html">About</a>
+    </div>
+    <a class="brand" href="index.html" aria-label="Barkly Fashion home">
+      <img class="brand-logo" src="images/barklylogo.jpg" alt="" />
+    </a>
+    <div class="nav-right">
+      <a href="#products">Notify me</a>
+    </div>
+  </nav>
+</header>
+
+<section class="shop-head">
+  <div>
+    <span class="eyebrow">The Winter Edit · 2026</span>
+    <h1 class="h-display" style="margin-top:18px;">Five pieces.<br/><span class="it">No filler.</span></h1>
+  </div>
+  <p class="lede">A tight collection cut from heritage textiles.
+    Hand-patterned, sewn in lots of forty, fitted to dogs from six pounds to sixty.
+    <strong style="display:block; margin-top:12px; font-weight:500; color:var(--ink);">Each piece is made to order — leave your email and we'll write the moment it's ready to wear.</strong></p>
+</section>
+
+<div class="shop-toolbar">
+  <div class="filters" id="filters">
+    <button class="filter is-active" data-f="all">All · 5</button>
+    <button class="filter" data-f="jackets">Jackets &amp; coats</button>
+    <button class="filter" data-f="sweaters">Sweaters</button>
+    <button class="filter" data-f="hoodies">Hoodies</button>
+    <button class="filter" data-f="capsule">Lunar capsule</button>
+  </div>
+  <div class="right">
+    <span>5 pieces</span>
+    <select aria-label="Sort">
+      <option>Sort · Featured</option>
+      <option>Newest first</option>
+      <option>Price · low to high</option>
+      <option>Price · high to low</option>
+    </select>
+  </div>
+</div>
+
+<section class="products" id="products">
+  <article class="product" data-cat="jackets">
+    <div class="product-media">
+      <span class="badge hot">Bestseller</span>
+      <img src="images/santa-fe-jacket.jpeg" alt="Santa Fe Jacket" />
+      <button class="quick" onclick="openNotify(this)">Notify me when ready →</button>
+    </div>
+    <div class="product-info">
+      <h3>The Santa Fe Jacket</h3>
+      <span class="price">$35</span>
+      <div class="meta">No. 01 · Block-printed cotton · XS – L</div>
+    </div>
+    <div class="swatches" aria-label="Available colors">
+      <span class="sw" style="background:#7a3a2a;"></span>
+      <span class="sw" style="background:#2d3d2a;"></span>
+      <span class="sw" style="background:#b8893a;"></span>
+    </div>
+  </article>
+
+  <article class="product" data-cat="jackets capsule">
+    <div class="product-media">
+      <span class="badge">New</span>
+      <img src="images/scarlet-brocade-coat.jpeg" alt="Scarlet Brocade Coat" />
+      <button class="quick" onclick="openNotify(this)">Notify me when ready →</button>
+    </div>
+    <div class="product-info">
+      <h3>Scarlet Brocade Coat</h3>
+      <span class="price">$38</span>
+      <div class="meta">No. 02 · Silk brocade, quilted lining · XS – M</div>
+    </div>
+    <div class="swatches" aria-label="Available colors">
+      <span class="sw" style="background:#b13128;"></span>
+      <span class="sw" style="background:#1f1a14;"></span>
+    </div>
+  </article>
+
+  <article class="product" data-cat="sweaters">
+    <div class="product-media">
+      <span class="badge">Knit</span>
+      <img src="images/nordic-fairisle-sweater.jpeg" alt="Nordic Fairisle Sweater" />
+      <button class="quick" onclick="openNotify(this)">Notify me when ready →</button>
+    </div>
+    <div class="product-info">
+      <h3>Nordic Fairisle Sweater</h3>
+      <span class="price">$30</span>
+      <div class="meta">No. 03 · Wool-cotton fairisle · XS – L</div>
+    </div>
+    <div class="swatches" aria-label="Available colors">
+      <span class="sw" style="background:#8a221b;"></span>
+      <span class="sw" style="background:#f4ead7;"></span>
+      <span class="sw" style="background:#2d3d2a;"></span>
+    </div>
+  </article>
+
+  <article class="product" data-cat="hoodies">
+    <div class="product-media">
+      <span class="badge hot">Bestseller</span>
+      <img src="images/midnight-floral-hoodie.jpeg" alt="Midnight Floral Hoodie" />
+      <button class="quick" onclick="openNotify(this)">Notify me when ready →</button>
+    </div>
+    <div class="product-info">
+      <h3>Midnight Floral Hoodie</h3>
+      <span class="price">$28</span>
+      <div class="meta">No. 04 · Brushed cotton, removable hood · XS – L</div>
+    </div>
+    <div class="swatches" aria-label="Available colors">
+      <span class="sw" style="background:#1f1a14;"></span>
+      <span class="sw" style="background:#6b6238;"></span>
+    </div>
+  </article>
+
+  <article class="product" data-cat="jackets capsule">
+    <div class="product-media">
+      <span class="badge">Lunar capsule</span>
+      <img src="images/lunar-cheongsam.jpeg" alt="Lunar Cheongsam" />
+      <button class="quick" onclick="openNotify(this)">Notify me when ready →</button>
+    </div>
+    <div class="product-info">
+      <h3>Lunar Cheongsam</h3>
+      <span class="price">$40</span>
+      <div class="meta">No. 05 · Red &amp; gold brocade · XS – M</div>
+    </div>
+    <div class="swatches" aria-label="Available colors">
+      <span class="sw" style="background:#b13128;"></span>
+      <span class="sw" style="background:#b8893a;"></span>
+    </div>
+  </article>
+</section>
+
+<section class="sizes-strip">
+  <div class="sizes-strip-inner">
+    <div>
+      <span class="eyebrow">Sizing</span>
+      <h3 style="font-family:var(--display); font-size:28px; margin:6px 0 0; font-weight:500;">Patterned on real dogs.</h3>
+      <p style="margin:6px 0 0; color:var(--ink-soft); font-size:14px;">Measure neck, chest and back length. Or send a photo — we'll size you.</p>
+    </div>
+    <div class="size-grid">
+      <span class="s">XS · 6–10 lb</span>
+      <span class="s">S · 10–18 lb</span>
+      <span class="s">M · 18–32 lb</span>
+      <span class="s">L · 32–55 lb</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:96px;">
+  <div class="section-head">
+    <h2 class="h-section">As <span class="it">worn</span> by.</h2>
+    <p class="lede">Real dogs, real walks. Tag #wearbarkly to be featured.</p>
+  </div>
+  <div class="lookbook">
+    <div class="lookbook-img">
+      <img src="images/IMG_0314.jpg" alt="Maltese in bandana coat in a field" />
+      <div class="label">No. 01 · Santa Fe</div>
+    </div>
+    <div class="lookbook-img">
+      <img src="images/IMG_0320.jpg" alt="Australian shepherd in navy print coat" />
+      <div class="label">Print archive</div>
+    </div>
+    <div class="lookbook-img">
+      <img src="images/IMG_9072.jpg" alt="Goldendoodle in lace-trimmed coat" />
+      <div class="label">Atelier sample</div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="brand-name">Barkly</div>
+      <p style="margin-top:14px;">Heirloom apparel and accessories for dogs of every shape, sewn in small batches in the San Francisco Bay Area.</p>
+      <p style="margin-top:18px; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:rgba(244,234,215,0.5);">Est. 2020 · Berkeley, CA</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="shop.html">All apparel</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>House</h4>
+      <ul>
+        <li><a href="about.html">Our story</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Stay in touch</h4>
+      <p style="font-size:13px;">New drops, restocks and the occasional studio note.</p>
+      <form style="display:flex; margin-top:12px; border-bottom:1px solid rgba(244,234,215,0.4);" onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('span').textContent='Thanks ✓';">
+        <input type="email" placeholder="your@email" style="flex:1; background:transparent; border:none; color:var(--cream); padding:10px 0; font:inherit; outline:none;" />
+        <button type="submit" style="background:transparent; border:none; color:var(--terracotta); font:inherit; letter-spacing:.18em; text-transform:uppercase; font-size:11px; font-weight:600;"><span>Join →</span></button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Barkly Fashion</span>
+    <span>San Francisco · Berkeley · Online everywhere</span>
+  </div>
+</footer>
+
+<script>
+  // simple filter
+  const filters = document.querySelectorAll('#filters .filter');
+  const products = document.querySelectorAll('#products .product');
+  filters.forEach(btn => btn.addEventListener('click', () => {
+    filters.forEach(b => b.classList.remove('is-active'));
+    btn.classList.add('is-active');
+    const f = btn.dataset.f;
+    products.forEach(p => {
+      const cats = (p.dataset.cat || '').split(/\s+/);
+      const show = f === 'all' || cats.includes(f);
+      p.style.display = show ? '' : 'none';
+    });
+  }));
+
+  // notify-me: open inline email field beneath product info
+  function openNotify(btn) {
+    const product = btn.closest('.product');
+    if (product.querySelector('.notify-form')) {
+      product.querySelector('.notify-form input').focus();
+      return;
+    }
+    const name = product.querySelector('h3').textContent.trim();
+    const form = document.createElement('form');
+    form.className = 'notify-form';
+    form.innerHTML =
+      '<label>Leave your email and we\'ll write the moment <em>' + name + '</em> is ready to wear.</label>' +
+      '<div class="row">' +
+        '<input type="email" required placeholder="your@email" aria-label="Email address" />' +
+        '<button type="submit">Notify me</button>' +
+      '</div>' +
+      '<p class="fineprint">We\'ll only use your email to write you about this piece.</p>';
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      form.innerHTML = '<div class="confirm">✓ We\'ll be in touch about <em>' + name + '</em>.</div>';
+    });
+    product.appendChild(form);
+    setTimeout(() => form.querySelector('input').focus(), 50);
+  }
+</script>
+
+</body>
+</html>
