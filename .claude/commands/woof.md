@@ -39,7 +39,7 @@ Run these steps in order. Stop and surface the error if anything fails.
    ```
    curl -sS -o /dev/null -w "/         %{http_code} %{size_download}B\n" "https://barklyfashion.com/?cb=$RANDOM"
    curl -sS -o /dev/null -w "/Shop/    %{http_code} %{size_download}B\n" "https://barklyfashion.com/Shop/?cb=$RANDOM"
-   curl -sS -o /dev/null -w "/About/   %{http_code} %{size_download}B\n" "https://barklyfashion.com/About/?cb=$RANDOM"
+   curl -sS -o /dev/null -w "/About-us/ %{http_code} %{size_download}B\n" "https://barklyfashion.com/About-us/?cb=$RANDOM"
    ```
    All three should return HTTP 200. If any returns 404, check that `public_html` perms are 0755 — if not, run the chmod fix (api2 `Fileman::fileop op=chmod metadata=755 sourcefiles=/home/barkgjug/public_html`).
 
