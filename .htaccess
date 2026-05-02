@@ -1,6 +1,10 @@
 # Powered by Website Builder
 Options -Indexes
 
+<IfModule LiteSpeed>
+  CacheLookup off
+</IfModule>
+
 <IfModule pagespeed_module>
 	ModPagespeed off
 </IfModule>
