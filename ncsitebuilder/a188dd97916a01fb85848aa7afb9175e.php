@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260502b" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260502c" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -78,8 +78,7 @@
 		<div class="product-media">
 			<span class="badge hot">Bestseller</span>
 			<img src="gallery/santa-fe-jacket.jpeg" alt="The Santa Fe Jacket" />
-			<button type="button" class="quick" data-notify>Notify me when ready &rarr;</button>
-		</div>
+			</div>
 		<div class="product-info">
 			<h3>The Santa Fe Jacket</h3>
 			<span class="price">$35</span>
@@ -91,8 +90,7 @@
 		<div class="product-media">
 			<span class="badge">New</span>
 			<img src="gallery/scarlet-brocade-coat.jpeg" alt="Scarlet Brocade Coat" />
-			<button type="button" class="quick" data-notify>Notify me when ready &rarr;</button>
-		</div>
+			</div>
 		<div class="product-info">
 			<h3>Scarlet Brocade Coat</h3>
 			<span class="price">$38</span>
@@ -104,8 +102,7 @@
 		<div class="product-media">
 			<span class="badge">Knit</span>
 			<img src="gallery/nordic-fairisle-sweater.jpeg" alt="Nordic Fairisle Sweater" />
-			<button type="button" class="quick" data-notify>Notify me when ready &rarr;</button>
-		</div>
+			</div>
 		<div class="product-info">
 			<h3>Nordic Fairisle Sweater</h3>
 			<span class="price">$30</span>
@@ -117,8 +114,7 @@
 		<div class="product-media">
 			<span class="badge hot">Bestseller</span>
 			<img src="gallery/midnight-floral-hoodie.jpeg" alt="Midnight Floral Hoodie" />
-			<button type="button" class="quick" data-notify>Notify me when ready &rarr;</button>
-		</div>
+			</div>
 		<div class="product-info">
 			<h3>Midnight Floral Hoodie</h3>
 			<span class="price">$28</span>
@@ -130,8 +126,7 @@
 		<div class="product-media">
 			<span class="badge">Lunar capsule</span>
 			<img src="gallery/lunar-cheongsam.jpeg" alt="Lunar Cheongsam" />
-			<button type="button" class="quick" data-notify>Notify me when ready &rarr;</button>
-		</div>
+			</div>
 		<div class="product-info">
 			<h3>Lunar Cheongsam</h3>
 			<span class="price">$40</span>
@@ -143,8 +138,7 @@
 		<div class="product-media">
 			<span class="badge">Lookbook</span>
 			<img src="gallery/IMG_0314.jpg" alt="Maltese in the Santa Fe block-print bandana coat" />
-			<button type="button" class="quick" data-notify>Notify me when ready &rarr;</button>
-		</div>
+			</div>
 		<div class="product-info">
 			<h3>Santa Fe Bandana</h3>
 			<span class="price">$22</span>
@@ -156,8 +150,7 @@
 		<div class="product-media">
 			<span class="badge">Archive</span>
 			<img src="gallery/IMG_0320.jpg" alt="Australian shepherd in the Heritage Navy Print coat" />
-			<button type="button" class="quick" data-notify>Notify me when ready &rarr;</button>
-		</div>
+			</div>
 		<div class="product-info">
 			<h3>Heritage Navy Print</h3>
 			<span class="price">$36</span>
@@ -169,8 +162,7 @@
 		<div class="product-media">
 			<span class="badge">Atelier</span>
 			<img src="gallery/IMG_9072.jpg" alt="Goldendoodle in the Atelier lace-trimmed coat" />
-			<button type="button" class="quick" data-notify>Notify me when ready &rarr;</button>
-		</div>
+			</div>
 		<div class="product-info">
 			<h3>Atelier Lace Coat</h3>
 			<span class="price">$48</span>
@@ -329,10 +321,15 @@
 		}, 50);
 	}
 
-	document.querySelectorAll('.product .quick[data-notify]').forEach(function (btn) {
-		btn.addEventListener('click', function (e) {
-			e.preventDefault();
-			openNotify(btn);
+	document.querySelectorAll('.product .product-media').forEach(function (media) {
+		media.setAttribute('role', 'button');
+		media.setAttribute('tabindex', '0');
+		var product = media.closest('.product');
+		var label = product ? (product.dataset.name || '') : '';
+		media.setAttribute('aria-label', label ? ('Notify me when ' + label + ' is ready') : 'Notify me when ready');
+		media.addEventListener('click', function () { openNotify(media); });
+		media.addEventListener('keydown', function (e) {
+			if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openNotify(media); }
 		});
 	});
 

@@ -698,7 +698,9 @@ button { font: inherit; cursor: pointer; }
   background: var(--cream);
   overflow: hidden;
   margin-bottom: 16px;
+  cursor: pointer;
 }
+.product-media:focus-visible { outline: 2px solid var(--scarlet); outline-offset: 2px; }
 .product-media img {
   width: 100%; height: 100%;
   object-fit: cover;
@@ -716,23 +718,6 @@ button { font: inherit; cursor: pointer; }
   font-weight: 600;
 }
 .product-media .badge.hot { background: var(--scarlet); color: var(--cream); }
-.product-media .quick {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  background: var(--ink);
-  color: var(--cream);
-  padding: 14px;
-  text-align: center;
-  font-size: 11px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  font-weight: 600;
-  border: none;
-  transform: translateY(100%);
-  transition: transform .3s ease;
-}
-.product:hover .product-media .quick,
-.product .product-media .quick:focus-visible { transform: translateY(0); }
 
 .product { min-width: 0; }
 .product-info {
