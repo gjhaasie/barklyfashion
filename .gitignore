@@ -10,6 +10,7 @@ ncsitebuilder/dat/project.db
 # fix: secrets, deps, and PHP error dumps
 .env
 .env.*
+.claude/cpanel-token
 node_modules/
 vendor/
 error_log
