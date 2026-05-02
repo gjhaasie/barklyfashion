@@ -32,7 +32,7 @@
 	</div>
 	<div class="footer-bottom">
 		<span>&copy; <?php echo date('Y'); ?> Barkly Fashion</span>
-		<span>San Francisco · Berkeley · Online everywhere</span>
+		<span>Bay Area · Online everywhere</span>
 	</div>
 </footer>
 

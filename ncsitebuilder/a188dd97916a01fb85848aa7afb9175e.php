@@ -30,7 +30,7 @@
 <body data-screen="shop">
 
 <div class="announce">
-	<span>Made to order · small batches · sewn in Berkeley</span>
+	<span>Made to order · small batches · sewn in the Bay Area</span>
 	<em>·</em>
 	<span>Lot 04 of the Scarlet Brocade now in production</span>
 </div>

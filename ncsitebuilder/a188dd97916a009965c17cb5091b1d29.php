@@ -7,11 +7,11 @@
 	<base href="{{base_url}}" />
 	<?php echo isset($sitemapUrls) ? (generateCanonicalUrl($sitemapUrls)."\n") : ""; ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "Small-batch heirloom apparel for dogs — coats, sweaters, hoodies in brocade, fairisle and floral cottons. Designed in the Bay Area, sewn in Berkeley.", ENT_QUOTES, 'UTF-8'); ?>" />
+	<meta name="description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "Small-batch heirloom apparel for dogs — coats, sweaters, hoodies in brocade, fairisle and floral cottons. Designed and sewn in the Bay Area.", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta name="keywords" content="<?php echo htmlspecialchars((isset($seoKeywords) && $seoKeywords !== "") ? $seoKeywords : "dog apparel,dog coats,dog sweaters,handmade dog clothing,heirloom dog wardrobe,small batch dog apparel,Barkly Fashion", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta property="og:site_name" content="Barkly Fashion">
 	<meta property="og:title" content="<?php echo htmlspecialchars((isset($seoTitle) && $seoTitle !== "") ? $seoTitle : "Barkly Fashion — Heirloom apparel for the well-dressed dog", ENT_QUOTES, 'UTF-8'); ?>" />
-	<meta property="og:description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "Small-batch heirloom apparel for dogs — coats, sweaters, hoodies sewn in Berkeley.", ENT_QUOTES, 'UTF-8'); ?>" />
+	<meta property="og:description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "Small-batch heirloom apparel for dogs — coats, sweaters, hoodies sewn in the Bay Area.", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta property="og:image" content="<?php echo htmlspecialchars((isset($seoImage) && $seoImage !== "") ? "{{base_url}}".$seoImage : "{{base_url}}gallery/scarlet-brocade-coat.jpeg", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="{{curr_url}}" />
@@ -31,7 +31,7 @@
 <body data-screen="home">
 
 <div class="announce">
-	<span>Made to order · small batches · sewn in Berkeley</span>
+	<span>Made to order · small batches · sewn in the Bay Area</span>
 	<em>·</em>
 	<span>New: The Lunar New Year capsule</span>
 </div>
