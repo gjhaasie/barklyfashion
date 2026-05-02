@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/barklyfashion/public_html/
+    - export DEPLOYPATH=/home/barkgjug/public_html/
     - rsync -a --exclude='.git' --exclude='.gitignore' --exclude='.cpanel.yml' --exclude='error_log' . $DEPLOYPATH
