@@ -53,7 +53,7 @@
 <section class="shop-head">
 	<div>
 		<span class="eyebrow">The Winter Edit · 2026</span>
-		<h1 class="h-display" style="margin-top:18px;">Five pieces.<br/><span class="it">No filler.</span></h1>
+		<h1 class="h-display" style="margin-top:18px;">Eight pieces.<br/><span class="it">No filler.</span></h1>
 	</div>
 	<p class="lede">A tight collection cut from heritage textiles.
 		Hand-patterned, sewn in lots of forty, fitted to dogs from six pounds to sixty.
@@ -62,14 +62,14 @@
 
 <div class="shop-toolbar">
 	<div class="filters" id="filters">
-		<button class="filter is-active" data-f="all">All · 5</button>
+		<button class="filter is-active" data-f="all">All · 8</button>
 		<button class="filter" data-f="coats">Coats</button>
 		<button class="filter" data-f="sweaters">Sweaters</button>
 		<button class="filter" data-f="hoodies">Hoodies</button>
 		<button class="filter" data-f="capsule">Lunar capsule</button>
 	</div>
 	<div class="right">
-		<span>5 pieces</span>
+		<span>8 pieces</span>
 	</div>
 </div>
 
@@ -136,6 +136,45 @@
 			<h3>Lunar Cheongsam</h3>
 			<span class="price">$40</span>
 			<div class="meta">No. 05 · Red &amp; gold brocade · XS – M</div>
+		</div>
+	</article>
+
+	<article class="product" data-cat="coats" data-slug="santa-fe-bandana" data-name="Santa Fe Bandana">
+		<div class="product-media">
+			<span class="badge">Lookbook</span>
+			<img src="gallery/IMG_0314.jpg" alt="Maltese in the Santa Fe block-print bandana coat" />
+			<button type="button" class="quick" data-notify>Notify me when ready &rarr;</button>
+		</div>
+		<div class="product-info">
+			<h3>Santa Fe Bandana</h3>
+			<span class="price">$22</span>
+			<div class="meta">No. 06 · Block-print cotton, tie-back · XS – L</div>
+		</div>
+	</article>
+
+	<article class="product" data-cat="coats" data-slug="heritage-navy-print" data-name="Heritage Navy Print Coat">
+		<div class="product-media">
+			<span class="badge">Archive</span>
+			<img src="gallery/IMG_0320.jpg" alt="Australian shepherd in the Heritage Navy Print coat" />
+			<button type="button" class="quick" data-notify>Notify me when ready &rarr;</button>
+		</div>
+		<div class="product-info">
+			<h3>Heritage Navy Print</h3>
+			<span class="price">$36</span>
+			<div class="meta">No. 07 · Cotton canvas, archive print · S – L</div>
+		</div>
+	</article>
+
+	<article class="product" data-cat="coats capsule" data-slug="atelier-lace-coat" data-name="Atelier Lace Coat">
+		<div class="product-media">
+			<span class="badge">Atelier</span>
+			<img src="gallery/IMG_9072.jpg" alt="Goldendoodle in the Atelier lace-trimmed coat" />
+			<button type="button" class="quick" data-notify>Notify me when ready &rarr;</button>
+		</div>
+		<div class="product-info">
+			<h3>Atelier Lace Coat</h3>
+			<span class="price">$48</span>
+			<div class="meta">No. 08 · Cotton sateen, hand-set lace · S – M</div>
 		</div>
 	</article>
 </section>
