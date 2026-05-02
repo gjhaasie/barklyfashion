@@ -7,7 +7,7 @@
 	<base href="{{base_url}}" />
 	<?php echo isset($sitemapUrls) ? (generateCanonicalUrl($sitemapUrls)."\n") : ""; ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "The 2026 Collection — eight pieces, no filler. Heritage textiles, hand-patterned, sewn in lots of forty. Made to order. Leave your email and we'll write the moment a piece is ready.", ENT_QUOTES, 'UTF-8'); ?>" />
+	<meta name="description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "The 2026 Collection — eight pieces, no filler. Heritage textiles, hand-patterned, made in lots of forty. Made to order. Leave your email and we'll write the moment a piece is ready.", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta name="keywords" content="<?php echo htmlspecialchars((isset($seoKeywords) && $seoKeywords !== "") ? $seoKeywords : "dog coats,dog jackets,dog sweaters,dog hoodies,Lunar capsule,brocade dog coat,fairisle sweater,small batch dog apparel,Barkly Fashion shop", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta property="og:site_name" content="Barkly Fashion">
 	<meta property="og:title" content="<?php echo htmlspecialchars((isset($seoTitle) && $seoTitle !== "") ? $seoTitle : "Shop — Barkly Fashion", ENT_QUOTES, 'UTF-8'); ?>" />
@@ -30,7 +30,7 @@
 <body data-screen="shop">
 
 <div class="announce">
-	<span>Made to order · small batches · sewn in the Bay Area</span>
+	<span>Made to order · small batches</span>
 	<em>·</em>
 	<span>Lot 04 of the Scarlet Brocade now in production</span>
 </div>
@@ -56,7 +56,7 @@
 		<h1 class="h-display" style="margin-top:18px;">Eight pieces.<br/><span class="it">No filler.</span></h1>
 	</div>
 	<p class="lede">A tight collection cut from heritage textiles.
-		Hand-patterned, sewn in lots of forty, fitted to dogs from six pounds to sixty.
+		Hand-patterned, made in lots of forty, fitted to dogs from six pounds to sixty.
 		<strong style="display:block; margin-top:12px; font-weight:500; color:var(--ink);">Each piece is made to order — leave your email and we'll write the moment it's ready to wear.</strong></p>
 </section>
 

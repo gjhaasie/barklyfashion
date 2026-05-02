@@ -3,7 +3,7 @@
 	<div class="footer-inner">
 		<div>
 			<div class="brand-name">Barkly</div>
-			<p style="margin-top:14px;">Heirloom apparel and accessories for dogs of every shape, sewn in small batches in the San Francisco Bay Area.</p>
+			<p style="margin-top:14px;">Heirloom apparel and accessories for dogs of every shape, made in small batches.</p>
 		</div>
 		<div>
 			<h4>Shop</h4>

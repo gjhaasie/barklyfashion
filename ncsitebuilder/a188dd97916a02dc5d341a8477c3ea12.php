@@ -7,7 +7,7 @@
 	<base href="{{base_url}}" />
 	<?php echo isset($sitemapUrls) ? (generateCanonicalUrl($sitemapUrls)."\n") : ""; ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "Barkly is a small studio making heirloom apparel for dogs of every shape — patterned on real dogs, sewn in lots of forty in our Bay Area atelier.", ENT_QUOTES, 'UTF-8'); ?>" />
+	<meta name="description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "Barkly is a small studio making heirloom apparel for dogs of every shape — patterned on real dogs, made in lots of forty.", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta name="keywords" content="<?php echo htmlspecialchars((isset($seoKeywords) && $seoKeywords !== "") ? $seoKeywords : "Barkly story,handmade dog apparel,heritage textiles,small batch dog clothing,Bay Area dog studio,dog coat patterns", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta property="og:site_name" content="Barkly Fashion">
 	<meta property="og:title" content="<?php echo htmlspecialchars((isset($seoTitle) && $seoTitle !== "") ? $seoTitle : "About — Barkly Fashion", ENT_QUOTES, 'UTF-8'); ?>" />
@@ -30,7 +30,7 @@
 <body data-screen="about">
 
 <div class="announce">
-	<span>Made to order · small batches · sewn in the Bay Area</span>
+	<span>Made to order · small batches</span>
 	<em>·</em>
 	<span>New: The Lunar New Year capsule</span>
 </div>
