@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260502c" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260502d" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -44,9 +44,7 @@
 		<a class="brand" href="{{base_url}}" aria-label="Barkly Fashion home">
 			<img class="brand-logo" src="gallery/barklylogo.jpg" alt="" />
 		</a>
-		<div class="nav-right">
-			<a href="Shop/">Notify me</a>
-		</div>
+		<div class="nav-right"></div>
 	</nav>
 </header>
 
