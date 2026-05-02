@@ -53,7 +53,7 @@
 <section class="about-hero">
 	<span class="eyebrow">Our story</span>
 	<h1 class="h-display">A house built<br/>around <span class="it">one</span> small dog.</h1>
-	<p class="lede">Barkly began the winter we couldn't find a coat that fit.
+	<p class="lede">Barkly began the day we couldn't find a coat that fit.
 		What started as a single hand-stitched jacket has become a small
 		studio in the Bay Area making heirloom apparel for dogs of every shape.</p>
 </section>

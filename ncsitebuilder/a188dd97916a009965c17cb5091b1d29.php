@@ -53,7 +53,7 @@
 
 <section class="hero">
 	<div class="hero-copy">
-		<span class="eyebrow">Fall · Winter Collection 2026</span>
+		<span class="eyebrow">The 2026 Collection</span>
 		<h1 class="h-display">Heirloom apparel<br/>for the <span class="it">well-dressed</span> dog.</h1>
 		<p class="lede" style="margin-top:24px; max-width:46ch;">
 			Small-batch coats, sweaters and hoodies cut from brocade,
@@ -96,7 +96,7 @@
 
 <section class="section">
 	<div class="section-head">
-		<h2 class="h-section">The <span class="it">Winter</span><br/>Collection.</h2>
+		<h2 class="h-section">The <span class="it">2026</span><br/>Collection.</h2>
 		<p class="lede">Five pieces, each one inspired by a textile tradition.
 			Cut close, lined warm, finished by hand.</p>
 	</div>
@@ -182,7 +182,7 @@
 <section class="section" style="padding-top:96px;">
 	<div class="section-head">
 		<h2 class="h-section">In the <span class="it">field.</span></h2>
-		<p class="lede">Customer dogs, off-leash and on-trend, wearing the winter line.</p>
+		<p class="lede">Customer dogs, off-leash and on-trend, wearing the 2026 line.</p>
 	</div>
 	<div class="lookbook">
 		<div class="lookbook-img">

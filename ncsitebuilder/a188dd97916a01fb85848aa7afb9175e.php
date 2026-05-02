@@ -7,11 +7,11 @@
 	<base href="{{base_url}}" />
 	<?php echo isset($sitemapUrls) ? (generateCanonicalUrl($sitemapUrls)."\n") : ""; ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "The Winter Edit 2026 — eight pieces, no filler. Heritage textiles, hand-patterned, sewn in lots of forty. Made to order. Leave your email and we'll write the moment a piece is ready.", ENT_QUOTES, 'UTF-8'); ?>" />
+	<meta name="description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "The 2026 Collection — eight pieces, no filler. Heritage textiles, hand-patterned, sewn in lots of forty. Made to order. Leave your email and we'll write the moment a piece is ready.", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta name="keywords" content="<?php echo htmlspecialchars((isset($seoKeywords) && $seoKeywords !== "") ? $seoKeywords : "dog coats,dog jackets,dog sweaters,dog hoodies,Lunar capsule,brocade dog coat,fairisle sweater,small batch dog apparel,Barkly Fashion shop", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta property="og:site_name" content="Barkly Fashion">
 	<meta property="og:title" content="<?php echo htmlspecialchars((isset($seoTitle) && $seoTitle !== "") ? $seoTitle : "Shop — Barkly Fashion", ENT_QUOTES, 'UTF-8'); ?>" />
-	<meta property="og:description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "Eight pieces. No filler. The Winter Edit 2026 from Barkly Fashion.", ENT_QUOTES, 'UTF-8'); ?>" />
+	<meta property="og:description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "Eight pieces. No filler. The 2026 Collection from Barkly Fashion.", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta property="og:image" content="<?php echo htmlspecialchars((isset($seoImage) && $seoImage !== "") ? "{{base_url}}".$seoImage : "{{base_url}}gallery/santa-fe-jacket.jpeg", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="{{curr_url}}" />
@@ -52,7 +52,7 @@
 
 <section class="shop-head">
 	<div>
-		<span class="eyebrow">The Winter Edit · 2026</span>
+		<span class="eyebrow">The 2026 Collection</span>
 		<h1 class="h-display" style="margin-top:18px;">Eight pieces.<br/><span class="it">No filler.</span></h1>
 	</div>
 	<p class="lede">A tight collection cut from heritage textiles.
