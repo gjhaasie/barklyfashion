@@ -123,8 +123,8 @@ button { font: inherit; cursor: pointer; }
 /* ---------- shared bits ---------- */
 .eyebrow {
   font-family: var(--sans);
-  font-size: 11px;
-  letter-spacing: 0.32em;
+  font-size: 13px;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--scarlet);
   font-weight: 600;
