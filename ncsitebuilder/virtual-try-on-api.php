@@ -3,23 +3,29 @@
  * Barkly Virtual Try-On — PHP backend
  * Uses Stability AI Search-and-Replace (real AI inpainting on your dog photo).
  *
- * SETUP (one-time, 2 minutes):
- *   1. Sign up at https://platform.stability.ai (no credit card needed)
- *   2. Account → API Keys → Create API key → copy
- *   3. Paste below in place of "sk-REPLACE_WITH_YOUR_KEY"
- *   4. Deploy (git push)
+ * KEY SETUP (one-time):
+ *   The Stability API key lives in a secrets file OUTSIDE the public web
+ *   root, so it is never served, never indexed, and never committed to git.
  *
- * Free credits: $10 on signup ≈ 300+ generations (3 credits each).
+ *   On the cPanel server, create:
+ *     /home/barkgjug/barkly-secrets.php
+ *   with this content:
+ *     <?php define('STABILITY_KEY', 'sk-YOUR_KEY_HERE');
+ *
+ *   Get a free key (no credit card, $10 credits) at
+ *   https://platform.stability.ai → Account → API Keys.
  */
-define('STABILITY_KEY', 'sk-REPLACE_WITH_YOUR_KEY');
+$secretsPath = dirname(__FILE__) . '/../../barkly-secrets.php';
+if (is_file($secretsPath)) { require_once $secretsPath; }
+if (!defined('STABILITY_KEY')) { define('STABILITY_KEY', ''); }
 
 header('Content-Type: application/json');
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') { http_response_code(204); exit; }
 if ($_SERVER['REQUEST_METHOD'] !== 'POST')    { http_response_code(405); echo json_encode(['error' => 'POST only']); exit; }
 
-if (strpos(STABILITY_KEY, 'REPLACE') !== false) {
+if (STABILITY_KEY === '' || strpos(STABILITY_KEY, 'REPLACE') !== false) {
     http_response_code(503);
-    echo json_encode(['error' => 'setup_needed', 'message' => 'API key not set. See virtual-try-on-api.php line 14 for setup (2 minutes, no credit card).']);
+    echo json_encode(['error' => 'setup_needed', 'message' => 'API key not set. Create /home/barkgjug/barkly-secrets.php with: <?php define(\'STABILITY_KEY\', \'sk-...\');']);
     exit;
 }
 
