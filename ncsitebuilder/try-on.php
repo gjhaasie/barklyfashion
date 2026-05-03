@@ -17,7 +17,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260503g" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260503h" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -38,14 +38,13 @@
 	<nav class="nav" aria-label="Primary">
 		<div class="nav-left">
 			<a href="Shop/">Shop</a>
+			<a href="Try-On/" class="is-active">Fit guide</a>
 			<a href="About-us/">About</a>
 		</div>
 		<a class="brand" href="{{base_url}}" aria-label="Barkly Fashion home">
 			<img class="brand-logo" src="gallery/barklylogo.jpg" alt="" />
 		</a>
-		<div class="nav-right">
-			<a href="Try-On/" class="is-active">Fit guide</a>
-		</div>
+		<div class="nav-right"></div>
 	</nav>
 </header>
 
@@ -58,57 +57,8 @@
 
 <div class="weave" aria-hidden="true" style="margin-top:0;"></div>
 
-<!-- ── SIZE FINDER ──────────────────────────────────────────── -->
-<div class="sizefinder-wrap">
-	<div class="sizefinder">
-
-		<!-- Left: form -->
-		<div id="sf-form-col">
-			<span class="eyebrow" style="color:var(--olive);">Size finder</span>
-			<h2 class="h-section" style="margin-top:14px;">Three quick <span class="it">questions.</span></h2>
-			<div class="sf-fields">
-				<label class="sf-label">
-					<span>Dog's name</span>
-					<input class="sf-input" id="sf-name" type="text" placeholder="e.g. Pip" autocomplete="off" />
-				</label>
-				<label class="sf-label">
-					<span>Weight <small>in lbs</small></span>
-					<input class="sf-input" id="sf-weight" type="number" placeholder="e.g. 8" min="1" max="150" />
-				</label>
-				<label class="sf-label">
-					<span>Breed <small>optional</small></span>
-					<input class="sf-input" id="sf-breed" type="text" placeholder="e.g. Maltese" autocomplete="off" />
-				</label>
-			</div>
-			<button class="btn" onclick="barklyFindSize()">Find my size <span class="arrow">&rarr;</span></button>
-		</div>
-
-		<!-- Right: result (hidden until submitted) -->
-		<div class="sf-result-wrap" id="sf-result" hidden>
-			<div class="sf-badge-row">
-				<div class="sf-size-badge" id="sf-size-out">S</div>
-				<div>
-					<h2 class="h-section" style="font-size:32px;" id="sf-headline">That's a <span class="it">size S.</span></h2>
-					<p class="lede" style="font-size:16px; margin-top:8px;" id="sf-desc"></p>
-				</div>
-			</div>
-			<div class="sf-measure-tip" id="sf-measure-tip"></div>
-		</div>
-
-	</div>
-
-	<!-- Product recommendations (hidden until submitted) -->
-	<div id="sf-products" hidden style="margin-top:48px;">
-		<h3 class="sf-products-title">Picks for <span id="sf-name-out">your dog</span>.</h3>
-		<div class="prod-recs" id="sf-product-grid"></div>
-		<div style="margin-top:28px;">
-			<a class="btn ghost" href="Shop/">See full collection <span class="arrow">&rarr;</span></a>
-		</div>
-	</div>
-</div>
-
-<!-- ── FITTING ROOM (AI-powered) ─────────────────────────────── -->
-<section class="fitting-room-section">
+<!-- ── FITTING ROOM (AI-powered) — moved up to be the first interactive section ── -->
+<section class="fitting-room-section" style="margin-top:0;">
 	<div class="fitting-room-inner">
 		<div>
 			<span class="eyebrow">Fitting room · AI</span>
@@ -166,6 +116,55 @@
 		</div>
 	</div>
 </section>
+
+<!-- ── SIZE FINDER ──────────────────────────────────────────── -->
+<div class="sizefinder-wrap" style="padding-top:96px;">
+	<div class="sizefinder">
+
+		<!-- Left: form -->
+		<div id="sf-form-col">
+			<span class="eyebrow" style="color:var(--olive);">Size finder</span>
+			<h2 class="h-section" style="margin-top:14px;">Three quick <span class="it">questions.</span></h2>
+			<div class="sf-fields">
+				<label class="sf-label">
+					<span>Dog's name</span>
+					<input class="sf-input" id="sf-name" type="text" placeholder="e.g. Pip" autocomplete="off" />
+				</label>
+				<label class="sf-label">
+					<span>Weight <small>in lbs</small></span>
+					<input class="sf-input" id="sf-weight" type="number" placeholder="e.g. 8" min="1" max="150" />
+				</label>
+				<label class="sf-label">
+					<span>Breed <small>optional</small></span>
+					<input class="sf-input" id="sf-breed" type="text" placeholder="e.g. Maltese" autocomplete="off" />
+				</label>
+			</div>
+			<button class="btn" onclick="barklyFindSize()">Find my size <span class="arrow">&rarr;</span></button>
+		</div>
+
+		<!-- Right: result (hidden until submitted) -->
+		<div class="sf-result-wrap" id="sf-result" hidden>
+			<div class="sf-badge-row">
+				<div class="sf-size-badge" id="sf-size-out">S</div>
+				<div>
+					<h2 class="h-section" style="font-size:32px;" id="sf-headline">That's a <span class="it">size S.</span></h2>
+					<p class="lede" style="font-size:16px; margin-top:8px;" id="sf-desc"></p>
+				</div>
+			</div>
+			<div class="sf-measure-tip" id="sf-measure-tip"></div>
+		</div>
+
+	</div>
+
+	<!-- Product recommendations (hidden until submitted) -->
+	<div id="sf-products" hidden style="margin-top:48px;">
+		<h3 class="sf-products-title">Picks for <span id="sf-name-out">your dog</span>.</h3>
+		<div class="prod-recs" id="sf-product-grid"></div>
+		<div style="margin-top:28px;">
+			<a class="btn ghost" href="Shop/">See full collection <span class="arrow">&rarr;</span></a>
+		</div>
+	</div>
+</div>
 
 <!-- ── SIZE CHART ──────────────────────────────────────────── -->
 <div class="size-chart-wrap" style="padding-top:80px;">
