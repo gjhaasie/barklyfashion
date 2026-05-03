@@ -15,3 +15,4 @@ node_modules/
 vendor/
 error_log
 *.bak
+barkly-secrets.php

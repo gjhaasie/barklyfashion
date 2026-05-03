@@ -1086,6 +1086,10 @@ button { font: inherit; cursor: pointer; }
 .fitting-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
 /* ---------- AI FITTING ROOM (states overlay on .fitting-canvas-wrap) ---------- */
+/* HTML [hidden] must beat our display:flex on the state overlays */
+.fit-stage [hidden],
+.fitting-canvas-wrap [hidden] { display: none !important; }
+
 .fit-stage {
   position: relative;
   width: 100%;

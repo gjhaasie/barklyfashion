@@ -15,8 +15,17 @@
  *   Get a free key (no credit card, $10 credits) at
  *   https://platform.stability.ai → Account → API Keys.
  */
-$secretsPath = dirname(__FILE__) . '/../../barkly-secrets.php';
-if (is_file($secretsPath)) { require_once $secretsPath; }
+/* Try several locations — outside web root is preferred, but cPanel
+ * open_basedir often blocks that, so we also accept a copy inside
+ * ncsitebuilder/ (Apache will deny direct access via the .htaccess rule). */
+$secretsCandidates = [
+    dirname(__FILE__) . '/../../barkly-secrets.php',  /* /home/barkgjug/barkly-secrets.php */
+    dirname(__FILE__) . '/../barkly-secrets.php',     /* /home/barkgjug/public_html/barkly-secrets.php */
+    dirname(__FILE__) . '/barkly-secrets.php',        /* /home/barkgjug/public_html/ncsitebuilder/barkly-secrets.php */
+];
+foreach ($secretsCandidates as $sp) {
+    if (@is_file($sp)) { @require_once $sp; if (defined('STABILITY_KEY')) break; }
+}
 if (!defined('STABILITY_KEY')) { define('STABILITY_KEY', ''); }
 
 header('Content-Type: application/json');
@@ -39,7 +48,6 @@ if (!$jacket) { http_response_code(400); echo json_encode(['error' => 'Pick a ja
 
 $finfo = finfo_open(FILEINFO_MIME_TYPE);
 $mime  = finfo_file($finfo, $img['tmp_name']);
-finfo_close($finfo);
 if (!in_array($mime, ['image/jpeg','image/png','image/webp'], true)) {
     http_response_code(400); echo json_encode(['error' => 'Upload a JPG, PNG, or WebP.']); exit;
 }
@@ -98,7 +106,6 @@ if ($dims && max($dims[0], $dims[1]) > 1024) {
             imagecopyresampled($dst, $src, 0, 0, 0, 0, $dw, $dh, $sw, $sh);
             $resized = tempnam(sys_get_temp_dir(), 'barkly_');
             imagejpeg($dst, $resized, 92);
-            imagedestroy($src); imagedestroy($dst);
             $tmpPath = $resized; $tmpToCleanup = $resized; $mime = 'image/jpeg';
         }
     }
@@ -126,7 +133,6 @@ $raw  = curl_exec($ch);
 $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 $ctype= curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
 $cerr = curl_error($ch);
-curl_close($ch);
 
 if ($tmpToCleanup && file_exists($tmpToCleanup)) @unlink($tmpToCleanup);
 
