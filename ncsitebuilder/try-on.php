@@ -1,0 +1,364 @@
+<?php /* WARNING: 2026 redesign — Style Finder & Fitting Room. NC SiteBuilder wb_* chrome removed. Re-saving from the Network Solutions builder UI WILL wipe these edits. */ ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title><?php echo htmlspecialchars((isset($seoTitle) && $seoTitle !== "") ? $seoTitle : "Style Finder — Barkly Fashion", ENT_QUOTES, 'UTF-8'); ?></title>
+	<base href="{{base_url}}" />
+	<?php echo isset($sitemapUrls) ? (generateCanonicalUrl($sitemapUrls)."\n") : ""; ?>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Find the perfect Barkly size for your dog. Enter their weight and breed for a size recommendation, then build your own Barkly lookbook moment." />
+	<meta property="og:site_name" content="Barkly Fashion">
+	<meta property="og:title" content="Style Finder — Barkly Fashion" />
+	<meta property="og:description" content="Find your dog's perfect Barkly size and see exactly how a Barkly coat could look on them." />
+	<meta property="og:image" content="{{base_url}}gallery/scarlet-brocade-coat.jpeg" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="{{curr_url}}" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260503b" type="text/css" />
+	<ga-code/>
+	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
+	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="gallery/favicons/favicon-180x180.png">
+	<link rel="icon" type="image/png" sizes="180x180" href="gallery/favicons/favicon-180x180.png">
+	<link rel="icon" type="image/png" href="gallery/favicons/favicon.png">
+	<meta name="msvalidate.01" content="D05EFC1E04EBD851B3BBC04C41CA6680" />
+</head>
+<body data-screen="tryon">
+
+<div class="announce">
+	<span>Made to order · small batches</span>
+	<em>·</em>
+	<span>New: The Lunar New Year capsule</span>
+</div>
+
+<header class="site-header">
+	<nav class="nav" aria-label="Primary">
+		<div class="nav-left">
+			<a href="Shop/">Shop</a>
+			<a href="About-us/">About</a>
+		</div>
+		<a class="brand" href="{{base_url}}" aria-label="Barkly Fashion home">
+			<img class="brand-logo" src="gallery/barklylogo.jpg" alt="" />
+		</a>
+		<div class="nav-right">
+			<a href="Try-On/" class="is-active">Fit guide</a>
+		</div>
+	</nav>
+</header>
+
+<!-- Hero -->
+<section class="about-hero" style="padding-bottom: 56px;">
+	<span class="eyebrow">Style finder</span>
+	<h1 class="h-display">Find the <span class="it">perfect</span> fit.</h1>
+	<p class="lede">Tell us about your dog and we'll find their size — and which Barkly pieces were made for them.</p>
+</section>
+
+<div class="weave" aria-hidden="true" style="margin-top:0;"></div>
+
+<!-- ── SIZE FINDER ──────────────────────────────────────────── -->
+<div class="sizefinder-wrap">
+	<div class="sizefinder">
+
+		<!-- Left: form -->
+		<div id="sf-form-col">
+			<span class="eyebrow" style="color:var(--olive);">Step 1 of 1</span>
+			<h2 class="h-section" style="margin-top:14px;">Three quick <span class="it">questions.</span></h2>
+			<div class="sf-fields">
+				<label class="sf-label">
+					<span>Dog's name</span>
+					<input class="sf-input" id="sf-name" type="text" placeholder="e.g. Pip" autocomplete="off" />
+				</label>
+				<label class="sf-label">
+					<span>Weight <small>in lbs</small></span>
+					<input class="sf-input" id="sf-weight" type="number" placeholder="e.g. 8" min="1" max="150" />
+				</label>
+				<label class="sf-label">
+					<span>Breed <small>optional</small></span>
+					<input class="sf-input" id="sf-breed" type="text" placeholder="e.g. Maltese" autocomplete="off" />
+				</label>
+			</div>
+			<button class="btn" onclick="barklyFindSize()">Find my size <span class="arrow">&rarr;</span></button>
+		</div>
+
+		<!-- Right: result (hidden until submitted) -->
+		<div class="sf-result-wrap" id="sf-result" hidden>
+			<div class="sf-badge-row">
+				<div class="sf-size-badge" id="sf-size-out">S</div>
+				<div>
+					<h2 class="h-section" style="font-size:32px;" id="sf-headline">That's a <span class="it">size S.</span></h2>
+					<p class="lede" style="font-size:16px; margin-top:8px;" id="sf-desc"></p>
+				</div>
+			</div>
+			<div class="sf-measure-tip" id="sf-measure-tip"></div>
+		</div>
+
+	</div>
+
+	<!-- Product recommendations (hidden until submitted) -->
+	<div id="sf-products" hidden style="margin-top:48px;">
+		<h3 class="sf-products-title">Picks for <span id="sf-name-out">your dog</span>.</h3>
+		<div class="prod-recs" id="sf-product-grid"></div>
+		<div style="margin-top:28px;">
+			<a class="btn ghost" href="Shop/">See full collection <span class="arrow">&rarr;</span></a>
+		</div>
+	</div>
+</div>
+
+<!-- ── FITTING ROOM ──────────────────────────────────────────── -->
+<section class="fitting-room-section">
+	<div class="fitting-room-inner">
+		<div>
+			<span class="eyebrow">Fitting room</span>
+			<h2 class="h-section" style="margin-top:18px;">See it on <span class="it">your dog.</span></h2>
+			<p class="lede" style="margin-top:18px;">Upload your dog's photo, pick a style. Create your own Barkly lookbook moment and download it.</p>
+			<div class="fitting-actions" style="margin-top:28px;">
+				<label class="btn" for="fit-upload" style="cursor:pointer; display:inline-flex; align-items:center; gap:10px;">
+					Upload photo <span class="arrow" style="transform:rotate(-90deg);">&#8594;</span>
+				</label>
+				<input type="file" id="fit-upload" accept="image/*" style="display:none" />
+				<button class="btn ghost" id="fit-download" onclick="barklyDownload()" style="display:none;">Download <span class="arrow" style="transform:rotate(90deg);">&#8594;</span></button>
+			</div>
+			<p class="lede" style="font-size:13px; margin-top:8px; color:rgba(244,234,215,0.5);">Then pick a jacket below to build your side-by-side.</p>
+			<div class="fit-swatches" id="fit-swatches">
+				<button class="fit-swatch" data-slug="santa-fe" onclick="barklySelectProduct('santa-fe','gallery/santa-fe-jacket.jpeg',this)" title="Santa Fe Jacket">
+					<img src="gallery/santa-fe-jacket.jpeg" alt="Santa Fe Jacket" />
+				</button>
+				<button class="fit-swatch" data-slug="scarlet-brocade" onclick="barklySelectProduct('scarlet-brocade','gallery/scarlet-brocade-coat.jpeg',this)" title="Scarlet Brocade Coat">
+					<img src="gallery/scarlet-brocade-coat.jpeg" alt="Scarlet Brocade Coat" />
+				</button>
+				<button class="fit-swatch" data-slug="midnight-floral" onclick="barklySelectProduct('midnight-floral','gallery/midnight-floral-hoodie.jpeg',this)" title="Midnight Floral Hoodie">
+					<img src="gallery/midnight-floral-hoodie.jpeg" alt="Midnight Floral Hoodie" />
+				</button>
+				<button class="fit-swatch" data-slug="nordic-fairisle" onclick="barklySelectProduct('nordic-fairisle','gallery/nordic-fairisle-sweater.jpeg',this)" title="Nordic Fairisle">
+					<img src="gallery/nordic-fairisle-sweater.jpeg" alt="Nordic Fairisle" />
+				</button>
+				<button class="fit-swatch" data-slug="lunar-cheongsam" onclick="barklySelectProduct('lunar-cheongsam','gallery/lunar-cheongsam.jpeg',this)" title="Lunar Cheongsam">
+					<img src="gallery/lunar-cheongsam.jpeg" alt="Lunar Cheongsam" />
+				</button>
+			</div>
+		</div>
+
+		<div class="fitting-canvas-wrap">
+			<canvas id="fit-canvas" width="560" height="560" aria-label="Fitting room canvas"></canvas>
+			<div class="fitting-placeholder" id="fit-placeholder">
+				<span style="font-size:48px; opacity:0.35;">&#128247;</span>
+				<p>Upload your dog's photo<br/>to get started</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ── SIZE CHART ──────────────────────────────────────────── -->
+<div class="size-chart-wrap" style="padding-top:80px;">
+	<div class="section-head" style="margin-bottom:36px;">
+		<h2 class="h-section">The <span class="it">size guide.</span></h2>
+		<p class="lede">Measure around the widest part of the chest, just behind the front legs.</p>
+	</div>
+	<table class="size-table" aria-label="Barkly size guide">
+		<thead>
+			<tr>
+				<th>Size</th>
+				<th>Weight</th>
+				<th>Chest girth</th>
+				<th>Neck</th>
+				<th>Typical breeds</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="s-label">XS</td>
+				<td>Under 5 lbs</td>
+				<td>8 – 11 in</td>
+				<td>5 – 8 in</td>
+				<td>Teacup Chihuahua, Toy Yorkie</td>
+			</tr>
+			<tr>
+				<td class="s-label">S</td>
+				<td>5 – 12 lbs</td>
+				<td>12 – 16 in</td>
+				<td>8 – 11 in</td>
+				<td>Maltese, Pomeranian, Miniature Pinscher</td>
+			</tr>
+			<tr>
+				<td class="s-label">M</td>
+				<td>12 – 25 lbs</td>
+				<td>16 – 21 in</td>
+				<td>11 – 14 in</td>
+				<td>French Bulldog, Beagle, Corgi, Cocker Spaniel</td>
+			</tr>
+			<tr>
+				<td class="s-label">L</td>
+				<td>25 – 50 lbs</td>
+				<td>21 – 27 in</td>
+				<td>14 – 18 in</td>
+				<td>Australian Shepherd, Labrador, Golden, Boxer</td>
+			</tr>
+		</tbody>
+	</table>
+	<p style="font-size:13px; color:var(--ink-soft); margin-top:18px;">Between sizes? Size up. A Barkly coat should sit snug at the neck and have 1–2 fingers of clearance at the chest.</p>
+</div>
+
+<?php include dirname(__FILE__).'/_redesign_footer.php'; ?>
+
+<script>
+/* ── SIZE FINDER ─────────────────────────────────────── */
+var SF_SIZES = {
+	XS: { label:'XS', chest:'8 – 11 in', neck:'5 – 8 in', desc:'For the tiniest pups. Snug, lightweight, and easy to slip on.' },
+	S:  { label:'S',  chest:'12 – 16 in', neck:'8 – 11 in', desc:'Our most popular size. Built for petite breeds who love a little extra flair.' },
+	M:  { label:'M',  chest:'16 – 21 in', neck:'11 – 14 in', desc:'The versatile middle. Fits stocky small breeds and lean medium ones equally well.' },
+	L:  { label:'L',  chest:'21 – 27 in', neck:'14 – 18 in', desc:'For the bigger beauties. Same craft, more coat.' }
+};
+var SF_PRODUCTS = [
+	{ name:'Santa Fe Jacket',      tag:'Signature',  img:'gallery/santa-fe-jacket.jpeg' },
+	{ name:'Scarlet Brocade Coat', tag:'New',        img:'gallery/scarlet-brocade-coat.jpeg' },
+	{ name:'Midnight Floral Hoodie',tag:'Bestseller',img:'gallery/midnight-floral-hoodie.jpeg' },
+	{ name:'Nordic Fairisle',      tag:'Knitwear',   img:'gallery/nordic-fairisle-sweater.jpeg' },
+	{ name:'Lunar Cheongsam',      tag:'Capsule',    img:'gallery/lunar-cheongsam.jpeg' }
+];
+
+function barklyFindSize() {
+	var name   = (document.getElementById('sf-name').value   || '').trim();
+	var weight = parseFloat(document.getElementById('sf-weight').value);
+	var breed  = (document.getElementById('sf-breed').value  || '').trim();
+	if (!weight || isNaN(weight) || weight <= 0) {
+		document.getElementById('sf-weight').focus();
+		document.getElementById('sf-weight').style.borderColor = 'var(--scarlet)';
+		return;
+	}
+	document.getElementById('sf-weight').style.borderColor = '';
+	var key = weight < 5 ? 'XS' : weight <= 12 ? 'S' : weight <= 25 ? 'M' : 'L';
+	var sz  = SF_SIZES[key];
+	var who = name || 'your dog';
+
+	document.getElementById('sf-size-out').textContent = sz.label;
+	document.getElementById('sf-headline').innerHTML   = name
+		? 'Perfect for <span class="it">' + name + '.</span>'
+		: 'That&rsquo;s a <span class="it">size ' + sz.label + '.</span>';
+	document.getElementById('sf-desc').textContent =
+		'At ' + weight + ' lbs, ' + who + ' wears a size ' + sz.label + '. ' + sz.desc;
+	document.getElementById('sf-measure-tip').innerHTML =
+		'<strong>Double-check:</strong> Measure the chest at its widest point. A size ' + sz.label +
+		' fits a chest of ' + sz.chest + ' and a neck of ' + sz.neck + '.';
+
+	document.getElementById('sf-name-out').textContent = who;
+	var grid = document.getElementById('sf-product-grid');
+	grid.innerHTML = '';
+	SF_PRODUCTS.slice(0, 3).forEach(function(p) {
+		var a = document.createElement('a');
+		a.className = 'prod-rec'; a.href = 'Shop/';
+		a.innerHTML = '<img src="' + p.img + '" alt="' + p.name + '" />' +
+			'<div class="prod-rec-info"><span class="tag" style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--scarlet);">' + p.tag + '</span>' +
+			'<div class="prod-rec-name">' + p.name + '</div>' +
+			'<div class="prod-rec-size">Size ' + sz.label + ' available</div></div>';
+		grid.appendChild(a);
+	});
+
+	document.getElementById('sf-result').hidden   = false;
+	document.getElementById('sf-products').hidden = false;
+	document.getElementById('sf-result').scrollIntoView({ behavior:'smooth', block:'nearest' });
+}
+/* Allow Enter to submit */
+['sf-name','sf-weight','sf-breed'].forEach(function(id) {
+	document.getElementById(id).addEventListener('keydown', function(e) {
+		if (e.key === 'Enter') barklyFindSize();
+	});
+});
+
+/* ── FITTING ROOM ────────────────────────────────────── */
+var fitPhoto   = null;
+var fitProduct = null;
+var fitProductName = '';
+var fitCanvas  = document.getElementById('fit-canvas');
+var fitCtx     = fitCanvas.getContext('2d');
+
+document.getElementById('fit-upload').addEventListener('change', function() {
+	var file = this.files[0]; if (!file) return;
+	var reader = new FileReader();
+	reader.onload = function(e) {
+		var img = new Image();
+		img.onload = function() { fitPhoto = img; barklyRenderCanvas(); };
+		img.src = e.target.result;
+	};
+	reader.readAsDataURL(file);
+});
+
+function barklySelectProduct(slug, src, btn) {
+	document.querySelectorAll('.fit-swatch').forEach(function(s){ s.classList.remove('is-active'); });
+	btn.classList.add('is-active');
+	fitProductName = btn.getAttribute('title') || slug;
+	var img = new Image(); img.crossOrigin = 'anonymous';
+	img.onload = function() { fitProduct = img; barklyRenderCanvas(); };
+	img.src = src + '?_cb=' + Date.now();
+}
+
+function barklyRenderCanvas() {
+	var W = fitCanvas.width, H = fitCanvas.height;
+	fitCtx.clearRect(0, 0, W, H);
+	fitCtx.fillStyle = '#f4ead7'; fitCtx.fillRect(0, 0, W, H);
+	document.getElementById('fit-placeholder').style.display = 'none';
+
+	if (fitPhoto && fitProduct) {
+		var half = (W - 6) / 2;
+		drawCover(fitCtx, fitPhoto, 0, 0, half, H);
+		drawCover(fitCtx, fitProduct, half + 6, 0, half, H);
+		fitCtx.fillStyle = '#f4ead7'; fitCtx.fillRect(half, 0, 6, H);
+		/* stamp */
+		fitCtx.fillStyle = 'rgba(251,246,236,0.92)';
+		fitCtx.fillRect(W/2 - 54, H - 38, 108, 28);
+		fitCtx.fillStyle = '#1f1a14';
+		fitCtx.font = '600 9px "Inter Tight",sans-serif';
+		fitCtx.textAlign = 'center';
+		fitCtx.letterSpacing = '0.16em';
+		fitCtx.fillText('BARKLY · 2026', W/2, H - 19);
+		/* labels */
+		drawLabel(fitCtx, 'Your dog', 10, H - 10);
+		drawLabel(fitCtx, fitProductName, half + 16, H - 10);
+		document.getElementById('fit-download').style.display = 'inline-flex';
+	} else if (fitPhoto) {
+		drawCover(fitCtx, fitPhoto, 0, 0, W, H);
+		fitCtx.fillStyle = 'rgba(251,246,236,0.88)';
+		var bw = 210, bh = 40, bx = W/2 - bw/2, by = H/2 - bh/2;
+		fitCtx.fillRect(bx, by, bw, bh);
+		fitCtx.fillStyle = '#1f1a14';
+		fitCtx.font = '600 10px "Inter Tight",sans-serif';
+		fitCtx.textAlign = 'center';
+		fitCtx.letterSpacing = '0.2em';
+		fitCtx.fillText('NOW PICK A JACKET ABOVE', W/2, H/2 + 4);
+		document.getElementById('fit-download').style.display = 'none';
+	}
+}
+
+function drawCover(ctx, img, x, y, w, h) {
+	var ia = img.naturalWidth / img.naturalHeight, ba = w / h;
+	var sw, sh, sx, sy;
+	if (ia > ba) { sh = h; sw = h * ia; sx = -(sw - w) / 2; sy = 0; }
+	else { sw = w; sh = w / ia; sx = 0; sy = -(sh - h) / 2; }
+	ctx.save();
+	ctx.beginPath(); ctx.rect(x, y, w, h); ctx.clip();
+	ctx.drawImage(img, x + sx, y + sy, sw, sh);
+	ctx.restore();
+}
+
+function drawLabel(ctx, text, x, y) {
+	ctx.save();
+	ctx.font = '500 9px "Inter Tight",sans-serif';
+	ctx.fillStyle = 'rgba(31,26,20,0.65)'; ctx.textAlign = 'left';
+	ctx.letterSpacing = '0.14em';
+	ctx.fillText(text.toUpperCase(), x, y);
+	ctx.restore();
+}
+
+function barklyDownload() {
+	var link = document.createElement('a');
+	link.download = 'my-barkly-moment.jpg';
+	link.href = fitCanvas.toDataURL('image/jpeg', 0.92);
+	link.click();
+}
+</script>
+
+{{hr_out}}
+</body>
+</html>

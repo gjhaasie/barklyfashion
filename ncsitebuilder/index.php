@@ -39,6 +39,13 @@
 				'wb_store'
 			),
 			'type' => 0
+		),
+		array(
+			'id' => 'barkly-try-on',
+			'alias' => 'Try-On',
+			'file' => 'try-on.php',
+			'controllers' => array(),
+			'type' => 0
 		)
 	);
 	$forms = array(
