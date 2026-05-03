@@ -116,11 +116,13 @@ if ($jacket === 'auto') {
             ] ]],
             'generationConfig' => [
                 'temperature'      => 0.4,
-                'maxOutputTokens'  => 200,
+                /* Gemini 2.5 Flash uses hidden "thinking" tokens that count against
+                 * the budget — give it room or the visible response gets clipped. */
+                'maxOutputTokens'  => 1200,
                 'responseMimeType' => 'application/json',
             ],
         ];
-        $gch = curl_init('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=' . $geminiKey);
+        $gch = curl_init('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=' . $geminiKey);
         curl_setopt_array($gch, [
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_POST           => true,
