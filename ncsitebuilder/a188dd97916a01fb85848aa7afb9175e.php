@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260503e" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260503f" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -72,7 +72,7 @@
 </div>
 
 <section class="products" id="products">
-	<article class="product" data-cat="coats" data-slug="santa-fe-jacket" data-name="The Santa Fe Jacket">
+	<article class="product" id="santa-fe-jacket" data-cat="coats" data-slug="santa-fe-jacket" data-name="The Santa Fe Jacket">
 		<div class="product-media">
 			<span class="badge hot">Bestseller</span>
 			<img src="gallery/santa-fe-jacket.jpeg" alt="The Santa Fe Jacket" />
@@ -84,7 +84,7 @@
 		</div>
 	</article>
 
-	<article class="product" data-cat="coats capsule" data-slug="scarlet-brocade-coat" data-name="Scarlet Brocade Coat">
+	<article class="product" id="scarlet-brocade-coat" data-cat="coats capsule" data-slug="scarlet-brocade-coat" data-name="Scarlet Brocade Coat">
 		<div class="product-media">
 			<span class="badge">New</span>
 			<img src="gallery/scarlet-brocade-coat.jpeg" alt="Scarlet Brocade Coat" />
@@ -96,7 +96,7 @@
 		</div>
 	</article>
 
-	<article class="product" data-cat="sweaters" data-slug="nordic-fairisle-sweater" data-name="Nordic Fairisle Sweater">
+	<article class="product" id="nordic-fairisle-sweater" data-cat="sweaters" data-slug="nordic-fairisle-sweater" data-name="Nordic Fairisle Sweater">
 		<div class="product-media">
 			<span class="badge">Knit</span>
 			<img src="gallery/nordic-fairisle-sweater.jpeg" alt="Nordic Fairisle Sweater" />
@@ -108,7 +108,7 @@
 		</div>
 	</article>
 
-	<article class="product" data-cat="hoodies" data-slug="midnight-floral-hoodie" data-name="Midnight Floral Hoodie">
+	<article class="product" id="midnight-floral-hoodie" data-cat="hoodies" data-slug="midnight-floral-hoodie" data-name="Midnight Floral Hoodie">
 		<div class="product-media">
 			<span class="badge hot">Bestseller</span>
 			<img src="gallery/midnight-floral-hoodie.jpeg" alt="Midnight Floral Hoodie" />
@@ -120,7 +120,7 @@
 		</div>
 	</article>
 
-	<article class="product" data-cat="coats capsule" data-slug="lunar-cheongsam" data-name="Lunar Cheongsam">
+	<article class="product" id="lunar-cheongsam" data-cat="coats capsule" data-slug="lunar-cheongsam" data-name="Lunar Cheongsam">
 		<div class="product-media">
 			<span class="badge">Lunar capsule</span>
 			<img src="gallery/lunar-cheongsam.jpeg" alt="Lunar Cheongsam" />

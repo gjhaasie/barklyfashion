@@ -1197,6 +1197,17 @@ button { font: inherit; cursor: pointer; }
   color: rgba(244,234,215,0.85);
 }
 
+/* Highlight the targeted product card when arriving from Try-On deep link */
+.product:target {
+  animation: barkly-target-pulse 2.4s ease-out;
+  scroll-margin-top: 96px;
+}
+@keyframes barkly-target-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(199,89,53,0); }
+  20%  { box-shadow: 0 0 0 4px var(--terracotta); }
+  100% { box-shadow: 0 0 0 0 rgba(199,89,53,0); }
+}
+
 /* ---------- CHATBOT WIDGET ---------- */
 .chat-bubble {
   position: fixed;

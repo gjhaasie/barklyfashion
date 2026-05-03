@@ -17,7 +17,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260503e" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260503f" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -119,6 +119,7 @@
 					Upload photo <span class="arrow" style="transform:rotate(-90deg);">&#8594;</span>
 				</label>
 				<input type="file" id="fit-upload" accept="image/jpeg,image/png,image/webp" style="display:none" />
+				<a class="btn" id="fit-shop-cta" href="Shop/" style="display:none; background:var(--terracotta); border-color:var(--terracotta);">Shop the <span id="fit-shop-cta-name">style</span> <span class="arrow">&rarr;</span></a>
 				<button class="btn ghost" id="fit-download" onclick="barklyDownload()" style="display:none; border-color:var(--cream); color:var(--cream);">Download <span class="arrow" style="transform:rotate(90deg);">&#8594;</span></button>
 			</div>
 			<p class="lede" style="font-size:13px; margin-top:8px; color:rgba(244,234,215,0.5);">Let AI pick the right piece for your dog &mdash; or choose one yourself.</p>
@@ -343,6 +344,23 @@ function barklyTryOn(slug, btn) {
 			document.getElementById('fit-result-img').src = res.body.image;
 			showFitState('result');
 			document.getElementById('fit-download').style.display = 'inline-flex';
+			/* Shop CTA: deep-link to the matching product on the Shop page */
+			var SHOP_SLUG = {
+				'santa-fe':        'santa-fe-jacket',
+				'scarlet-brocade': 'scarlet-brocade-coat',
+				'midnight-floral': 'midnight-floral-hoodie',
+				'nordic-fairisle': 'nordic-fairisle-sweater',
+				'lunar-cheongsam': 'lunar-cheongsam'
+			};
+			var shopCta = document.getElementById('fit-shop-cta');
+			var anchor  = SHOP_SLUG[res.body.slug];
+			if (anchor) {
+				shopCta.href = 'Shop/#' + anchor;
+				document.getElementById('fit-shop-cta-name').textContent = res.body.jacket || 'style';
+				shopCta.style.display = 'inline-flex';
+			} else {
+				shopCta.style.display = 'none';
+			}
 			/* If AI picked, surface a small caption + highlight the chosen swatch */
 			var caption = document.getElementById('fit-result-caption');
 			if (res.body.auto_picked && res.body.slug) {
