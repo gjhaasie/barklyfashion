@@ -218,6 +218,15 @@ var barklyChat = (function () {
 				if (!email) return;
 				var btn = form.querySelector('button');
 				if (btn) btn.disabled = true;
+				/* Server-side capture (CSV) in parallel with email relay */
+				try {
+					var leadFd = new FormData();
+					leadFd.append('email', email);
+					leadFd.append('type', 'newsletter');
+					leadFd.append('source', 'footer:newsletter');
+					fetch('/barkly-leads.php', { method: 'POST', body: leadFd, keepalive: true });
+				} catch (e) { /* never block submit on logging */ }
+
 				fetch('https://formsubmit.co/ajax/barklyfashion@gmail.com', {
 					method: 'POST',
 					headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },

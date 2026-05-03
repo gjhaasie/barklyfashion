@@ -24,7 +24,7 @@ Options -Indexes
 	ExpiresByType font/woff2 A691200
 </IfModule>
 
-<FilesMatch "^(web\.config)$">
+<FilesMatch "^(web\.config|barkly-leads\.csv|barkly-secrets\.php)$">
 	<IfModule mod_authz_core.c>
 		Require all denied
 	</IfModule>
