@@ -64,7 +64,7 @@
 
 		<!-- Left: form -->
 		<div id="sf-form-col">
-			<span class="eyebrow" style="color:var(--olive);">Step 1 of 1</span>
+			<span class="eyebrow" style="color:var(--olive);">Size finder</span>
 			<h2 class="h-section" style="margin-top:14px;">Three quick <span class="it">questions.</span></h2>
 			<div class="sf-fields">
 				<label class="sf-label">
