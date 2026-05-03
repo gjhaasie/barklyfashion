@@ -17,7 +17,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260503d" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260503e" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -121,8 +121,11 @@
 				<input type="file" id="fit-upload" accept="image/jpeg,image/png,image/webp" style="display:none" />
 				<button class="btn ghost" id="fit-download" onclick="barklyDownload()" style="display:none; border-color:var(--cream); color:var(--cream);">Download <span class="arrow" style="transform:rotate(90deg);">&#8594;</span></button>
 			</div>
-			<p class="lede" style="font-size:13px; margin-top:8px; color:rgba(244,234,215,0.5);">Then pick a piece below to dress them.</p>
+			<p class="lede" style="font-size:13px; margin-top:8px; color:rgba(244,234,215,0.5);">Let AI pick the right piece for your dog &mdash; or choose one yourself.</p>
 			<div class="fit-swatches" id="fit-swatches">
+				<button class="fit-swatch fit-swatch-auto" data-slug="auto" onclick="barklyTryOn('auto',this)" title="AI picks for your dog">
+					<span class="fit-swatch-auto-label"><span style="font-size:18px;">&#10024;</span><br/>AI picks</span>
+				</button>
 				<button class="fit-swatch" data-slug="santa-fe" onclick="barklyTryOn('santa-fe',this)" title="Santa Fe Jacket">
 					<img src="gallery/santa-fe-jacket.jpeg" alt="Santa Fe Jacket" />
 				</button>
@@ -149,6 +152,7 @@
 				</div>
 				<img class="fit-stage-img" id="fit-photo-preview" alt="Your dog" hidden />
 				<img class="fit-stage-img" id="fit-result-img" alt="Your dog wearing a Barkly piece" hidden />
+				<div class="fit-result-caption" id="fit-result-caption" hidden></div>
 				<div class="fit-loading" id="fit-loading" hidden>
 					<div class="fit-pulse"></div>
 					<p class="fit-loading-msg" id="fit-loading-msg">Stitching the brocade…</p>
@@ -339,6 +343,21 @@ function barklyTryOn(slug, btn) {
 			document.getElementById('fit-result-img').src = res.body.image;
 			showFitState('result');
 			document.getElementById('fit-download').style.display = 'inline-flex';
+			/* If AI picked, surface a small caption + highlight the chosen swatch */
+			var caption = document.getElementById('fit-result-caption');
+			if (res.body.auto_picked && res.body.slug) {
+				var label = res.body.jacket || 'a Barkly piece';
+				var breedTxt = res.body.breed ? ' for your <em>' + res.body.breed + '</em>' : '';
+				caption.innerHTML = '<span class="ai-tag">&#10024; AI picked</span> <strong>' + label + '</strong>' + breedTxt + (res.body.reason ? '<br/><span class="reason">' + res.body.reason + '</span>' : '');
+				caption.hidden = false;
+				/* mirror the highlight onto the matching specific swatch */
+				document.querySelectorAll('.fit-swatch').forEach(function(s){ s.classList.remove('is-active'); });
+				var match = document.querySelector('.fit-swatch[data-slug="' + res.body.slug + '"]');
+				if (match) match.classList.add('is-active');
+				var auto = document.querySelector('.fit-swatch-auto'); if (auto) auto.classList.add('is-active');
+			} else {
+				caption.hidden = true;
+			}
 		})
 		.catch(function() {
 			stopFitLoadingMsgs();

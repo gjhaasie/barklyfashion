@@ -1,19 +1,21 @@
 <?php
 /*
  * Barkly Virtual Try-On — PHP backend
- * Uses Stability AI Search-and-Replace (real AI inpainting on your dog photo).
  *
- * KEY SETUP (one-time):
- *   The Stability API key lives in a secrets file OUTSIDE the public web
- *   root, so it is never served, never indexed, and never committed to git.
+ * Two AIs work together:
+ *   1) GEMINI_KEY (free, optional) — analyses the dog and picks the best
+ *      jacket from the collection when jacket="auto"
+ *   2) STABILITY_KEY — repaints just the dog body wearing that jacket
  *
- *   On the cPanel server, create:
- *     /home/barkgjug/barkly-secrets.php
- *   with this content:
- *     <?php define('STABILITY_KEY', 'sk-YOUR_KEY_HERE');
+ * SECRETS — barkly-secrets.php (one of: /home/barkgjug/, /public_html/,
+ * /public_html/ncsitebuilder/) — looks like:
  *
- *   Get a free key (no credit card, $10 credits) at
- *   https://platform.stability.ai → Account → API Keys.
+ *   <?php
+ *   define('STABILITY_KEY', 'sk-...');     // platform.stability.ai
+ *   define('GEMINI_KEY',    'AIza...');    // aistudio.google.com/app/apikey (free, no card)
+ *
+ * If GEMINI_KEY is missing, "AI picks" still works but always defaults to
+ * Scarlet Brocade. The 5 manual swatches always work with just STABILITY_KEY.
  */
 /* Try several locations — outside web root is preferred, but cPanel
  * open_basedir often blocks that, so we also accept a copy inside
@@ -44,7 +46,7 @@ $img    = isset($_FILES['image']) ? $_FILES['image'] : null;
 if (!$img || $img['error'] !== UPLOAD_ERR_OK) {
     http_response_code(400); echo json_encode(['error' => 'Upload your dog\'s photo first.']); exit;
 }
-if (!$jacket) { http_response_code(400); echo json_encode(['error' => 'Pick a jacket first.']); exit; }
+if (!$jacket) { $jacket = 'auto'; }
 
 $finfo = finfo_open(FILEINFO_MIME_TYPE);
 $mime  = finfo_file($finfo, $img['tmp_name']);
@@ -55,34 +57,91 @@ if ($img['size'] > 10 * 1024 * 1024) {
     http_response_code(400); echo json_encode(['error' => 'Photo too large — max 10 MB.']); exit;
 }
 
-/* Jacket → search target + replacement prompt */
+/* Jacket catalog — search masks ONLY the existing clothing/body area
+ * (preserves the dog's face, breed, and pose); prompt describes only
+ * the garment that should appear there. */
 $jackets = [
     'santa-fe' => [
         'name'   => 'Santa Fe Jacket',
-        'search' => 'dog body torso',
-        'prompt' => 'a dog wearing a vibrant block-printed cotton jacket with bold geometric patterns in terracotta, indigo and cream, South Asian artisan craft, intricate hand-printed motifs, well-fitted dog coat',
+        'search' => 'clothing or fur on the dog body',
+        'prompt' => 'a fitted block-printed cotton dog coat with bold geometric patterns in terracotta, indigo and cream, South Asian artisan hand-print on the dog',
     ],
     'scarlet-brocade' => [
         'name'   => 'Scarlet Brocade Coat',
-        'search' => 'dog body torso',
-        'prompt' => 'a dog wearing an elegant scarlet red brocade coat with intricate woven damask patterns, luxurious crimson silk-like fabric, formal heirloom dog coat',
+        'search' => 'clothing or fur on the dog body',
+        'prompt' => 'a fitted scarlet red brocade dog coat with intricate damask pattern, luxurious crimson silk fabric on the dog',
     ],
     'midnight-floral' => [
         'name'   => 'Midnight Floral Hoodie',
-        'search' => 'dog body torso',
-        'prompt' => 'a dog wearing a midnight navy blue hoodie with delicate white and pink floral print, soft cotton fabric, casual chic dog hoodie with hood',
+        'search' => 'clothing or fur on the dog body',
+        'prompt' => 'a fitted midnight navy blue dog hoodie with delicate white and pink floral print, soft cotton hoodie on the dog',
     ],
     'nordic-fairisle' => [
         'name'   => 'Nordic Fairisle',
-        'search' => 'dog body torso',
-        'prompt' => 'a dog wearing a cream and multicolor Nordic fairisle knit sweater with classic geometric diamond patterns, warm cozy wool sweater on the dog',
+        'search' => 'clothing or fur on the dog body',
+        'prompt' => 'a fitted cream and multicolor Nordic fairisle knit sweater on the dog, warm wool with classic geometric diamond patterns',
     ],
     'lunar-cheongsam' => [
         'name'   => 'Lunar Cheongsam',
-        'search' => 'dog body torso',
-        'prompt' => 'a dog wearing a red and gold cheongsam-style coat with Chinese floral embroidery and gold mandarin trim, festive lunar new year dog coat',
+        'search' => 'clothing or fur on the dog body',
+        'prompt' => 'a fitted red and gold cheongsam-style dog coat with Chinese floral embroidery and gold mandarin trim on the dog, festive lunar new year style',
     ],
 ];
+
+/* AUTO-PICK: if jacket=="auto", ask Gemini Vision which jacket suits this dog */
+$autoPicked   = false;
+$autoBreed    = null;
+$autoReason   = null;
+
+if ($jacket === 'auto') {
+    $geminiKey = defined('GEMINI_KEY') ? GEMINI_KEY : '';
+    if ($geminiKey === '' || strpos($geminiKey, 'REPLACE') !== false) {
+        $jacket = 'scarlet-brocade';
+        $autoPicked = true;
+        $autoReason = 'Default style (Gemini key not configured).';
+    } else {
+        $b64 = base64_encode(file_get_contents($img['tmp_name']));
+        $sysPrompt =
+            "You are the Barkly Fashion AI stylist. Pick exactly one jacket for this dog from:\n" .
+            "- santa-fe : bold block-print cotton, terracotta + indigo, casual chic. Suits playful, scruffy, or active dogs.\n" .
+            "- scarlet-brocade : crimson brocade with damask weave, formal & elegant. Suits poised, fluffy, or refined dogs.\n" .
+            "- midnight-floral : navy blue floral hoodie, relaxed everyday. Suits friendly, casual dogs of any size.\n" .
+            "- nordic-fairisle : cream wool fairisle knit, cozy. Suits stocky or fluffy cold-weather dogs.\n" .
+            "- lunar-cheongsam : red + gold festive cheongsam. Suits striking, ceremonial-looking dogs.\n" .
+            "Respond ONLY with valid JSON: {\"slug\":\"...\",\"breed\":\"best breed guess\",\"reason\":\"one short sentence\"}.";
+        $body = [
+            'contents' => [[ 'parts' => [
+                ['text' => $sysPrompt],
+                ['inline_data' => ['mime_type' => $mime, 'data' => $b64]],
+            ] ]],
+            'generationConfig' => [
+                'temperature'      => 0.4,
+                'maxOutputTokens'  => 200,
+                'responseMimeType' => 'application/json',
+            ],
+        ];
+        $gch = curl_init('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=' . $geminiKey);
+        curl_setopt_array($gch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POST           => true,
+            CURLOPT_TIMEOUT        => 20,
+            CURLOPT_HTTPHEADER     => ['Content-Type: application/json'],
+            CURLOPT_POSTFIELDS     => json_encode($body),
+        ]);
+        $graw  = curl_exec($gch);
+        $gcode = curl_getinfo($gch, CURLINFO_HTTP_CODE);
+        $gresp = ($gcode === 200) ? @json_decode($graw, true) : null;
+        $gtext = isset($gresp['candidates'][0]['content']['parts'][0]['text']) ? $gresp['candidates'][0]['content']['parts'][0]['text'] : '';
+        $gtext = preg_replace('/^```json\s*|\s*```$/i', '', trim($gtext));
+        $gpick = @json_decode($gtext, true);
+        $picked = isset($gpick['slug']) ? trim(strtolower($gpick['slug'])) : '';
+        $jacket = isset($jackets[$picked]) ? $picked : 'scarlet-brocade';
+        $autoPicked = true;
+        $autoBreed  = isset($gpick['breed'])  ? $gpick['breed']  : null;
+        $autoReason = isset($gpick['reason']) ? $gpick['reason'] : 'A confident, classic choice.';
+    }
+}
+
 if (!isset($jackets[$jacket])) { http_response_code(400); echo json_encode(['error' => 'Unknown jacket.']); exit; }
 $j = $jackets[$jacket];
 
@@ -152,7 +211,10 @@ if ($code !== 200) {
 
 /* 200 → raw JPEG bytes */
 echo json_encode([
-    'image'  => 'data:image/jpeg;base64,' . base64_encode($raw),
-    'jacket' => $j['name'],
-    'slug'   => $jacket,
+    'image'       => 'data:image/jpeg;base64,' . base64_encode($raw),
+    'jacket'      => $j['name'],
+    'slug'        => $jacket,
+    'auto_picked' => $autoPicked,
+    'breed'       => $autoBreed,
+    'reason'      => $autoReason,
 ]);

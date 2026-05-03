@@ -1147,6 +1147,56 @@ button { font: inherit; cursor: pointer; }
   margin: 0;
 }
 
+/* AI-picks swatch (sits at start of .fit-swatches) */
+.fit-swatch-auto {
+  background: linear-gradient(135deg, var(--scarlet) 0%, var(--terracotta) 100%);
+  color: var(--cream);
+}
+.fit-swatch-auto img { display: none; }
+.fit-swatch-auto.is-active { border-color: var(--cream); }
+.fit-swatch-auto-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* Result caption (AI rationale, breed) */
+.fit-result-caption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 14px 16px;
+  background: linear-gradient(to top, rgba(31,26,20,0.92), rgba(31,26,20,0.0));
+  color: var(--cream);
+  font-size: 13px;
+  line-height: 1.45;
+}
+.fit-result-caption .ai-tag {
+  display: inline-block;
+  background: var(--scarlet);
+  color: var(--cream);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 2px 6px;
+  margin-right: 6px;
+  vertical-align: 2px;
+}
+.fit-result-caption .reason {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: rgba(244,234,215,0.85);
+}
+
 /* ---------- CHATBOT WIDGET ---------- */
 .chat-bubble {
   position: fixed;
