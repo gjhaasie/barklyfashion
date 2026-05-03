@@ -17,7 +17,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260503b" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260503c" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -107,45 +107,56 @@
 	</div>
 </div>
 
-<!-- ── FITTING ROOM ──────────────────────────────────────────── -->
+<!-- ── FITTING ROOM (AI-powered) ─────────────────────────────── -->
 <section class="fitting-room-section">
 	<div class="fitting-room-inner">
 		<div>
-			<span class="eyebrow">Fitting room</span>
+			<span class="eyebrow">Fitting room · AI</span>
 			<h2 class="h-section" style="margin-top:18px;">See it on <span class="it">your dog.</span></h2>
-			<p class="lede" style="margin-top:18px;">Upload your dog's photo, pick a style. Create your own Barkly lookbook moment and download it.</p>
+			<p class="lede" style="margin-top:18px;">Upload your dog's photo, pick a Barkly piece. Our AI dresses them in 8&ndash;15 seconds — same dog, same pose, just the jacket added.</p>
 			<div class="fitting-actions" style="margin-top:28px;">
 				<label class="btn" for="fit-upload" style="cursor:pointer; display:inline-flex; align-items:center; gap:10px;">
 					Upload photo <span class="arrow" style="transform:rotate(-90deg);">&#8594;</span>
 				</label>
-				<input type="file" id="fit-upload" accept="image/*" style="display:none" />
-				<button class="btn ghost" id="fit-download" onclick="barklyDownload()" style="display:none;">Download <span class="arrow" style="transform:rotate(90deg);">&#8594;</span></button>
+				<input type="file" id="fit-upload" accept="image/jpeg,image/png,image/webp" style="display:none" />
+				<button class="btn ghost" id="fit-download" onclick="barklyDownload()" style="display:none; border-color:var(--cream); color:var(--cream);">Download <span class="arrow" style="transform:rotate(90deg);">&#8594;</span></button>
 			</div>
-			<p class="lede" style="font-size:13px; margin-top:8px; color:rgba(244,234,215,0.5);">Then pick a jacket below to build your side-by-side.</p>
+			<p class="lede" style="font-size:13px; margin-top:8px; color:rgba(244,234,215,0.5);">Then pick a piece below to dress them.</p>
 			<div class="fit-swatches" id="fit-swatches">
-				<button class="fit-swatch" data-slug="santa-fe" onclick="barklySelectProduct('santa-fe','gallery/santa-fe-jacket.jpeg',this)" title="Santa Fe Jacket">
+				<button class="fit-swatch" data-slug="santa-fe" onclick="barklyTryOn('santa-fe',this)" title="Santa Fe Jacket">
 					<img src="gallery/santa-fe-jacket.jpeg" alt="Santa Fe Jacket" />
 				</button>
-				<button class="fit-swatch" data-slug="scarlet-brocade" onclick="barklySelectProduct('scarlet-brocade','gallery/scarlet-brocade-coat.jpeg',this)" title="Scarlet Brocade Coat">
+				<button class="fit-swatch" data-slug="scarlet-brocade" onclick="barklyTryOn('scarlet-brocade',this)" title="Scarlet Brocade Coat">
 					<img src="gallery/scarlet-brocade-coat.jpeg" alt="Scarlet Brocade Coat" />
 				</button>
-				<button class="fit-swatch" data-slug="midnight-floral" onclick="barklySelectProduct('midnight-floral','gallery/midnight-floral-hoodie.jpeg',this)" title="Midnight Floral Hoodie">
+				<button class="fit-swatch" data-slug="midnight-floral" onclick="barklyTryOn('midnight-floral',this)" title="Midnight Floral Hoodie">
 					<img src="gallery/midnight-floral-hoodie.jpeg" alt="Midnight Floral Hoodie" />
 				</button>
-				<button class="fit-swatch" data-slug="nordic-fairisle" onclick="barklySelectProduct('nordic-fairisle','gallery/nordic-fairisle-sweater.jpeg',this)" title="Nordic Fairisle">
+				<button class="fit-swatch" data-slug="nordic-fairisle" onclick="barklyTryOn('nordic-fairisle',this)" title="Nordic Fairisle">
 					<img src="gallery/nordic-fairisle-sweater.jpeg" alt="Nordic Fairisle" />
 				</button>
-				<button class="fit-swatch" data-slug="lunar-cheongsam" onclick="barklySelectProduct('lunar-cheongsam','gallery/lunar-cheongsam.jpeg',this)" title="Lunar Cheongsam">
+				<button class="fit-swatch" data-slug="lunar-cheongsam" onclick="barklyTryOn('lunar-cheongsam',this)" title="Lunar Cheongsam">
 					<img src="gallery/lunar-cheongsam.jpeg" alt="Lunar Cheongsam" />
 				</button>
 			</div>
 		</div>
 
 		<div class="fitting-canvas-wrap">
-			<canvas id="fit-canvas" width="560" height="560" aria-label="Fitting room canvas"></canvas>
-			<div class="fitting-placeholder" id="fit-placeholder">
-				<span style="font-size:48px; opacity:0.35;">&#128247;</span>
-				<p>Upload your dog's photo<br/>to get started</p>
+			<div class="fit-stage" id="fit-stage">
+				<div class="fitting-placeholder" id="fit-placeholder">
+					<span style="font-size:48px; opacity:0.35;">&#128247;</span>
+					<p>Upload your dog's photo<br/>to get started</p>
+				</div>
+				<img class="fit-stage-img" id="fit-photo-preview" alt="Your dog" hidden />
+				<img class="fit-stage-img" id="fit-result-img" alt="Your dog wearing a Barkly piece" hidden />
+				<div class="fit-loading" id="fit-loading" hidden>
+					<div class="fit-pulse"></div>
+					<p class="fit-loading-msg" id="fit-loading-msg">Stitching the brocade…</p>
+				</div>
+				<div class="fit-error" id="fit-error" hidden>
+					<span class="eyebrow" style="color:var(--terracotta);">Try again</span>
+					<p class="fit-error-msg" id="fit-error-msg"></p>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -267,95 +278,111 @@ function barklyFindSize() {
 	});
 });
 
-/* ── FITTING ROOM ────────────────────────────────────── */
-var fitPhoto   = null;
-var fitProduct = null;
-var fitProductName = '';
-var fitCanvas  = document.getElementById('fit-canvas');
-var fitCtx     = fitCanvas.getContext('2d');
+/* ── FITTING ROOM (AI-powered via Stability AI) ──────── */
+var fitPhotoFile  = null;
+var fitJacketSlug = null;
+var fitResultUrl  = null;
+var fitLoadTimer  = null;
+
+var FIT_LOAD_MSGS = [
+	'Reading your dog\'s pose…',
+	'Selecting the right cut…',
+	'Stitching the brocade trim…',
+	'Lining the cotton interior…',
+	'Pressing the final seams…',
+	'Almost ready for the runway…'
+];
 
 document.getElementById('fit-upload').addEventListener('change', function() {
 	var file = this.files[0]; if (!file) return;
+	if (file.size > 10 * 1024 * 1024) {
+		showFitError('Photo too large — max 10 MB.'); return;
+	}
+	fitPhotoFile = file;
 	var reader = new FileReader();
 	reader.onload = function(e) {
-		var img = new Image();
-		img.onload = function() { fitPhoto = img; barklyRenderCanvas(); };
-		img.src = e.target.result;
+		document.getElementById('fit-photo-preview').src = e.target.result;
+		showFitState('photo');
 	};
 	reader.readAsDataURL(file);
 });
 
-function barklySelectProduct(slug, src, btn) {
+function barklyTryOn(slug, btn) {
+	if (!fitPhotoFile) {
+		document.getElementById('fit-upload').click();
+		return;
+	}
 	document.querySelectorAll('.fit-swatch').forEach(function(s){ s.classList.remove('is-active'); });
 	btn.classList.add('is-active');
-	fitProductName = btn.getAttribute('title') || slug;
-	var img = new Image(); img.crossOrigin = 'anonymous';
-	img.onload = function() { fitProduct = img; barklyRenderCanvas(); };
-	img.src = src + '?_cb=' + Date.now();
+	fitJacketSlug = slug;
+
+	showFitState('loading');
+	startFitLoadingMsgs();
+
+	var fd = new FormData();
+	fd.append('image', fitPhotoFile);
+	fd.append('jacket', slug);
+
+	fetch('virtual-try-on-api.php', { method: 'POST', body: fd })
+		.then(function(r) { return r.json().then(function(j) { return { ok: r.ok, body: j }; }); })
+		.then(function(res) {
+			stopFitLoadingMsgs();
+			if (!res.ok || !res.body || !res.body.image) {
+				var msg = (res.body && res.body.error) || 'Something went wrong. Try again.';
+				if (res.body && res.body.error === 'setup_needed') {
+					msg = res.body.message || 'AI try-on is not configured yet.';
+				}
+				showFitError(msg);
+				return;
+			}
+			fitResultUrl = res.body.image;
+			document.getElementById('fit-result-img').src = res.body.image;
+			showFitState('result');
+			document.getElementById('fit-download').style.display = 'inline-flex';
+		})
+		.catch(function() {
+			stopFitLoadingMsgs();
+			showFitError('Network error — please try again.');
+		});
 }
 
-function barklyRenderCanvas() {
-	var W = fitCanvas.width, H = fitCanvas.height;
-	fitCtx.clearRect(0, 0, W, H);
-	fitCtx.fillStyle = '#f4ead7'; fitCtx.fillRect(0, 0, W, H);
-	document.getElementById('fit-placeholder').style.display = 'none';
-
-	if (fitPhoto && fitProduct) {
-		var half = (W - 6) / 2;
-		drawCover(fitCtx, fitPhoto, 0, 0, half, H);
-		drawCover(fitCtx, fitProduct, half + 6, 0, half, H);
-		fitCtx.fillStyle = '#f4ead7'; fitCtx.fillRect(half, 0, 6, H);
-		/* stamp */
-		fitCtx.fillStyle = 'rgba(251,246,236,0.92)';
-		fitCtx.fillRect(W/2 - 54, H - 38, 108, 28);
-		fitCtx.fillStyle = '#1f1a14';
-		fitCtx.font = '600 9px "Inter Tight",sans-serif';
-		fitCtx.textAlign = 'center';
-		fitCtx.letterSpacing = '0.16em';
-		fitCtx.fillText('BARKLY · 2026', W/2, H - 19);
-		/* labels */
-		drawLabel(fitCtx, 'Your dog', 10, H - 10);
-		drawLabel(fitCtx, fitProductName, half + 16, H - 10);
-		document.getElementById('fit-download').style.display = 'inline-flex';
-	} else if (fitPhoto) {
-		drawCover(fitCtx, fitPhoto, 0, 0, W, H);
-		fitCtx.fillStyle = 'rgba(251,246,236,0.88)';
-		var bw = 210, bh = 40, bx = W/2 - bw/2, by = H/2 - bh/2;
-		fitCtx.fillRect(bx, by, bw, bh);
-		fitCtx.fillStyle = '#1f1a14';
-		fitCtx.font = '600 10px "Inter Tight",sans-serif';
-		fitCtx.textAlign = 'center';
-		fitCtx.letterSpacing = '0.2em';
-		fitCtx.fillText('NOW PICK A JACKET ABOVE', W/2, H/2 + 4);
-		document.getElementById('fit-download').style.display = 'none';
-	}
+function showFitState(state) {
+	document.getElementById('fit-placeholder').hidden    = (state !== 'placeholder');
+	document.getElementById('fit-photo-preview').hidden  = (state !== 'photo');
+	document.getElementById('fit-result-img').hidden     = (state !== 'result');
+	document.getElementById('fit-loading').hidden        = (state !== 'loading');
+	document.getElementById('fit-error').hidden          = (state !== 'error');
 }
 
-function drawCover(ctx, img, x, y, w, h) {
-	var ia = img.naturalWidth / img.naturalHeight, ba = w / h;
-	var sw, sh, sx, sy;
-	if (ia > ba) { sh = h; sw = h * ia; sx = -(sw - w) / 2; sy = 0; }
-	else { sw = w; sh = w / ia; sx = 0; sy = -(sh - h) / 2; }
-	ctx.save();
-	ctx.beginPath(); ctx.rect(x, y, w, h); ctx.clip();
-	ctx.drawImage(img, x + sx, y + sy, sw, sh);
-	ctx.restore();
+function showFitError(msg) {
+	document.getElementById('fit-error-msg').textContent = msg;
+	showFitState('error');
 }
 
-function drawLabel(ctx, text, x, y) {
-	ctx.save();
-	ctx.font = '500 9px "Inter Tight",sans-serif';
-	ctx.fillStyle = 'rgba(31,26,20,0.65)'; ctx.textAlign = 'left';
-	ctx.letterSpacing = '0.14em';
-	ctx.fillText(text.toUpperCase(), x, y);
-	ctx.restore();
+function startFitLoadingMsgs() {
+	var i = 0;
+	var msg = document.getElementById('fit-loading-msg');
+	msg.textContent = FIT_LOAD_MSGS[0];
+	fitLoadTimer = setInterval(function() {
+		i = (i + 1) % FIT_LOAD_MSGS.length;
+		msg.style.opacity = '0';
+		setTimeout(function() {
+			msg.textContent = FIT_LOAD_MSGS[i];
+			msg.style.opacity = '1';
+		}, 220);
+	}, 2500);
+}
+
+function stopFitLoadingMsgs() {
+	if (fitLoadTimer) { clearInterval(fitLoadTimer); fitLoadTimer = null; }
 }
 
 function barklyDownload() {
-	var link = document.createElement('a');
-	link.download = 'my-barkly-moment.jpg';
-	link.href = fitCanvas.toDataURL('image/jpeg', 0.92);
-	link.click();
+	if (!fitResultUrl) return;
+	var a = document.createElement('a');
+	a.href = fitResultUrl;
+	a.download = 'my-dog-in-' + (fitJacketSlug || 'barkly') + '.jpg';
+	a.click();
 }
 </script>
 
