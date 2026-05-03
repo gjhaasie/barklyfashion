@@ -8,7 +8,7 @@
 	<?php echo isset($sitemapUrls) ? (generateCanonicalUrl($sitemapUrls)."\n") : ""; ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "Barkly is a small studio making heirloom apparel for dogs of every shape — patterned on real dogs, made in lots of forty.", ENT_QUOTES, 'UTF-8'); ?>" />
-	<meta name="keywords" content="<?php echo htmlspecialchars((isset($seoKeywords) && $seoKeywords !== "") ? $seoKeywords : "Barkly story,handmade dog apparel,heritage textiles,small batch dog clothing,Bay Area dog studio,dog coat patterns", ENT_QUOTES, 'UTF-8'); ?>" />
+	<meta name="keywords" content="<?php echo htmlspecialchars((isset($seoKeywords) && $seoKeywords !== "") ? $seoKeywords : "Barkly story,handmade dog apparel,heritage textiles,artisan dog jackets,elegant pet clothing,South Asian pet brand", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta property="og:site_name" content="Barkly Fashion">
 	<meta property="og:title" content="<?php echo htmlspecialchars((isset($seoTitle) && $seoTitle !== "") ? $seoTitle : "About — Barkly Fashion", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta property="og:description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "A house built around one small dog. Heritage textiles, real fittings, and answering the phone ourselves.", ENT_QUOTES, 'UTF-8'); ?>" />
@@ -51,9 +51,7 @@
 <section class="about-hero">
 	<span class="eyebrow">Our story</span>
 	<h1 class="h-display">A house built<br/>around <span class="it">one</span> small dog.</h1>
-	<p class="lede">Barkly began the day we couldn't find a coat that fit.
-		What started as a single hand-stitched jacket has become a small
-		studio in the Bay Area making heirloom apparel for dogs of every shape.</p>
+	<p class="lede">Barkly began the day we couldn't find a coat that fit. Now we make sophisticated apparel rooted in South Asian craft — elegance that feels as good as it looks.</p>
 </section>
 
 <div class="about-banner">
@@ -68,7 +66,7 @@
 	<div>
 		<span class="eyebrow muted">What we believe</span>
 		<h2 class="h-section" style="margin-top:18px;">Four <span class="it">principles</span> we won't compromise.</h2>
-		<p class="lede" style="margin-top:18px;">A small studio means small batches, real fittings, and answering the phone ourselves.</p>
+		<p class="lede" style="margin-top:18px;">Small batches. Real fittings. We pick up the phone.</p>
 	</div>
 	<div class="values-list">
 		<div class="value">
@@ -89,7 +87,7 @@
 			<span class="num">03</span>
 			<div>
 				<h3>Made in lots of forty</h3>
-				<p>We sew in small batches in our Bay Area atelier. When a piece sells out, it sells out — until the next lot is cut.</p>
+				<p>Each jacket is crafted by artisan makers in South Asia. When a piece sells out it stays sold out — until the next lot is ready.</p>
 			</div>
 		</div>
 		<div class="value">
@@ -107,7 +105,7 @@
 		<div>
 			<span class="eyebrow" style="color:var(--terracotta);">From bolt to belly strap</span>
 			<h2 class="h-section" style="margin-top:18px;">How a Barkly coat <span class="it">actually</span> gets made.</h2>
-			<p class="lede" style="margin-top:18px;">A single jacket passes through eight hands and roughly four hours of work between the bolt of cloth and the box on your doorstep. We document every step.</p>
+			<p class="lede" style="margin-top:18px;">Eight hands. Four hours. From bolt to box on your doorstep.</p>
 			<div class="specs">
 				<div class="spec">
 					<div class="k">Sketch</div>
@@ -144,21 +142,19 @@
 <section class="story" style="margin-top:0;">
 	<div class="story-inner">
 		<div class="story-img">
-			<img src="gallery/midnight-floral-hoodie.jpeg" alt="Maltese in floral hoodie at the studio" />
+			<img src="gallery/barkly-box.jpeg" alt="Barkly Fashion premium packaging box" />
 		</div>
 		<div class="story-copy">
 			<span class="eyebrow">A note from the studio</span>
 			<h2 class="h-section">"It started <span class="it">because</span> nothing fit."</h2>
 			<p class="lede">
-				Our first dog, a six-pound Maltese, swam in the smallest jacket
-				we could find at any pet store. So we sewed one. Then a friend asked
-				for one. Then a friend of a friend. Five years later we run a studio
-				of four, sew in batches of forty, and still pattern every new piece
-				on the same six-pound dog who started it all.
+				Our first dog swam in the smallest jacket we could find. So we made one.
+				Then a friend asked for one. Five years later we still pattern every piece
+				on the same dog who started it all.
 			</p>
 			<div class="pull">"We don't dress dogs up. We dress them well."</div>
 			<p style="font-family:var(--display); font-style:italic; font-size:18px; color:var(--ink-soft); margin-top:16px;">
-				— The Barkly studio, Bay Area
+				— Barkly Fashion · pawsitively elegant, designed for the world
 			</p>
 		</div>
 	</div>

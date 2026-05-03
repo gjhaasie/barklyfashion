@@ -32,7 +32,7 @@
 	</div>
 	<div class="footer-bottom">
 		<span>&copy; <?php echo date('Y'); ?> Barkly Fashion</span>
-		<span>Bay Area · Online everywhere</span>
+		<span>Barkly &mdash; Pawsitively Elegant Attire</span>
 	</div>
 </footer>
 
@@ -51,10 +51,10 @@
 				if (!email) return;
 				var btn = form.querySelector('button');
 				if (btn) btn.disabled = true;
-				fetch('https://formsubmit.co/ajax/amir.akp1@gmail.com', {
+				fetch('https://formsubmit.co/ajax/barklyfashion@gmail.com', {
 					method: 'POST',
 					headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-					body: JSON.stringify({ email: email, _subject: 'Barkly newsletter signup' })
+					body: JSON.stringify({ email: email, _subject: 'Newsletter signup' })
 				}).then(function () { /* swallow — show thanks regardless */ })
 				  .catch(function () {})
 				  .then(function () {

@@ -295,14 +295,15 @@
 
 			if (typeof fetch !== 'function') { done(); return; }
 
-			fetch('https://formsubmit.co/ajax/amir.akp1@gmail.com', {
+			fetch('https://formsubmit.co/ajax/barklyfashion@gmail.com', {
 				method: 'POST',
 				headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
 				body: JSON.stringify({
-					email: email,
-					product_name: name,
+					customer_email: email,
+					product_interested_in: name,
 					product_slug: slug,
-					_subject: 'Barkly notify-me: ' + name
+					_subject: 'Notify me — ' + name,
+					_replyto: email
 				})
 			}).then(function () { done(); })
 			  .catch(function () {

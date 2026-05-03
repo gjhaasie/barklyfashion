@@ -54,9 +54,8 @@
 		<span class="eyebrow">The 2026 Collection</span>
 		<h1 class="h-display">Heirloom apparel<br/>for the <span class="it">well-dressed</span> dog.</h1>
 		<p class="lede" style="margin-top:24px; max-width:46ch;">
-			Small-batch coats, sweaters and hoodies cut from brocade,
-			fairisle and floral cottons. Designed in the Bay Area,
-			tailored to keep your companion warm, dry, and unmistakably stylish.
+			Sophisticated jackets rooted in South Asian craft.
+			Elegant enough for every occasion. Comfortable enough for every day.
 		</p>
 		<div class="hero-cta">
 			<a class="btn" href="Shop/">Shop the collection <span class="arrow">&rarr;</span></a>
@@ -168,7 +167,7 @@
 				<li>Patterned and graded XS through L on real dogs of every shape</li>
 				<li>Quilted cotton lining, brushed for warmth, soft on the coat</li>
 				<li>Adjustable belly straps; no Velcro, no plastic snaps</li>
-				<li>Made in lots of forty in our Bay Area atelier</li>
+				<li>Each piece crafted by South Asian artisans in lots of forty</li>
 			</ul>
 			<div style="margin-top:16px;">
 				<a class="btn ghost" href="About-us/">Read our story <span class="arrow">&rarr;</span></a>
@@ -189,7 +188,7 @@
 		</div>
 		<div class="lookbook-img">
 			<img src="gallery/midnight-floral-hoodie.jpeg" alt="Maltese in floral hoodie indoors" />
-			<div class="label">Atelier, Bay Area</div>
+			<div class="label">Artisan · South Asia</div>
 		</div>
 		<div class="lookbook-img">
 			<img src="gallery/IMG_9072.jpg" alt="Goldendoodle in lace-trimmed coat" />
