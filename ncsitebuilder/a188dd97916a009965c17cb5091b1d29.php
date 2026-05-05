@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260503h" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260504a" type="text/css" />
 	<link rel="preload" as="image" href="gallery/scarlet-brocade-coat.jpeg" fetchpriority="high">
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -163,7 +163,7 @@
 				We use brocades, fairisles, and floral cottons sourced from heritage mills —
 				textiles you'd find in a tailor's archive, scaled to fit a four-legged frame.
 			</p>
-			<div class="pull">"A coat your dog could pass down."</div>
+			<div class="pull">"High-quality craft, finished by hand."</div>
 			<ul>
 				<li>Patterned and graded XS through L on real dogs of every shape</li>
 				<li>Quilted cotton lining, brushed for warmth, soft on the coat</li>

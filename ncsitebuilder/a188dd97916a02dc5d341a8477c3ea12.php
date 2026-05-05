@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260503h" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260504a" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -94,8 +94,8 @@
 		<div class="value">
 			<span class="num">04</span>
 			<div>
-				<h3>Repair, don't replace</h3>
-				<p>Send a worn-out Barkly back and we'll re-line, re-stitch and return it. A coat your dog could pass down.</p>
+				<h3>Hand-finished, quality first</h3>
+				<p>Each Barkly piece is hand-stitched, lined, and pressed by the same small studio that drew the originals. Quality you can feel the first time you handle it.</p>
 			</div>
 		</div>
 	</div>

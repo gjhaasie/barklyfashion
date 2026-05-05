@@ -17,7 +17,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260503h" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260504a" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -156,23 +156,14 @@
 
 	</div>
 
-	<!-- Product recommendations (hidden until submitted) -->
-	<div id="sf-products" hidden style="margin-top:48px;">
-		<h3 class="sf-products-title">Picks for <span id="sf-name-out">your dog</span>.</h3>
-		<div class="prod-recs" id="sf-product-grid"></div>
-		<div style="margin-top:28px;">
-			<a class="btn ghost" href="Shop/">See full collection <span class="arrow">&rarr;</span></a>
+	<!-- Size chart sits right under the form so XS/S/M/L are explained
+	     before the buyer submits. -->
+	<div class="size-chart-inline">
+		<div class="size-chart-head">
+			<span class="eyebrow" style="color:var(--olive);">Size guide</span>
+			<p class="size-chart-sub">Measure around the widest part of the chest, just behind the front legs.</p>
 		</div>
-	</div>
-</div>
-
-<!-- ── SIZE CHART ──────────────────────────────────────────── -->
-<div class="size-chart-wrap" style="padding-top:80px;">
-	<div class="section-head" style="margin-bottom:36px;">
-		<h2 class="h-section">The <span class="it">size guide.</span></h2>
-		<p class="lede">Measure around the widest part of the chest, just behind the front legs.</p>
-	</div>
-	<table class="size-table" aria-label="Barkly size guide">
+		<table class="size-table" aria-label="Barkly size guide">
 		<thead>
 			<tr>
 				<th>Size</th>
@@ -212,8 +203,18 @@
 				<td>Australian Shepherd, Labrador, Golden, Boxer</td>
 			</tr>
 		</tbody>
-	</table>
-	<p style="font-size:13px; color:var(--ink-soft); margin-top:18px;">Between sizes? Size up. A Barkly coat should sit snug at the neck and have 1–2 fingers of clearance at the chest.</p>
+		</table>
+		<p style="font-size:13px; color:var(--ink-soft); margin-top:14px;">Between sizes? Size up. A Barkly coat should sit snug at the neck and have 1–2 fingers of clearance at the chest.</p>
+	</div>
+
+	<!-- Product recommendations (hidden until submitted) -->
+	<div id="sf-products" hidden style="margin-top:56px;">
+		<h3 class="sf-products-title">Picks for <span id="sf-name-out">your dog</span>.</h3>
+		<div class="prod-recs" id="sf-product-grid"></div>
+		<div style="margin-top:28px;">
+			<a class="btn ghost" href="Shop/">See full collection <span class="arrow">&rarr;</span></a>
+		</div>
+	</div>
 </div>
 
 <?php include dirname(__FILE__).'/_redesign_footer.php'; ?>

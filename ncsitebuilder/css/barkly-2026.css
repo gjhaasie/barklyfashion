@@ -994,7 +994,28 @@ button { font: inherit; cursor: pointer; }
 }
 .prod-rec-size { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--olive); }
 
-/* SIZE CHART */
+/* SIZE CHART — inline (sits directly under the size finder form so XS/S/M/L
+ * are explained where the buyer is reading them, not 600px below). */
+.size-chart-inline {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+}
+.size-chart-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.size-chart-sub {
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* Legacy standalone wrapper kept for any other page that uses it */
 .size-chart-wrap {
   max-width: var(--maxw);
   margin: 0 auto;
@@ -1168,34 +1189,41 @@ button { font: inherit; cursor: pointer; }
   line-height: 1.3;
 }
 
-/* Result caption (AI rationale, breed) */
+/* Result caption (AI rationale, breed) — strong gradient + text shadow so it
+ * stays legible over any AI-generated image, light or dark. */
 .fit-result-caption {
   position: absolute;
   left: 0; right: 0; bottom: 0;
-  padding: 14px 16px;
-  background: linear-gradient(to top, rgba(31,26,20,0.92), rgba(31,26,20,0.0));
-  color: var(--cream);
-  font-size: 13px;
-  line-height: 1.45;
+  padding: 22px 18px 16px;
+  background: linear-gradient(to top, rgba(20,16,12,0.96) 0%, rgba(20,16,12,0.85) 55%, rgba(20,16,12,0.0) 100%);
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.5;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  font-weight: 500;
 }
 .fit-result-caption .ai-tag {
   display: inline-block;
   background: var(--scarlet);
-  color: var(--cream);
-  font-size: 9px;
-  letter-spacing: 0.18em;
+  color: #fff;
+  font-size: 10px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  font-weight: 600;
-  padding: 2px 6px;
-  margin-right: 6px;
+  font-weight: 700;
+  padding: 3px 8px;
+  margin-right: 8px;
   vertical-align: 2px;
+  text-shadow: none;
 }
 .fit-result-caption .reason {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 13px;
-  color: rgba(244,234,215,0.85);
+  font-size: 14px;
+  color: #fff;
+  display: block;
+  margin-top: 4px;
 }
+.fit-result-caption strong { color: #fff; font-weight: 700; }
 
 /* Highlight the targeted product card when arriving from Try-On deep link */
 .product:target {
