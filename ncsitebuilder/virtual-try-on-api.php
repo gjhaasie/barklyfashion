@@ -88,60 +88,86 @@ $jackets = [
     ],
 ];
 
-/* AUTO-PICK: if jacket=="auto", ask Gemini Vision which jacket suits this dog */
+/* GEMINI VISION: dog-photo guard + auto-pick (when jacket="auto").
+ * Runs on every upload if GEMINI_KEY is set — saves Stability credits
+ * by rejecting non-dog photos before the inpaint call. */
 $autoPicked   = false;
 $autoBreed    = null;
 $autoReason   = null;
 
-if ($jacket === 'auto') {
-    $geminiKey = defined('GEMINI_KEY') ? GEMINI_KEY : '';
-    if ($geminiKey === '' || strpos($geminiKey, 'REPLACE') !== false) {
-        $jacket = 'scarlet-brocade';
-        $autoPicked = true;
-        $autoReason = 'Default style (Gemini key not configured).';
-    } else {
-        $b64 = base64_encode(file_get_contents($img['tmp_name']));
-        $sysPrompt =
-            "You are the Barkly Fashion AI stylist. Pick exactly one jacket for this dog from:\n" .
-            "- santa-fe : bold block-print cotton, terracotta + indigo, casual chic. Suits playful, scruffy, or active dogs.\n" .
-            "- scarlet-brocade : crimson brocade with damask weave, formal & elegant. Suits poised, fluffy, or refined dogs.\n" .
-            "- midnight-floral : navy blue floral hoodie, relaxed everyday. Suits friendly, casual dogs of any size.\n" .
-            "- nordic-fairisle : cream wool fairisle knit, cozy. Suits stocky or fluffy cold-weather dogs.\n" .
-            "- lunar-cheongsam : red + gold festive cheongsam. Suits striking, ceremonial-looking dogs.\n" .
-            "Respond ONLY with valid JSON: {\"slug\":\"...\",\"breed\":\"best breed guess\",\"reason\":\"one short sentence\"}.";
-        $body = [
-            'contents' => [[ 'parts' => [
-                ['text' => $sysPrompt],
-                ['inline_data' => ['mime_type' => $mime, 'data' => $b64]],
-            ] ]],
-            'generationConfig' => [
-                'temperature'      => 0.4,
-                /* Gemini 2.5 Flash uses hidden "thinking" tokens that count against
-                 * the budget — give it room or the visible response gets clipped. */
-                'maxOutputTokens'  => 1200,
-                'responseMimeType' => 'application/json',
-            ],
-        ];
-        $gch = curl_init('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=' . $geminiKey);
-        curl_setopt_array($gch, [
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_POST           => true,
-            CURLOPT_TIMEOUT        => 20,
-            CURLOPT_HTTPHEADER     => ['Content-Type: application/json'],
-            CURLOPT_POSTFIELDS     => json_encode($body),
-        ]);
-        $graw  = curl_exec($gch);
-        $gcode = curl_getinfo($gch, CURLINFO_HTTP_CODE);
-        $gresp = ($gcode === 200) ? @json_decode($graw, true) : null;
-        $gtext = isset($gresp['candidates'][0]['content']['parts'][0]['text']) ? $gresp['candidates'][0]['content']['parts'][0]['text'] : '';
-        $gtext = preg_replace('/^```json\s*|\s*```$/i', '', trim($gtext));
-        $gpick = @json_decode($gtext, true);
-        $picked = isset($gpick['slug']) ? trim(strtolower($gpick['slug'])) : '';
+$geminiKey = defined('GEMINI_KEY') ? GEMINI_KEY : '';
+$useGemini = ($geminiKey !== '' && strpos($geminiKey, 'REPLACE') === false);
+
+if ($useGemini) {
+    $b64 = base64_encode(file_get_contents($img['tmp_name']));
+    $sysPrompt =
+        "You are the Barkly Fashion AI stylist. Look at the uploaded photo.\n\n" .
+        "FIRST: decide if the photo's main subject is a dog (any breed, any pose, with or without clothing). " .
+        "Cats, humans, other animals, screenshots, drawings, empty rooms etc. all count as NOT a dog.\n\n" .
+        "If NOT a dog, respond ONLY with:\n" .
+        "{\"is_dog\": false, \"not_dog_message\": \"one short polite sentence describing what you see and asking the user to upload a clear dog photo\"}\n\n" .
+        "If YES a dog, ALSO pick exactly one jacket from:\n" .
+        "- santa-fe : bold block-print cotton, terracotta + indigo, casual chic. Suits playful, scruffy, or active dogs.\n" .
+        "- scarlet-brocade : crimson brocade with damask weave, formal & elegant. Suits poised, fluffy, or refined dogs.\n" .
+        "- midnight-floral : navy blue floral hoodie, relaxed everyday. Suits friendly, casual dogs of any size.\n" .
+        "- nordic-fairisle : cream wool fairisle knit, cozy. Suits stocky or fluffy cold-weather dogs.\n" .
+        "- lunar-cheongsam : red + gold festive cheongsam. Suits striking, ceremonial-looking dogs.\n\n" .
+        "Then respond ONLY with:\n" .
+        "{\"is_dog\": true, \"slug\": \"...\", \"breed\": \"best breed guess\", \"reason\": \"one short sentence\"}";
+    $body = [
+        'contents' => [[ 'parts' => [
+            ['text' => $sysPrompt],
+            ['inline_data' => ['mime_type' => $mime, 'data' => $b64]],
+        ] ]],
+        'generationConfig' => [
+            'temperature'      => 0.3,
+            /* Gemini 2.5 Flash uses hidden "thinking" tokens that count against
+             * the budget — give it room or the visible response gets clipped. */
+            'maxOutputTokens'  => 1200,
+            'responseMimeType' => 'application/json',
+        ],
+    ];
+    $gch = curl_init('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=' . $geminiKey);
+    curl_setopt_array($gch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_POST           => true,
+        CURLOPT_TIMEOUT        => 20,
+        CURLOPT_HTTPHEADER     => ['Content-Type: application/json'],
+        CURLOPT_POSTFIELDS     => json_encode($body),
+    ]);
+    $graw  = curl_exec($gch);
+    $gcode = curl_getinfo($gch, CURLINFO_HTTP_CODE);
+    $gresp = ($gcode === 200) ? @json_decode($graw, true) : null;
+    $gtext = isset($gresp['candidates'][0]['content']['parts'][0]['text']) ? $gresp['candidates'][0]['content']['parts'][0]['text'] : '';
+    $gtext = preg_replace('/^```json\s*|\s*```$/i', '', trim($gtext));
+    $gpick = @json_decode($gtext, true);
+
+    /* Dog-photo guard: if Gemini says no dog, refuse politely. */
+    if (is_array($gpick) && isset($gpick['is_dog']) && $gpick['is_dog'] === false) {
+        $msg = !empty($gpick['not_dog_message'])
+            ? $gpick['not_dog_message']
+            : 'That doesn\'t look like a dog photo — please upload a clear photo of your dog.';
+        http_response_code(400);
+        echo json_encode(['error' => $msg, 'not_a_dog' => true]);
+        exit;
+    }
+
+    /* For auto mode, take Gemini's slug pick. For specific-jacket mode,
+     * keep the user's choice and just record breed/reason for display. */
+    $picked = isset($gpick['slug']) ? trim(strtolower($gpick['slug'])) : '';
+    if ($jacket === 'auto') {
         $jacket = isset($jackets[$picked]) ? $picked : 'scarlet-brocade';
         $autoPicked = true;
-        $autoBreed  = isset($gpick['breed'])  ? $gpick['breed']  : null;
-        $autoReason = isset($gpick['reason']) ? $gpick['reason'] : 'A confident, classic choice.';
     }
+    $autoBreed  = isset($gpick['breed'])  ? $gpick['breed']  : null;
+    $autoReason = isset($gpick['reason']) ? $gpick['reason'] : null;
+}
+
+/* If Gemini wasn't available and jacket is still "auto", default to scarlet-brocade */
+if ($jacket === 'auto') {
+    $jacket = 'scarlet-brocade';
+    $autoPicked = true;
+    $autoReason = 'Default style (Gemini key not configured).';
 }
 
 if (!isset($jackets[$jacket])) { http_response_code(400); echo json_encode(['error' => 'Unknown jacket.']); exit; }
