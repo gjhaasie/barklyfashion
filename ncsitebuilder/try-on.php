@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507e" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507f" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -71,7 +71,7 @@
 				<a class="btn" id="fit-shop-cta" href="Shop/" style="display:none; background:var(--terracotta); border-color:var(--terracotta);">Shop the <span id="fit-shop-cta-name">style</span> <span class="arrow">&rarr;</span></a>
 				<button class="btn ghost" id="fit-download" onclick="barklyDownload()" style="display:none; border-color:var(--cream); color:var(--cream);">Download <span class="arrow" style="transform:rotate(90deg);">&#8594;</span></button>
 			</div>
-			<p class="lede" style="font-size:13px; margin-top:8px; color:rgba(244,234,215,0.5);">Let AI pick the right piece for your dog &mdash; or choose one yourself.</p>
+			<p class="lede" style="font-size:15px; margin-top:10px; color:rgba(244,234,215,0.85);">Let AI pick the right piece for your dog &mdash; or choose one yourself.</p>
 			<div class="fit-swatches" id="fit-swatches">
 				<button class="fit-swatch fit-swatch-auto" data-slug="auto" onclick="barklyTryOn('auto',this)" title="AI picks for your dog">
 					<span class="fit-swatch-auto-label"><span style="font-size:18px;">&#10024;</span><br/>AI picks</span>

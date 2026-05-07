@@ -1153,12 +1153,19 @@ button { font: inherit; cursor: pointer; }
   justify-content: center;
   gap: 12px;
   pointer-events: none;
-  color: rgba(244,234,215,0.45);
+  /* The fit-stage now uses a dark background so the head doesn't get
+   * cropped — bump placeholder contrast accordingly. */
+  color: rgba(244,234,215,0.85);
   font-family: var(--serif);
   font-style: italic;
   font-size: 17px;
   text-align: center;
   line-height: 1.5;
+}
+.fitting-placeholder > span:first-child {
+  /* camera glyph */
+  opacity: 0.7 !important;
+  color: var(--terracotta);
 }
 .fitting-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
