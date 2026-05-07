@@ -17,7 +17,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507a" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507b" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -29,9 +29,7 @@
 <body data-screen="tryon">
 
 <div class="announce">
-	<span>Pawsitively elegant, designed for the world</span>
-	<em>·</em>
-	<span>New: The Lunar New Year capsule</span>
+	<span>Pawsitively elegant — designed for the world</span>
 </div>
 
 <header class="site-header">

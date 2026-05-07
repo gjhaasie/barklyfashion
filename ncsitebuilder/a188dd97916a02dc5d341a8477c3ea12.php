@@ -7,8 +7,8 @@
 	<base href="{{base_url}}" />
 	<?php echo isset($sitemapUrls) ? (generateCanonicalUrl($sitemapUrls)."\n") : ""; ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "Barkly is a small studio making heirloom apparel for dogs of every shape — patterned on real dogs, made in lots of forty.", ENT_QUOTES, 'UTF-8'); ?>" />
-	<meta name="keywords" content="<?php echo htmlspecialchars((isset($seoKeywords) && $seoKeywords !== "") ? $seoKeywords : "Barkly story,handmade dog apparel,heritage textiles,artisan dog jackets,elegant pet clothing,South Asian pet brand", ENT_QUOTES, 'UTF-8'); ?>" />
+	<meta name="description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "Barkly is a small studio making heirloom apparel for dogs of every shape — patterned on real dogs, made in small batches across Rajasthan.", ENT_QUOTES, 'UTF-8'); ?>" />
+	<meta name="keywords" content="<?php echo htmlspecialchars((isset($seoKeywords) && $seoKeywords !== "") ? $seoKeywords : "Barkly story,handmade dog apparel,heritage textiles,artisan dog jackets,elegant pet clothing,Rajasthani pet brand,Jaipur block print dog coat,Indian artisan pet apparel", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta property="og:site_name" content="Barkly Fashion">
 	<meta property="og:title" content="<?php echo htmlspecialchars((isset($seoTitle) && $seoTitle !== "") ? $seoTitle : "About — Barkly Fashion", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta property="og:description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "A house built around one small dog. Heritage textiles, real fittings, and answering the phone ourselves.", ENT_QUOTES, 'UTF-8'); ?>" />
@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507a" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507b" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -30,9 +30,7 @@
 <body data-screen="about">
 
 <div class="announce">
-	<span>Pawsitively elegant, designed for the world</span>
-	<em>·</em>
-	<span>New: The Lunar New Year capsule</span>
+	<span>Pawsitively elegant — designed for the world</span>
 </div>
 
 <header class="site-header">
@@ -52,7 +50,7 @@
 <section class="about-hero">
 	<span class="eyebrow">Our story</span>
 	<h1 class="h-display">A house built<br/>around <span class="it">one</span> small dog.</h1>
-	<p class="lede">Barkly began the day we couldn't find a coat that fit. Now we make sophisticated apparel rooted in South Asian craft — elegance that feels as good as it looks.</p>
+	<p class="lede">Barkly began the day we couldn't find a coat that fit. Now we make sophisticated apparel rooted in Rajasthani craft — elegance that feels as good as it looks.</p>
 </section>
 
 <div class="about-banner">
@@ -74,7 +72,7 @@
 			<span class="num">01</span>
 			<div>
 				<h3>Heritage textiles, never plastic</h3>
-				<p>Brocades from third-generation mills. Fairisle knits from Northern Yorkshire. Floral cottons block-printed by hand. Nothing on a Barkly coat began life as a plastic bottle.</p>
+				<p>Hand block-printed cottons from the wood-block ateliers of Jaipur and Bagru. Brocades and silks woven near Udaipur. Bandhani tie-dye knotted by hand in Jodhpur. Every textile on a Barkly coat carries the hand of the artisan who made it — never a plastic bottle.</p>
 			</div>
 		</div>
 		<div class="value">
@@ -87,8 +85,8 @@
 		<div class="value">
 			<span class="num">03</span>
 			<div>
-				<h3>Made in lots of forty</h3>
-				<p>Each jacket is crafted by artisan makers in South Asia. When a piece sells out it stays sold out — until the next lot is ready.</p>
+				<h3>Made in small batches</h3>
+				<p>Each jacket is crafted by artisan ateliers across Rajasthan. When a piece sells out it stays sold out — until the next batch is ready.</p>
 			</div>
 		</div>
 		<div class="value">
@@ -150,13 +148,10 @@
 			<h2 class="h-section">"It started <span class="it">because</span> nothing fit."</h2>
 			<p class="lede">
 				Our first dog swam in the smallest jacket we could find. So we made one.
-				Then a friend asked for one. Five years later we still pattern every piece
+				Then a friend asked for one. Today we still pattern every piece
 				on the same dog who started it all.
 			</p>
 			<div class="pull">"We don't dress dogs up. We dress them well."</div>
-			<p style="font-family:var(--display); font-style:italic; font-size:18px; color:var(--ink-soft); margin-top:16px;">
-				— Barkly Fashion · pawsitively elegant, designed for the world
-			</p>
 		</div>
 	</div>
 </section>

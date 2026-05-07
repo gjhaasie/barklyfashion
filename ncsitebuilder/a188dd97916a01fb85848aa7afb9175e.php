@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507a" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507b" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -30,9 +30,7 @@
 <body data-screen="shop">
 
 <div class="announce">
-	<span>Pawsitively elegant, designed for the world</span>
-	<em>·</em>
-	<span>Lot 04 of the Scarlet Brocade now in production</span>
+	<span>Pawsitively elegant — designed for the world</span>
 </div>
 
 <header class="site-header">
@@ -55,7 +53,7 @@
 		<h1 class="h-display" style="margin-top:18px;">Eight pieces.<br/><span class="it">No filler.</span></h1>
 	</div>
 	<p class="lede">A tight collection cut from heritage textiles.
-		Hand-patterned, made in lots of forty, fitted to dogs from six pounds to sixty.
+		Hand-patterned, made in small batches, fitted to dogs from six pounds to sixty.
 		<strong style="display:block; margin-top:12px; font-weight:500; color:var(--ink);">Each piece is crafted in small lots — leave your email and we'll write the moment it's ready to wear.</strong></p>
 </section>
 
@@ -189,7 +187,7 @@
 <section class="section" style="padding-top:96px;">
 	<div class="section-head">
 		<h2 class="h-section">As <span class="it">worn</span> by.</h2>
-		<p class="lede">Real dogs, real walks. Tag #wearbarkly to be featured.</p>
+		<p class="lede">Real dogs, real walks. Tag #barklyfashion to be featured.</p>
 	</div>
 	<div class="lookbook">
 		<div class="lookbook-img">

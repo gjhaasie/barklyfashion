@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507a" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507b" type="text/css" />
 	<link rel="preload" as="image" href="gallery/scarlet-brocade-coat.jpeg" fetchpriority="high">
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -31,9 +31,7 @@
 <body data-screen="home">
 
 <div class="announce">
-	<span>Pawsitively elegant, designed for the world</span>
-	<em>·</em>
-	<span>New: The Lunar New Year capsule</span>
+	<span>Pawsitively elegant — designed for the world</span>
 </div>
 
 <header class="site-header">
@@ -55,7 +53,7 @@
 		<span class="eyebrow">The 2026 Collection</span>
 		<h1 class="h-display">Heirloom apparel<br/>for the <span class="it">well-dressed</span> dog.</h1>
 		<p class="lede" style="margin-top:24px; max-width:46ch;">
-			Sophisticated jackets rooted in South Asian craft.
+			Sophisticated jackets rooted in Rajasthani craft.
 			Elegant enough for every occasion. Comfortable enough for every day.
 		</p>
 		<div class="hero-cta">
@@ -158,7 +156,7 @@
 			<span class="eyebrow">The Barkly way</span>
 			<h2 class="h-section">Made the <span class="it">slow</span> way.</h2>
 			<p class="lede">
-				Every piece is patterned on a real dog, made in batches of forty,
+				Every piece is patterned on a real dog, made in small batches,
 				and finished by the same small studio that sketches the originals.
 				We use brocades, fairisles, and floral cottons sourced from heritage mills —
 				textiles you'd find in a tailor's archive, scaled to fit a four-legged frame.
@@ -168,7 +166,7 @@
 				<li>Patterned and graded XS through L on real dogs of every shape</li>
 				<li>Quilted cotton lining, brushed for warmth, soft on the coat</li>
 				<li>Adjustable belly straps; no Velcro, no plastic snaps</li>
-				<li>Each piece crafted by South Asian artisans in lots of forty</li>
+				<li>Each piece crafted by Rajasthani artisans in small batches</li>
 			</ul>
 			<div style="margin-top:16px;">
 				<a class="btn ghost" href="About-us/">Read our story <span class="arrow">&rarr;</span></a>
@@ -189,7 +187,7 @@
 		</div>
 		<div class="lookbook-img">
 			<img src="gallery/midnight-floral-hoodie.jpeg" alt="Maltese in floral hoodie indoors" />
-			<div class="label">Artisan · South Asia</div>
+			<div class="label">Artisan · Rajasthan</div>
 		</div>
 		<div class="lookbook-img">
 			<img src="gallery/IMG_9072.jpg" alt="Goldendoodle in lace-trimmed coat" />
