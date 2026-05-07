@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507k" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507l" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -88,8 +88,8 @@
 				<button class="fit-swatch" data-slug="nordic-fairisle" onclick="barklyTryOn('nordic-fairisle',this)" title="Kashmiri Knit Sweater">
 					<img src="gallery/nordic-fairisle-sweater.jpeg" alt="Kashmiri Knit Sweater" />
 				</button>
-				<button class="fit-swatch" data-slug="lunar-cheongsam" onclick="barklyTryOn('lunar-cheongsam',this)" title="Festival Brocade Jacket">
-					<img src="gallery/lunar-cheongsam.jpeg" alt="Festival Brocade Jacket" />
+				<button class="fit-swatch" data-slug="lunar-cheongsam" onclick="barklyTryOn('lunar-cheongsam',this)" title="Festival Jacket">
+					<img src="gallery/lunar-cheongsam.jpeg" alt="Festival Jacket" />
 				</button>
 			</div>
 		</div>
@@ -231,7 +231,7 @@ var SF_PRODUCTS = [
 	{ name:'Brocade Jacket', tag:'New',        img:'gallery/scarlet-brocade-coat.jpeg' },
 	{ name:'Midnight Floral Hoodie',tag:'Bestseller',img:'gallery/midnight-floral-hoodie.jpeg' },
 	{ name:'Kashmiri Knit Sweater',tag:'Knitwear',   img:'gallery/nordic-fairisle-sweater.jpeg' },
-	{ name:'Festival Brocade Jacket', tag:'Festival', img:'gallery/lunar-cheongsam.jpeg' }
+	{ name:'Festival Jacket', tag:'Festival', img:'gallery/lunar-cheongsam.jpeg' }
 ];
 
 function barklyFindSize() {

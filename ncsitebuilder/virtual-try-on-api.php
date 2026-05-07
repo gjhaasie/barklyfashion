@@ -160,7 +160,7 @@ $jackets = [
         'short'        => 'cream Nordic fairisle knit sweater',
     ],
     'lunar-cheongsam' => [
-        'name'         => 'Festival Brocade Jacket',
+        'name'         => 'Festival Jacket',
         'product_file' => 'lunar-cheongsam.jpeg',
         'short'        => 'red and gold cheongsam-style coat',
     ],

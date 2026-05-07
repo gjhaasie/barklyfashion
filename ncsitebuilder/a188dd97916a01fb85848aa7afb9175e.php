@@ -11,14 +11,14 @@
 	<meta name="keywords" content="<?php echo htmlspecialchars((isset($seoKeywords) && $seoKeywords !== "") ? $seoKeywords : "dog coats,dog jackets,dog sweaters,dog hoodies,festival dog jacket,brocade dog coat,Kashmiri knit dog sweater,small batch dog apparel,sustainable dog clothing,sustainable pet apparel,eco-friendly dog clothing,ethical dog fashion,AI virtual try-on for dogs,Barkly Fashion shop", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta property="og:site_name" content="Barkly Fashion">
 	<meta property="og:title" content="<?php echo htmlspecialchars((isset($seoTitle) && $seoTitle !== "") ? $seoTitle : "Shop — Barkly Fashion", ENT_QUOTES, 'UTF-8'); ?>" />
-	<meta property="og:description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "Eight pieces. No filler. The 2026 Collection from Barkly Fashion.", ENT_QUOTES, 'UTF-8'); ?>" />
+	<meta property="og:description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "Latest pieces from the 2026 Barkly Fashion collection.", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta property="og:image" content="<?php echo htmlspecialchars((isset($seoImage) && $seoImage !== "") ? "{{base_url}}".$seoImage : "{{base_url}}gallery/santa-fe-jacket.jpeg", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="{{curr_url}}" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507k" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507l" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
