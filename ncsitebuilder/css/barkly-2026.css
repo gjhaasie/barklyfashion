@@ -1131,13 +1131,19 @@ button { font: inherit; cursor: pointer; }
   position: relative;
   width: 100%;
   max-width: 560px;
-  aspect-ratio: 1/1;
-  background: var(--cream-soft);
+  /* portrait-friendly canvas — most phone dog photos are 3:4 / 4:5; this
+   * shape minimizes letterboxing for them while staying tall enough that
+   * landscape photos still get a sensible bottom area for the caption. */
+  aspect-ratio: 4/5;
+  background: var(--ink);
   overflow: hidden;
 }
 .fit-stage img.fit-stage-img {
   width: 100%; height: 100%;
-  object-fit: cover;
+  /* `contain` shows the FULL AI image — never crops the dog's head/feet.
+   * Letterbox bars (cream/dark) appear if the photo is a different
+   * aspect ratio than the canvas, but nothing important is hidden. */
+  object-fit: contain;
   display: block;
 }
 .fit-loading, .fit-error {
