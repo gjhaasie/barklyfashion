@@ -518,19 +518,6 @@ button { font: inherit; cursor: pointer; }
   display: block;
 }
 
-/* About-us story image: square boundary so the section is compact
- * and the image stays fully bounded — no overflow into the text
- * column or the section below it. Wordmark may crop on the sides;
- * that's intentional. */
-body[data-screen="about"] .story-img {
-  aspect-ratio: 1/1;
-  overflow: hidden;
-}
-body[data-screen="about"] .story-img img {
-  object-fit: cover;
-  object-position: center;
-}
-
 .story-copy {
   padding: 80px 64px;
   display: flex;

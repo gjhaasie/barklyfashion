@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507o" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507p" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -150,12 +150,6 @@
 				Our first dog swam in the smallest jacket we could find. So we made one.
 				Then a friend asked for one. Today we still pattern every piece
 				on the same dog who started it all.
-			</p>
-			<p class="lede" style="margin-top:14px;">
-				Each piece is made small-batch, by hand, in studios across Rajasthan —
-				block-printed, brocade-woven, knit and stitched with care. Heritage
-				textiles, modern fits, and a quiet promise: nothing leaves the studio
-				until it would fit our own dog first.
 			</p>
 			<div class="pull">"We don't dress dogs up. We dress them well."</div>
 		</div>
