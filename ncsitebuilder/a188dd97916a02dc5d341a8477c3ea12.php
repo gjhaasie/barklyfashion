@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507m" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507n" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -177,8 +177,8 @@
 			<div class="label">Udaipur Lace Jacket</div>
 		</div>
 		<div class="lookbook-img">
-			<img src="gallery/santa-fe-jacket.jpeg" alt="Jaipur Jacket" />
-			<div class="label">Jaipur Jacket</div>
+			<img src="gallery/santa-fe-jacket.jpeg" alt="Sikar Jacket" />
+			<div class="label">Sikar Jacket</div>
 		</div>
 	</div>
 </section>

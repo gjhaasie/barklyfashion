@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507m" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507n" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -76,8 +76,8 @@
 				<button class="fit-swatch fit-swatch-auto" data-slug="auto" onclick="barklyTryOn('auto',this)" title="AI picks for your dog">
 					<span class="fit-swatch-auto-label">AI picks</span>
 				</button>
-				<button class="fit-swatch" data-slug="santa-fe" onclick="barklyTryOn('santa-fe',this)" title="Jaipur Jacket">
-					<img src="gallery/santa-fe-jacket.jpeg" alt="Jaipur Jacket" />
+				<button class="fit-swatch" data-slug="santa-fe" onclick="barklyTryOn('santa-fe',this)" title="Sikar Jacket">
+					<img src="gallery/santa-fe-jacket.jpeg" alt="Sikar Jacket" />
 				</button>
 				<button class="fit-swatch" data-slug="scarlet-brocade" onclick="barklyTryOn('scarlet-brocade',this)" title="Brocade Jacket">
 					<img src="gallery/scarlet-brocade-coat.jpeg" alt="Brocade Jacket" />
@@ -227,7 +227,7 @@ var SF_SIZES = {
 	L:  { label:'L',  chest:'21 – 27 in', neck:'14 – 18 in', desc:'For the bigger beauties. Same craft, more coat.' }
 };
 var SF_PRODUCTS = [
-	{ name:'Jaipur Jacket',      tag:'Signature',  img:'gallery/santa-fe-jacket.jpeg' },
+	{ name:'Sikar Jacket',      tag:'Signature',  img:'gallery/santa-fe-jacket.jpeg' },
 	{ name:'Brocade Jacket', tag:'New',        img:'gallery/scarlet-brocade-coat.jpeg' },
 	{ name:'Midnight Floral Hoodie',tag:'Bestseller',img:'gallery/midnight-floral-hoodie.jpeg' },
 	{ name:'Kashmiri Knit Sweater',tag:'Knitwear',   img:'gallery/nordic-fairisle-sweater.jpeg' },

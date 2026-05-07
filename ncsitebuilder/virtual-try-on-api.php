@@ -140,7 +140,7 @@ $tmpPath = $resized; $tmpToCleanup = $resized; $mime = 'image/jpeg';
  * jacket is a Barkly piece, not a stock generation. */
 $jackets = [
     'santa-fe' => [
-        'name'         => 'Jaipur Jacket',
+        'name'         => 'Sikar Jacket',
         'product_file' => 'santa-fe-jacket.jpeg',
         'short'        => 'block-printed cotton coat in terracotta and indigo',
     ],
