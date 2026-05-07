@@ -81,7 +81,7 @@ var barklyChat = (function () {
 	var dogName, dogWeight, dogBreed;
 
 	var PRODUCTS = [
-		{ name:'Santa Fe Jacket',       tag:'Signature',  img:'gallery/santa-fe-jacket.jpeg' },
+		{ name:'Jaipur Jacket',       tag:'Signature',  img:'gallery/santa-fe-jacket.jpeg' },
 		{ name:'Brocade Jacket',        tag:'New',        img:'gallery/scarlet-brocade-coat.jpeg' },
 		{ name:'Midnight Floral Hoodie',tag:'Bestseller', img:'gallery/midnight-floral-hoodie.jpeg' },
 		{ name:'Kashmiri Knit Sweater', tag:'Knitwear',   img:'gallery/nordic-fairisle-sweater.jpeg' },

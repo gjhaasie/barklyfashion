@@ -17,8 +17,8 @@
 	<meta property="og:url" content="{{curr_url}}" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507l" type="text/css" />
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507m" type="text/css" />
 	<link rel="preload" as="image" href="gallery/scarlet-brocade-coat.jpeg" fetchpriority="high">
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -99,11 +99,11 @@
 
 	<div class="collection">
 		<a class="collection-card feature" href="Shop/">
-			<img src="gallery/santa-fe-jacket.jpeg" alt="Santa Fe Jacket" />
+			<img src="gallery/santa-fe-jacket.jpeg" alt="Jaipur Jacket" />
 			<div class="info">
 				<div>
 					<div class="tag">Signature</div>
-					<h3>The Santa Fe Jacket</h3>
+					<h3>Jaipur Jacket</h3>
 				</div>
 				<span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;">Block-printed cotton</span>
 			</div>
