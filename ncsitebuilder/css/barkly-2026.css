@@ -234,6 +234,37 @@ button { font: inherit; cursor: pointer; }
 .site-footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
 .site-footer ul a { color: rgba(244,234,215,0.85); font-size: 14px; }
 .site-footer ul a:hover { color: var(--terracotta); }
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+.footer-social-label {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--terracotta);
+  margin-right: 6px;
+}
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(244,234,215,0.25);
+  color: rgba(244,234,215,0.85);
+  transition: color .2s ease, border-color .2s ease, transform .2s ease;
+}
+.footer-social a:hover {
+  color: var(--terracotta);
+  border-color: var(--terracotta);
+  transform: translateY(-1px);
+}
 .footer-bottom {
   max-width: var(--maxw);
   margin: 64px auto 0;
