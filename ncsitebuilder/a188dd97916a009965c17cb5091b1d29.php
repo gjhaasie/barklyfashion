@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507h" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507i" type="text/css" />
 	<link rel="preload" as="image" href="gallery/scarlet-brocade-coat.jpeg" fetchpriority="high">
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -67,10 +67,10 @@
 		</div>
 	</div>
 	<figure class="hero-image">
-		<img src="gallery/scarlet-brocade-coat.jpeg" alt="Maltese in scarlet brocade coat in a meadow" />
+		<img src="gallery/scarlet-brocade-coat.jpeg" alt="Maltese in the Brocade Jacket in a meadow" />
 		<div class="stamp">
 			Featured · No. 02
-			<strong>Scarlet Brocade Coat</strong>
+			<strong>Brocade Jacket</strong>
 		</div>
 	</figure>
 </section>
@@ -109,11 +109,11 @@
 			</div>
 		</a>
 		<a class="collection-card" href="Shop/">
-			<img src="gallery/scarlet-brocade-coat.jpeg" alt="Scarlet Brocade Coat" />
+			<img src="gallery/scarlet-brocade-coat.jpeg" alt="Brocade Jacket" />
 			<div class="info">
 				<div>
 					<div class="tag">New</div>
-					<h3>Scarlet Brocade Coat</h3>
+					<h3>Brocade Jacket</h3>
 				</div>
 			</div>
 		</a>

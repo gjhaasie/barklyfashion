@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507h" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507i" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -83,13 +83,13 @@
 		</div>
 	</article>
 
-	<article class="product" id="scarlet-brocade-coat" data-cat="coats capsule" data-slug="scarlet-brocade-coat" data-name="Scarlet Brocade Coat">
+	<article class="product" id="scarlet-brocade-coat" data-cat="coats capsule" data-slug="scarlet-brocade-coat" data-name="Brocade Jacket">
 		<div class="product-media">
 			<span class="badge">New</span>
-			<img src="gallery/scarlet-brocade-coat.jpeg" alt="Scarlet Brocade Coat" />
+			<img src="gallery/scarlet-brocade-coat.jpeg" alt="Brocade Jacket" />
 			</div>
 		<div class="product-info">
-			<h3>Scarlet Brocade Coat</h3>
+			<h3>Brocade Jacket</h3>
 			<span class="price">$38</span>
 			<div class="meta">No. 02 · Silk brocade, quilted lining · XS – M</div>
 		</div>
@@ -155,13 +155,13 @@
 		</div>
 	</article>
 
-	<article class="product" data-cat="coats capsule" data-slug="atelier-lace-coat" data-name="Atelier Lace Coat">
+	<article class="product" data-cat="coats capsule" data-slug="atelier-lace-coat" data-name="Udaipur Lace Jacket">
 		<div class="product-media">
 			<span class="badge">Atelier</span>
 			<img src="gallery/IMG_9072.jpg" alt="Goldendoodle in the Atelier lace-trimmed coat" />
 			</div>
 		<div class="product-info">
-			<h3>Atelier Lace Coat</h3>
+			<h3>Udaipur Lace Jacket</h3>
 			<span class="price">$48</span>
 			<div class="meta">No. 08 · Cotton sateen, hand-set lace · S – M</div>
 		</div>

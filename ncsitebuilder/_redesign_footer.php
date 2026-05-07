@@ -82,7 +82,7 @@ var barklyChat = (function () {
 
 	var PRODUCTS = [
 		{ name:'Santa Fe Jacket',       tag:'Signature',  img:'gallery/santa-fe-jacket.jpeg' },
-		{ name:'Scarlet Brocade Coat',  tag:'New',        img:'gallery/scarlet-brocade-coat.jpeg' },
+		{ name:'Brocade Jacket',        tag:'New',        img:'gallery/scarlet-brocade-coat.jpeg' },
 		{ name:'Midnight Floral Hoodie',tag:'Bestseller', img:'gallery/midnight-floral-hoodie.jpeg' },
 		{ name:'Nordic Fairisle',       tag:'Knitwear',   img:'gallery/nordic-fairisle-sweater.jpeg' },
 		{ name:'Lunar Cheongsam',       tag:'Capsule',    img:'gallery/lunar-cheongsam.jpeg' }

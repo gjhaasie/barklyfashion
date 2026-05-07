@@ -145,7 +145,7 @@ $jackets = [
         'short'        => 'block-printed cotton coat in terracotta and indigo',
     ],
     'scarlet-brocade' => [
-        'name'         => 'Scarlet Brocade Coat',
+        'name'         => 'Brocade Jacket',
         'product_file' => 'scarlet-brocade-coat.jpeg',
         'short'        => 'scarlet red brocade coat with damask pattern',
     ],
