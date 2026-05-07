@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507f" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507g" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -50,7 +50,7 @@
 <section class="about-hero">
 	<span class="eyebrow">Our story</span>
 	<h1 class="h-display">A house built<br/>around <span class="it">one</span> small dog.</h1>
-	<p class="lede">Barkly began the day we couldn't find a coat that fit. Now we make sophisticated apparel rooted in Rajasthani craft — elegance that feels as good as it looks.</p>
+	<p class="lede">Barkly began the day we couldn't find a jacket that fit. Now we make sophisticated apparel rooted in Rajasthani craft — elegance that feels as good as it looks.</p>
 </section>
 
 <div class="about-banner">
@@ -103,7 +103,7 @@
 	<div class="craft-inner">
 		<div>
 			<span class="eyebrow" style="color:var(--terracotta);">From bolt to belly strap</span>
-			<h2 class="h-section" style="margin-top:18px;">How a Barkly coat <span class="it">actually</span> gets made.</h2>
+			<h2 class="h-section" style="margin-top:18px;">How a Barkly jacket <span class="it">actually</span> gets made.</h2>
 			<p class="lede" style="margin-top:18px;">Eight hands. Four hours. From bolt to box on your doorstep.</p>
 			<div class="specs">
 				<div class="spec">

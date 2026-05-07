@@ -7,18 +7,18 @@
 	<base href="{{base_url}}" />
 	<?php echo isset($sitemapUrls) ? (generateCanonicalUrl($sitemapUrls)."\n") : ""; ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "Sustainable, small-batch heirloom apparel for dogs — coats, sweaters and hoodies in brocade, fairisle and floral cottons. See it on your dog with our AI virtual try-on.", ENT_QUOTES, 'UTF-8'); ?>" />
+	<meta name="description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "Sustainable, small-batch heirloom apparel for dogs — jackets, sweaters and hoodies in brocade, fairisle and floral cottons. See it on your dog with our AI virtual try-on.", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta name="keywords" content="<?php echo htmlspecialchars((isset($seoKeywords) && $seoKeywords !== "") ? $seoKeywords : "dog apparel,dog coats,dog sweaters,handmade dog clothing,heirloom dog wardrobe,small batch dog apparel,sustainable dog clothing,sustainable pet apparel,eco-friendly dog clothing,ethical dog fashion,AI virtual try-on for dogs,AI dog try-on,Barkly Fashion", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta property="og:site_name" content="Barkly Fashion">
 	<meta property="og:title" content="<?php echo htmlspecialchars((isset($seoTitle) && $seoTitle !== "") ? $seoTitle : "Barkly Fashion — Heirloom apparel for the well-dressed dog", ENT_QUOTES, 'UTF-8'); ?>" />
-	<meta property="og:description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "Small-batch heirloom apparel for dogs — coats, sweaters, hoodies.", ENT_QUOTES, 'UTF-8'); ?>" />
+	<meta property="og:description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "Small-batch heirloom apparel for dogs — jackets, sweaters, hoodies.", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta property="og:image" content="<?php echo htmlspecialchars((isset($seoImage) && $seoImage !== "") ? "{{base_url}}".$seoImage : "{{base_url}}gallery/scarlet-brocade-coat.jpeg", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="{{curr_url}}" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507f" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507g" type="text/css" />
 	<link rel="preload" as="image" href="gallery/scarlet-brocade-coat.jpeg" fetchpriority="high">
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -164,7 +164,7 @@
 			<div class="pull">"High-quality craft, finished by hand."</div>
 			<ul>
 				<li>Patterned and graded XS through L on real dogs of every shape</li>
-				<li>Quilted cotton lining, brushed for warmth, soft on the coat</li>
+				<li>Quilted cotton lining, brushed for warmth, soft on the jacket</li>
 				<li>Adjustable belly straps; no Velcro, no plastic snaps</li>
 				<li>Each piece crafted by Rajasthani artisans in small batches</li>
 			</ul>

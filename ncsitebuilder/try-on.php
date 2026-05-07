@@ -11,14 +11,14 @@
 	<meta name="keywords" content="AI virtual try-on for dogs,AI dog try-on,virtual dog clothing try-on,dog jacket try-on,dog size finder,sustainable dog clothing,sustainable pet apparel,eco-friendly dog clothing,Barkly Fashion fitting room" />
 	<meta property="og:site_name" content="Barkly Fashion">
 	<meta property="og:title" content="Style Finder — Barkly Fashion" />
-	<meta property="og:description" content="Find your dog's perfect Barkly size and see exactly how a Barkly coat could look on them." />
+	<meta property="og:description" content="Find your dog's perfect Barkly size and see exactly how a Barkly jacket could look on them." />
 	<meta property="og:image" content="{{base_url}}gallery/scarlet-brocade-coat.jpeg" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="{{curr_url}}" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507f" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507g" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -64,7 +64,7 @@
 			<h2 class="h-section" style="margin-top:18px;">See it on <span class="it">your dog.</span></h2>
 			<p class="lede" style="margin-top:18px;">Upload your dog's photo, pick a Barkly piece. Our AI dresses them in 8&ndash;15 seconds — same dog, same pose, just the jacket added.</p>
 			<div class="fitting-actions" style="margin-top:28px;">
-				<label class="btn" for="fit-upload" style="cursor:pointer; display:inline-flex; align-items:center; gap:10px;">
+				<label class="btn" for="fit-upload" style="cursor:pointer; display:inline-flex; align-items:center; gap:10px; background:var(--terracotta); border-color:var(--terracotta); color:#fff; box-shadow:0 4px 14px rgba(199,89,53,0.35);">
 					Upload photo <span class="arrow" style="transform:rotate(-90deg);">&#8594;</span>
 				</label>
 				<input type="file" id="fit-upload" accept="image/jpeg,image/png,image/webp" style="display:none" />
@@ -203,7 +203,7 @@
 			</tr>
 		</tbody>
 		</table>
-		<p style="font-size:13px; color:var(--ink-soft); margin-top:14px;">Between sizes? Size up. A Barkly coat should sit snug at the neck and have 1–2 fingers of clearance at the chest.</p>
+		<p style="font-size:13px; color:var(--ink-soft); margin-top:14px;">Between sizes? Size up. A Barkly jacket should sit snug at the neck and have 1–2 fingers of clearance at the chest.</p>
 	</div>
 
 	<!-- Product recommendations (hidden until submitted) -->
