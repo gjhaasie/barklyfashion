@@ -418,13 +418,19 @@ button { font: inherit; cursor: pointer; }
 .collection-card .info {
   position: absolute;
   inset: auto 0 0 0;
-  padding: 20px 22px;
-  background: linear-gradient(to top, rgba(31,26,20,0.85), transparent 70%);
-  color: var(--cream);
+  padding: 24px 22px 22px;
+  /* darker, deeper gradient so labels stay legible on any photo */
+  background: linear-gradient(to top,
+    rgba(20,16,12,0.92) 0%,
+    rgba(20,16,12,0.78) 35%,
+    rgba(20,16,12,0.35) 70%,
+    rgba(20,16,12,0.0) 100%);
+  color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: end;
   gap: 12px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.55);
 }
 .collection-card h3 {
   font-family: var(--display);
@@ -432,13 +438,23 @@ button { font: inherit; cursor: pointer; }
   font-size: 22px;
   margin: 0;
   letter-spacing: -0.01em;
+  color: #fff;
 }
 .collection-card .tag {
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--terracotta);
-  margin-bottom: 4px;
+  /* lifted to a brighter peach + shadow so the brand orange reads
+   * even when the photo behind it is bright white fur */
+  color: #ffb68c;
+  margin-bottom: 6px;
+  font-weight: 600;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.7), 0 0 1px rgba(0,0,0,0.5);
+}
+/* the small uppercase label on the right side of feature cards */
+.collection-card .info > span {
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.55);
 }
 .collection-card.feature { grid-row: span 2; aspect-ratio: 4/5; }
 .collection-card:not(.feature) { aspect-ratio: 1/1.05; }
