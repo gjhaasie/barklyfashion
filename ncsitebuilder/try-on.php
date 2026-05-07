@@ -7,7 +7,8 @@
 	<base href="{{base_url}}" />
 	<?php echo isset($sitemapUrls) ? (generateCanonicalUrl($sitemapUrls)."\n") : ""; ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="description" content="Find the perfect Barkly size for your dog. Enter their weight and breed for a size recommendation, then build your own Barkly lookbook moment." />
+	<meta name="description" content="AI virtual try-on for dogs — upload a photo and see your dog wearing any Barkly piece. Plus a quick size finder using weight and breed." />
+	<meta name="keywords" content="AI virtual try-on for dogs,AI dog try-on,virtual dog clothing try-on,dog jacket try-on,dog size finder,sustainable dog clothing,sustainable pet apparel,eco-friendly dog clothing,Barkly Fashion fitting room" />
 	<meta property="og:site_name" content="Barkly Fashion">
 	<meta property="og:title" content="Style Finder — Barkly Fashion" />
 	<meta property="og:description" content="Find your dog's perfect Barkly size and see exactly how a Barkly coat could look on them." />
@@ -17,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507c" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507d" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">

@@ -7,8 +7,8 @@
 	<base href="{{base_url}}" />
 	<?php echo isset($sitemapUrls) ? (generateCanonicalUrl($sitemapUrls)."\n") : ""; ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "The 2026 Collection — eight pieces, no filler. Heritage textiles, hand-patterned, crafted in small lots. Leave your email and we'll write the moment a piece is ready.", ENT_QUOTES, 'UTF-8'); ?>" />
-	<meta name="keywords" content="<?php echo htmlspecialchars((isset($seoKeywords) && $seoKeywords !== "") ? $seoKeywords : "dog coats,dog jackets,dog sweaters,dog hoodies,Lunar capsule,brocade dog coat,fairisle sweater,small batch dog apparel,Barkly Fashion shop", ENT_QUOTES, 'UTF-8'); ?>" />
+	<meta name="description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "The 2026 Collection — eight pieces, no filler. Sustainable heritage textiles, hand-patterned, crafted in small batches. See any piece on your dog with our AI virtual try-on. Leave your email and we'll write the moment a piece is ready.", ENT_QUOTES, 'UTF-8'); ?>" />
+	<meta name="keywords" content="<?php echo htmlspecialchars((isset($seoKeywords) && $seoKeywords !== "") ? $seoKeywords : "dog coats,dog jackets,dog sweaters,dog hoodies,Lunar capsule,brocade dog coat,fairisle sweater,small batch dog apparel,sustainable dog clothing,sustainable pet apparel,eco-friendly dog clothing,ethical dog fashion,AI virtual try-on for dogs,Barkly Fashion shop", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta property="og:site_name" content="Barkly Fashion">
 	<meta property="og:title" content="<?php echo htmlspecialchars((isset($seoTitle) && $seoTitle !== "") ? $seoTitle : "Shop — Barkly Fashion", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta property="og:description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "Eight pieces. No filler. The 2026 Collection from Barkly Fashion.", ENT_QUOTES, 'UTF-8'); ?>" />
@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507c" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507d" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -53,7 +53,7 @@
 		<h1 class="h-display" style="margin-top:18px;">Eight pieces.<br/><span class="it">No filler.</span></h1>
 	</div>
 	<p class="lede">A tight collection cut from heritage textiles.
-		Hand-patterned, made in small batches, fitted to dogs from six pounds to sixty.
+		Hand-patterned, made in small batches, fitted for dogs of every breed and shape.
 		<strong style="display:block; margin-top:12px; font-weight:500; color:var(--ink);">Each piece is crafted in small lots — leave your email and we'll write the moment it's ready to wear.</strong></p>
 </section>
 

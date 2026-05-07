@@ -21,6 +21,7 @@
 			<h4>Shop</h4>
 			<ul>
 				<li><a href="Shop/">All apparel</a></li>
+				<li><a href="Try-On/">AI try-on &amp; fit guide</a></li>
 			</ul>
 		</div>
 		<div>

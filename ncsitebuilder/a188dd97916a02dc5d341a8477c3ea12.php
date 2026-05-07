@@ -8,7 +8,7 @@
 	<?php echo isset($sitemapUrls) ? (generateCanonicalUrl($sitemapUrls)."\n") : ""; ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "Barkly is a small studio making heirloom apparel for dogs of every shape — patterned on real dogs, made in small batches across Rajasthan.", ENT_QUOTES, 'UTF-8'); ?>" />
-	<meta name="keywords" content="<?php echo htmlspecialchars((isset($seoKeywords) && $seoKeywords !== "") ? $seoKeywords : "Barkly story,handmade dog apparel,heritage textiles,artisan dog jackets,elegant pet clothing,Jaipur block print dog coat,Indian artisan pet apparel", ENT_QUOTES, 'UTF-8'); ?>" />
+	<meta name="keywords" content="<?php echo htmlspecialchars((isset($seoKeywords) && $seoKeywords !== "") ? $seoKeywords : "Barkly story,handmade dog apparel,heritage textiles,artisan dog jackets,elegant pet clothing,sustainable dog clothing,sustainable pet apparel,eco-friendly dog clothing,ethical dog fashion,slow fashion for dogs,Jaipur block print dog coat,Indian artisan pet apparel,AI virtual try-on for dogs", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta property="og:site_name" content="Barkly Fashion">
 	<meta property="og:title" content="<?php echo htmlspecialchars((isset($seoTitle) && $seoTitle !== "") ? $seoTitle : "About — Barkly Fashion", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta property="og:description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "A house built around one small dog. Heritage textiles, real fittings, and answering the phone ourselves.", ENT_QUOTES, 'UTF-8'); ?>" />
@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507c" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507d" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
