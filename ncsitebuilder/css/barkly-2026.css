@@ -476,7 +476,7 @@ button { font: inherit; cursor: pointer; }
 .story-img {
   aspect-ratio: 4/5;
 }
-.story-img img { width: 100%; height: 100%; object-fit: cover; }
+.story-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
 .story-copy {
   padding: 80px 64px;
   display: flex;
@@ -532,6 +532,8 @@ button { font: inherit; cursor: pointer; }
 .lookbook-img img {
   width: 100%; height: 100%;
   object-fit: cover;
+  /* keep dogs' faces in frame — favor upper portion of portrait sources */
+  object-position: center 25%;
   filter: saturate(1.05);
 }
 .lookbook-img .label {
@@ -565,14 +567,19 @@ button { font: inherit; cursor: pointer; }
   padding: 0 32px;
 }
 .about-banner-img {
-  aspect-ratio: 21/9;
+  /* 21/9 was too cinematic for portrait phone photos — dog head + paws
+   * got chopped. 3/2 is friendlier; lets a vertical source breathe. */
+  aspect-ratio: 3/2;
   overflow: hidden;
   position: relative;
+  background: var(--ink);
 }
 .about-banner-img img {
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: center 35%;
+  /* favor the upper portion of the source — that's where the dog's face
+   * lives in vertical photos. */
+  object-position: center 25%;
 }
 
 .values {
@@ -625,10 +632,12 @@ button { font: inherit; cursor: pointer; }
 .craft .h-section .it { color: var(--terracotta); }
 .craft .lede { color: rgba(244,234,215,0.75); }
 .craft-img {
-  aspect-ratio: 1/1;
+  /* 1/1 chopped tall portrait sources. 4/5 leaves room for the dog's
+   * head while still feeling like a polished portrait crop. */
+  aspect-ratio: 4/5;
   overflow: hidden;
 }
-.craft-img img { width: 100%; height: 100%; object-fit: cover; }
+.craft-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
 
 .specs {
   display: grid;
