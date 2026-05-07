@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507j" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507k" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -59,15 +59,13 @@
 
 <div class="shop-toolbar">
 	<div class="filters" id="filters">
-		<button class="filter is-active" data-f="all">All · 8</button>
+		<button class="filter is-active" data-f="all">All</button>
 		<button class="filter" data-f="coats">Coats</button>
 		<button class="filter" data-f="sweaters">Sweaters</button>
 		<button class="filter" data-f="hoodies">Hoodies</button>
 		<button class="filter" data-f="capsule">Festival</button>
 	</div>
-	<div class="right">
-		<span>8 pieces</span>
-	</div>
+	<div class="right"></div>
 </div>
 
 <section class="products" id="products">
@@ -78,7 +76,7 @@
 			</div>
 		<div class="product-info">
 			<h3>The Santa Fe Jacket</h3>
-			<div class="meta">No. 01 · Block-printed cotton · XS – L</div>
+			<div class="meta">Block-printed cotton · XS – L</div>
 		</div>
 	</article>
 
@@ -89,7 +87,7 @@
 			</div>
 		<div class="product-info">
 			<h3>Brocade Jacket</h3>
-			<div class="meta">No. 02 · Silk brocade, quilted lining · XS – M</div>
+			<div class="meta">Silk brocade, quilted lining · XS – M</div>
 		</div>
 	</article>
 
@@ -100,7 +98,7 @@
 			</div>
 		<div class="product-info">
 			<h3>Kashmiri Knit Sweater</h3>
-			<div class="meta">No. 03 · Wool-cotton knit · XS – L</div>
+			<div class="meta">Wool-cotton knit · XS – L</div>
 		</div>
 	</article>
 
@@ -111,51 +109,51 @@
 			</div>
 		<div class="product-info">
 			<h3>Midnight Floral Hoodie</h3>
-			<div class="meta">No. 04 · Brushed cotton, removable hood · XS – L</div>
+			<div class="meta">Brushed cotton, removable hood · XS – L</div>
 		</div>
 	</article>
 
-	<article class="product" id="lunar-cheongsam" data-cat="coats capsule" data-slug="lunar-cheongsam" data-name="Festival Brocade Jacket">
+	<article class="product" id="lunar-cheongsam" data-cat="coats capsule" data-slug="lunar-cheongsam" data-name="Festival Jacket">
 		<div class="product-media">
 			<span class="badge">Festival</span>
-			<img src="gallery/lunar-cheongsam.jpeg" alt="Festival Brocade Jacket" />
+			<img src="gallery/lunar-cheongsam.jpeg" alt="Festival Jacket" />
 			</div>
 		<div class="product-info">
-			<h3>Festival Brocade Jacket</h3>
-			<div class="meta">No. 05 · Red &amp; gold brocade · XS – M</div>
+			<h3>Festival Jacket</h3>
+			<div class="meta">Red &amp; gold brocade · XS – M</div>
 		</div>
 	</article>
 
-	<article class="product" data-cat="coats" data-slug="santa-fe-bandana" data-name="Santa Fe Bandana">
+	<article class="product" data-cat="coats" data-slug="santa-fe-bandana" data-name="Jodhpuri Jacket">
 		<div class="product-media">
 			<span class="badge">Lookbook</span>
-			<img src="gallery/IMG_0314.jpg" alt="Maltese in the Santa Fe block-print bandana coat" />
+			<img src="gallery/IMG_0314.jpg" alt="Jodhpuri Jacket" />
 			</div>
 		<div class="product-info">
-			<h3>Santa Fe Bandana</h3>
-			<div class="meta">No. 06 · Block-print cotton, tie-back · XS – L</div>
+			<h3>Jodhpuri Jacket</h3>
+			<div class="meta">Block-print cotton, tie-back · XS – L</div>
 		</div>
 	</article>
 
 	<article class="product" data-cat="coats" data-slug="heritage-navy-print" data-name="Bagru Indigo Jacket">
 		<div class="product-media">
-			<span class="badge">Archive</span>
-			<img src="gallery/IMG_0320.jpg" alt="Australian shepherd in the Bagru Indigo Jacket" />
+			<span class="badge">Block-print</span>
+			<img src="gallery/IMG_0320.jpg" alt="Bagru Indigo Jacket" />
 			</div>
 		<div class="product-info">
 			<h3>Bagru Indigo Jacket</h3>
-			<div class="meta">No. 07 · Cotton canvas, indigo block-print · S – L</div>
+			<div class="meta">Cotton canvas, indigo block-print · S – L</div>
 		</div>
 	</article>
 
 	<article class="product" data-cat="coats capsule" data-slug="atelier-lace-coat" data-name="Udaipur Lace Jacket">
 		<div class="product-media">
-			<span class="badge">Atelier</span>
-			<img src="gallery/IMG_9072.jpg" alt="Goldendoodle in the Atelier lace-trimmed coat" />
+			<span class="badge">Hand-set lace</span>
+			<img src="gallery/IMG_9072.jpg" alt="Udaipur Lace Jacket" />
 			</div>
 		<div class="product-info">
 			<h3>Udaipur Lace Jacket</h3>
-			<div class="meta">No. 08 · Cotton sateen, hand-set lace · S – M</div>
+			<div class="meta">Cotton sateen, hand-set lace · S – M</div>
 		</div>
 	</article>
 </section>
@@ -183,16 +181,16 @@
 	</div>
 	<div class="lookbook">
 		<div class="lookbook-img">
-			<img src="gallery/IMG_0314.jpg" alt="Maltese in bandana coat in a field" />
-			<div class="label">No. 01 · Santa Fe</div>
+			<img src="gallery/IMG_0314.jpg" alt="Jodhpuri Jacket" />
+			<div class="label">Jodhpuri Jacket</div>
 		</div>
 		<div class="lookbook-img">
-			<img src="gallery/IMG_0320.jpg" alt="Australian shepherd in navy print coat" />
-			<div class="label">Print archive</div>
+			<img src="gallery/IMG_0320.jpg" alt="Bagru Indigo Jacket" />
+			<div class="label">Bagru Indigo Jacket</div>
 		</div>
 		<div class="lookbook-img">
-			<img src="gallery/IMG_9072.jpg" alt="Goldendoodle in lace-trimmed coat" />
-			<div class="label">Atelier sample</div>
+			<img src="gallery/IMG_9072.jpg" alt="Udaipur Lace Jacket" />
+			<div class="label">Udaipur Lace Jacket</div>
 		</div>
 	</div>
 </section>

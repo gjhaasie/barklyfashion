@@ -798,11 +798,15 @@ body[data-screen="about"] .story-img img {
   align-items: baseline;
 }
 .product-info h3 {
-  font-family: var(--display);
-  font-weight: 400;
-  font-size: 22px;
+  /* Switched from Fraunces (--display) — its variable axis renders
+   * swirly at 22px for product names. Cormorant Garamond at weight
+   * 500 is cleaner, still elegant, and reads instantly. */
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 24px;
   margin: 0;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
+  line-height: 1.2;
 }
 .product-info .price {
   font-family: var(--sans);

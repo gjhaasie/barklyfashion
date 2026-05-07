@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507j" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507k" type="text/css" />
 	<link rel="preload" as="image" href="gallery/scarlet-brocade-coat.jpeg" fetchpriority="high">
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -67,9 +67,9 @@
 		</div>
 	</div>
 	<figure class="hero-image">
-		<img src="gallery/scarlet-brocade-coat.jpeg" alt="Maltese in the Brocade Jacket in a meadow" />
+		<img src="gallery/scarlet-brocade-coat.jpeg" alt="Brocade Jacket" />
 		<div class="stamp">
-			Featured · No. 02
+			Featured
 			<strong>Brocade Jacket</strong>
 		</div>
 	</figure>
@@ -136,11 +136,11 @@
 			</div>
 		</a>
 		<a class="collection-card" href="Shop/">
-			<img src="gallery/lunar-cheongsam.jpeg" alt="Festival Brocade Jacket" />
+			<img src="gallery/lunar-cheongsam.jpeg" alt="Festival Jacket" />
 			<div class="info">
 				<div>
 					<div class="tag">Festival</div>
-					<h3>Festival Brocade</h3>
+					<h3>Festival Jacket</h3>
 				</div>
 			</div>
 		</a>
@@ -150,7 +150,7 @@
 <section class="story">
 	<div class="story-inner">
 		<div class="story-img">
-			<img src="gallery/IMG_0314.jpg" alt="Maltese wearing the Santa Fe bandana jacket in a field" />
+			<img src="gallery/IMG_0314.jpg" alt="Jodhpuri Jacket" />
 		</div>
 		<div class="story-copy">
 			<span class="eyebrow">The Barkly way</span>
@@ -182,15 +182,15 @@
 	</div>
 	<div class="lookbook">
 		<div class="lookbook-img">
-			<img src="gallery/IMG_0320.jpg" alt="Australian shepherd in navy print coat" />
+			<img src="gallery/IMG_0320.jpg" alt="Bagru Indigo Jacket" />
 			<div class="label">Park, Sunday morning</div>
 		</div>
 		<div class="lookbook-img">
-			<img src="gallery/midnight-floral-hoodie.jpeg" alt="Maltese in floral hoodie indoors" />
+			<img src="gallery/midnight-floral-hoodie.jpeg" alt="Midnight Floral Hoodie" />
 			<div class="label">Artisan · Rajasthan</div>
 		</div>
 		<div class="lookbook-img">
-			<img src="gallery/IMG_9072.jpg" alt="Goldendoodle in lace-trimmed coat" />
+			<img src="gallery/IMG_9072.jpg" alt="Udaipur Lace Jacket" />
 			<div class="label">Backyard, golden hour</div>
 		</div>
 	</div>

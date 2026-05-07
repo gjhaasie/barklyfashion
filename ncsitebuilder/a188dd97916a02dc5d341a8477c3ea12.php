@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507j" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507k" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -55,7 +55,7 @@
 
 <div class="about-banner">
 	<div class="about-banner-img">
-		<img src="gallery/scarlet-brocade-coat.jpeg" alt="A Maltese in the Brocade Jacket in a meadow at golden hour" />
+		<img src="gallery/scarlet-brocade-coat.jpeg" alt="Brocade Jacket" />
 	</div>
 </div>
 
@@ -133,7 +133,7 @@
 			</div>
 		</div>
 		<div class="craft-img">
-			<img src="gallery/IMG_0314.jpg" alt="Dog wearing a Barkly bandana coat in a field" />
+			<img src="gallery/IMG_0314.jpg" alt="Jodhpuri Jacket" />
 		</div>
 	</div>
 </section>
@@ -151,6 +151,12 @@
 				Then a friend asked for one. Today we still pattern every piece
 				on the same dog who started it all.
 			</p>
+			<p class="lede" style="margin-top:14px;">
+				Each piece is made small-batch, by hand, in studios across Rajasthan —
+				block-printed, brocade-woven, knit and stitched with care. Heritage
+				textiles, modern fits, and a quiet promise: nothing leaves the studio
+				until it would fit our own dog first.
+			</p>
 			<div class="pull">"We don't dress dogs up. We dress them well."</div>
 		</div>
 	</div>
@@ -163,16 +169,16 @@
 	</div>
 	<div class="lookbook">
 		<div class="lookbook-img">
-			<img src="gallery/IMG_0320.jpg" alt="Australian shepherd in navy print coat" />
-			<div class="label">Maple · Navy print</div>
+			<img src="gallery/IMG_0320.jpg" alt="Bagru Indigo Jacket" />
+			<div class="label">Bagru Indigo Jacket</div>
 		</div>
 		<div class="lookbook-img">
-			<img src="gallery/IMG_9072.jpg" alt="Goldendoodle in lace-trimmed coat" />
-			<div class="label">Toast · Udaipur lace</div>
+			<img src="gallery/IMG_9072.jpg" alt="Udaipur Lace Jacket" />
+			<div class="label">Udaipur Lace Jacket</div>
 		</div>
 		<div class="lookbook-img">
-			<img src="gallery/santa-fe-jacket.jpeg" alt="Maltese in scarlet jacket in field" />
-			<div class="label">Pip · Santa Fe jacket</div>
+			<img src="gallery/santa-fe-jacket.jpeg" alt="Santa Fe Jacket" />
+			<div class="label">Santa Fe Jacket</div>
 		</div>
 	</div>
 </section>
