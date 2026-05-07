@@ -57,36 +57,43 @@ if ($img['size'] > 10 * 1024 * 1024) {
     http_response_code(400); echo json_encode(['error' => 'Photo too large — max 10 MB.']); exit;
 }
 
-/* Jacket catalog — search masks ONLY the existing clothing/body area
- * (preserves the dog's face, breed, and pose); prompt describes only
- * the garment that should appear there. */
+/* Jacket catalog — search prompt narrowly targets the torso/back ONLY
+ * (so head, face, legs, tail, breed and pose are preserved); positive
+ * prompt describes only the garment that should appear there.
+ * NOTE: avoid "fur" or "dog body" in search — those can mask the whole
+ * animal and the AI then regenerates a different dog. */
 $jackets = [
     'santa-fe' => [
         'name'   => 'Santa Fe Jacket',
-        'search' => 'clothing or fur on the dog body',
-        'prompt' => 'a fitted block-printed cotton dog coat with bold geometric patterns in terracotta, indigo and cream, South Asian artisan hand-print on the dog',
+        'search' => 'the back and torso of the dog between the neck and tail',
+        'prompt' => 'a fitted block-printed cotton jacket with bold geometric patterns in terracotta, indigo and cream, South Asian artisan hand-print, garment only',
     ],
     'scarlet-brocade' => [
         'name'   => 'Scarlet Brocade Coat',
-        'search' => 'clothing or fur on the dog body',
-        'prompt' => 'a fitted scarlet red brocade dog coat with intricate damask pattern, luxurious crimson silk fabric on the dog',
+        'search' => 'the back and torso of the dog between the neck and tail',
+        'prompt' => 'a fitted scarlet red brocade coat with intricate damask pattern, luxurious crimson silk fabric, garment only',
     ],
     'midnight-floral' => [
         'name'   => 'Midnight Floral Hoodie',
-        'search' => 'clothing or fur on the dog body',
-        'prompt' => 'a fitted midnight navy blue dog hoodie with delicate white and pink floral print, soft cotton hoodie on the dog',
+        'search' => 'the back and torso of the dog between the neck and tail',
+        'prompt' => 'a fitted midnight navy blue hoodie with delicate white and pink floral print, soft cotton, garment only',
     ],
     'nordic-fairisle' => [
         'name'   => 'Nordic Fairisle',
-        'search' => 'clothing or fur on the dog body',
-        'prompt' => 'a fitted cream and multicolor Nordic fairisle knit sweater on the dog, warm wool with classic geometric diamond patterns',
+        'search' => 'the back and torso of the dog between the neck and tail',
+        'prompt' => 'a fitted cream and multicolor Nordic fairisle knit sweater with classic geometric diamond patterns, warm wool, garment only',
     ],
     'lunar-cheongsam' => [
         'name'   => 'Lunar Cheongsam',
-        'search' => 'clothing or fur on the dog body',
-        'prompt' => 'a fitted red and gold cheongsam-style dog coat with Chinese floral embroidery and gold mandarin trim on the dog, festive lunar new year style',
+        'search' => 'the back and torso of the dog between the neck and tail',
+        'prompt' => 'a fitted red and gold cheongsam-style coat with Chinese floral embroidery and gold mandarin trim, festive lunar new year style, garment only',
     ],
 ];
+
+/* Negative prompt: applied to every jacket — explicitly tell Stability
+ * NOT to regenerate the dog itself. Without this, search-and-replace
+ * sometimes swaps the dog for a generic stock dog wearing the coat. */
+$negativePrompt = 'different dog, new dog, replaced dog, change of breed, different face, different head, altered fur color, altered eyes, distorted anatomy, extra legs, low quality, blurry';
 
 /* GEMINI VISION: dog-photo guard + auto-pick (when jacket="auto").
  * Runs on every upload if GEMINI_KEY is set — saves Stability credits
@@ -209,10 +216,14 @@ curl_setopt_array($ch, [
         'Accept: image/*',
     ],
     CURLOPT_POSTFIELDS => [
-        'image'         => new CURLFile($tmpPath, $mime, 'dog.jpg'),
-        'prompt'        => $j['prompt'],
-        'search_prompt' => $j['search'],
-        'output_format' => 'jpeg',
+        'image'           => new CURLFile($tmpPath, $mime, 'dog.jpg'),
+        'prompt'          => $j['prompt'],
+        'search_prompt'   => $j['search'],
+        'negative_prompt' => $negativePrompt,
+        /* grow_mask kept small so the inpaint hugs the torso and doesn't
+         * bleed into the head/face/legs (those must stay original). */
+        'grow_mask'       => '3',
+        'output_format'   => 'jpeg',
     ],
 ]);
 
