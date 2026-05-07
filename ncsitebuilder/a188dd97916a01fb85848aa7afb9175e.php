@@ -8,7 +8,7 @@
 	<?php echo isset($sitemapUrls) ? (generateCanonicalUrl($sitemapUrls)."\n") : ""; ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "The 2026 Collection — eight pieces, no filler. Sustainable heritage textiles, hand-patterned, crafted in small batches. See any piece on your dog with our AI virtual try-on. Leave your email and we'll write the moment a piece is ready.", ENT_QUOTES, 'UTF-8'); ?>" />
-	<meta name="keywords" content="<?php echo htmlspecialchars((isset($seoKeywords) && $seoKeywords !== "") ? $seoKeywords : "dog coats,dog jackets,dog sweaters,dog hoodies,Lunar capsule,brocade dog coat,fairisle sweater,small batch dog apparel,sustainable dog clothing,sustainable pet apparel,eco-friendly dog clothing,ethical dog fashion,AI virtual try-on for dogs,Barkly Fashion shop", ENT_QUOTES, 'UTF-8'); ?>" />
+	<meta name="keywords" content="<?php echo htmlspecialchars((isset($seoKeywords) && $seoKeywords !== "") ? $seoKeywords : "dog coats,dog jackets,dog sweaters,dog hoodies,festival dog jacket,brocade dog coat,Kashmiri knit dog sweater,small batch dog apparel,sustainable dog clothing,sustainable pet apparel,eco-friendly dog clothing,ethical dog fashion,AI virtual try-on for dogs,Barkly Fashion shop", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta property="og:site_name" content="Barkly Fashion">
 	<meta property="og:title" content="<?php echo htmlspecialchars((isset($seoTitle) && $seoTitle !== "") ? $seoTitle : "Shop — Barkly Fashion", ENT_QUOTES, 'UTF-8'); ?>" />
 	<meta property="og:description" content="<?php echo htmlspecialchars((isset($seoDescription) && $seoDescription !== "") ? $seoDescription : "Eight pieces. No filler. The 2026 Collection from Barkly Fashion.", ENT_QUOTES, 'UTF-8'); ?>" />
@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507i" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507j" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -50,7 +50,7 @@
 <section class="shop-head">
 	<div>
 		<span class="eyebrow">The 2026 Collection</span>
-		<h1 class="h-display" style="margin-top:18px;">Eight pieces.<br/><span class="it">No filler.</span></h1>
+		<h1 class="h-display" style="margin-top:18px;">Latest <span class="it">pieces.</span></h1>
 	</div>
 	<p class="lede">A tight collection cut from heritage textiles.
 		Hand-patterned, made in small batches, fitted for dogs of every breed and shape.
@@ -63,7 +63,7 @@
 		<button class="filter" data-f="coats">Coats</button>
 		<button class="filter" data-f="sweaters">Sweaters</button>
 		<button class="filter" data-f="hoodies">Hoodies</button>
-		<button class="filter" data-f="capsule">Lunar capsule</button>
+		<button class="filter" data-f="capsule">Festival</button>
 	</div>
 	<div class="right">
 		<span>8 pieces</span>
@@ -78,7 +78,6 @@
 			</div>
 		<div class="product-info">
 			<h3>The Santa Fe Jacket</h3>
-			<span class="price">$35</span>
 			<div class="meta">No. 01 · Block-printed cotton · XS – L</div>
 		</div>
 	</article>
@@ -90,20 +89,18 @@
 			</div>
 		<div class="product-info">
 			<h3>Brocade Jacket</h3>
-			<span class="price">$38</span>
 			<div class="meta">No. 02 · Silk brocade, quilted lining · XS – M</div>
 		</div>
 	</article>
 
-	<article class="product" id="nordic-fairisle-sweater" data-cat="sweaters" data-slug="nordic-fairisle-sweater" data-name="Nordic Fairisle Sweater">
+	<article class="product" id="nordic-fairisle-sweater" data-cat="sweaters" data-slug="nordic-fairisle-sweater" data-name="Kashmiri Knit Sweater">
 		<div class="product-media">
 			<span class="badge">Knit</span>
-			<img src="gallery/nordic-fairisle-sweater.jpeg" alt="Nordic Fairisle Sweater" />
+			<img src="gallery/nordic-fairisle-sweater.jpeg" alt="Kashmiri Knit Sweater" />
 			</div>
 		<div class="product-info">
-			<h3>Nordic Fairisle Sweater</h3>
-			<span class="price">$30</span>
-			<div class="meta">No. 03 · Wool-cotton fairisle · XS – L</div>
+			<h3>Kashmiri Knit Sweater</h3>
+			<div class="meta">No. 03 · Wool-cotton knit · XS – L</div>
 		</div>
 	</article>
 
@@ -114,19 +111,17 @@
 			</div>
 		<div class="product-info">
 			<h3>Midnight Floral Hoodie</h3>
-			<span class="price">$28</span>
 			<div class="meta">No. 04 · Brushed cotton, removable hood · XS – L</div>
 		</div>
 	</article>
 
-	<article class="product" id="lunar-cheongsam" data-cat="coats capsule" data-slug="lunar-cheongsam" data-name="Lunar Cheongsam">
+	<article class="product" id="lunar-cheongsam" data-cat="coats capsule" data-slug="lunar-cheongsam" data-name="Festival Brocade Jacket">
 		<div class="product-media">
-			<span class="badge">Lunar capsule</span>
-			<img src="gallery/lunar-cheongsam.jpeg" alt="Lunar Cheongsam" />
+			<span class="badge">Festival</span>
+			<img src="gallery/lunar-cheongsam.jpeg" alt="Festival Brocade Jacket" />
 			</div>
 		<div class="product-info">
-			<h3>Lunar Cheongsam</h3>
-			<span class="price">$40</span>
+			<h3>Festival Brocade Jacket</h3>
 			<div class="meta">No. 05 · Red &amp; gold brocade · XS – M</div>
 		</div>
 	</article>
@@ -138,20 +133,18 @@
 			</div>
 		<div class="product-info">
 			<h3>Santa Fe Bandana</h3>
-			<span class="price">$22</span>
 			<div class="meta">No. 06 · Block-print cotton, tie-back · XS – L</div>
 		</div>
 	</article>
 
-	<article class="product" data-cat="coats" data-slug="heritage-navy-print" data-name="Heritage Navy Print Coat">
+	<article class="product" data-cat="coats" data-slug="heritage-navy-print" data-name="Bagru Indigo Jacket">
 		<div class="product-media">
 			<span class="badge">Archive</span>
-			<img src="gallery/IMG_0320.jpg" alt="Australian shepherd in the Heritage Navy Print coat" />
+			<img src="gallery/IMG_0320.jpg" alt="Australian shepherd in the Bagru Indigo Jacket" />
 			</div>
 		<div class="product-info">
-			<h3>Heritage Navy Print</h3>
-			<span class="price">$36</span>
-			<div class="meta">No. 07 · Cotton canvas, archive print · S – L</div>
+			<h3>Bagru Indigo Jacket</h3>
+			<div class="meta">No. 07 · Cotton canvas, indigo block-print · S – L</div>
 		</div>
 	</article>
 
@@ -162,7 +155,6 @@
 			</div>
 		<div class="product-info">
 			<h3>Udaipur Lace Jacket</h3>
-			<span class="price">$48</span>
 			<div class="meta">No. 08 · Cotton sateen, hand-set lace · S – M</div>
 		</div>
 	</article>

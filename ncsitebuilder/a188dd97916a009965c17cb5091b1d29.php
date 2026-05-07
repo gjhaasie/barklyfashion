@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507i" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507j" type="text/css" />
 	<link rel="preload" as="image" href="gallery/scarlet-brocade-coat.jpeg" fetchpriority="high">
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -127,20 +127,20 @@
 			</div>
 		</a>
 		<a class="collection-card" href="Shop/">
-			<img src="gallery/nordic-fairisle-sweater.jpeg" alt="Nordic Fairisle Sweater" />
+			<img src="gallery/nordic-fairisle-sweater.jpeg" alt="Kashmiri Knit Sweater" />
 			<div class="info">
 				<div>
 					<div class="tag">Knitwear</div>
-					<h3>Nordic Fairisle</h3>
+					<h3>Kashmiri Knit</h3>
 				</div>
 			</div>
 		</a>
 		<a class="collection-card" href="Shop/">
-			<img src="gallery/lunar-cheongsam.jpeg" alt="Lunar Cheongsam" />
+			<img src="gallery/lunar-cheongsam.jpeg" alt="Festival Brocade Jacket" />
 			<div class="info">
 				<div>
-					<div class="tag">Capsule</div>
-					<h3>Lunar Cheongsam</h3>
+					<div class="tag">Festival</div>
+					<h3>Festival Brocade</h3>
 				</div>
 			</div>
 		</a>

@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507i" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507j" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -85,11 +85,11 @@
 				<button class="fit-swatch" data-slug="midnight-floral" onclick="barklyTryOn('midnight-floral',this)" title="Midnight Floral Hoodie">
 					<img src="gallery/midnight-floral-hoodie.jpeg" alt="Midnight Floral Hoodie" />
 				</button>
-				<button class="fit-swatch" data-slug="nordic-fairisle" onclick="barklyTryOn('nordic-fairisle',this)" title="Nordic Fairisle">
-					<img src="gallery/nordic-fairisle-sweater.jpeg" alt="Nordic Fairisle" />
+				<button class="fit-swatch" data-slug="nordic-fairisle" onclick="barklyTryOn('nordic-fairisle',this)" title="Kashmiri Knit Sweater">
+					<img src="gallery/nordic-fairisle-sweater.jpeg" alt="Kashmiri Knit Sweater" />
 				</button>
-				<button class="fit-swatch" data-slug="lunar-cheongsam" onclick="barklyTryOn('lunar-cheongsam',this)" title="Lunar Cheongsam">
-					<img src="gallery/lunar-cheongsam.jpeg" alt="Lunar Cheongsam" />
+				<button class="fit-swatch" data-slug="lunar-cheongsam" onclick="barklyTryOn('lunar-cheongsam',this)" title="Festival Brocade Jacket">
+					<img src="gallery/lunar-cheongsam.jpeg" alt="Festival Brocade Jacket" />
 				</button>
 			</div>
 		</div>
@@ -230,8 +230,8 @@ var SF_PRODUCTS = [
 	{ name:'Santa Fe Jacket',      tag:'Signature',  img:'gallery/santa-fe-jacket.jpeg' },
 	{ name:'Brocade Jacket', tag:'New',        img:'gallery/scarlet-brocade-coat.jpeg' },
 	{ name:'Midnight Floral Hoodie',tag:'Bestseller',img:'gallery/midnight-floral-hoodie.jpeg' },
-	{ name:'Nordic Fairisle',      tag:'Knitwear',   img:'gallery/nordic-fairisle-sweater.jpeg' },
-	{ name:'Lunar Cheongsam',      tag:'Capsule',    img:'gallery/lunar-cheongsam.jpeg' }
+	{ name:'Kashmiri Knit Sweater',tag:'Knitwear',   img:'gallery/nordic-fairisle-sweater.jpeg' },
+	{ name:'Festival Brocade Jacket', tag:'Festival', img:'gallery/lunar-cheongsam.jpeg' }
 ];
 
 function barklyFindSize() {

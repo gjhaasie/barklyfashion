@@ -155,12 +155,12 @@ $jackets = [
         'short'        => 'midnight navy floral hoodie',
     ],
     'nordic-fairisle' => [
-        'name'         => 'Nordic Fairisle',
+        'name'         => 'Kashmiri Knit Sweater',
         'product_file' => 'nordic-fairisle-sweater.jpeg',
         'short'        => 'cream Nordic fairisle knit sweater',
     ],
     'lunar-cheongsam' => [
-        'name'         => 'Lunar Cheongsam',
+        'name'         => 'Festival Brocade Jacket',
         'product_file' => 'lunar-cheongsam.jpeg',
         'short'        => 'red and gold cheongsam-style coat',
     ],

@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507i" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507j" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -65,7 +65,7 @@
 	<div>
 		<span class="eyebrow muted">What we believe</span>
 		<h2 class="h-section" style="margin-top:18px;">Four <span class="it">principles</span> we won't compromise.</h2>
-		<p class="lede" style="margin-top:18px;">Small batches. Real fittings. We pick up the phone.</p>
+		<p class="lede" style="margin-top:18px;">Small batches. Real fittings. Sustainable fabric.</p>
 	</div>
 	<div class="values-list">
 		<div class="value">
@@ -102,9 +102,9 @@
 <section class="craft">
 	<div class="craft-inner">
 		<div>
-			<span class="eyebrow" style="color:var(--terracotta);">From bolt to belly strap</span>
+			<span class="eyebrow" style="color:var(--terracotta);">How it's made</span>
 			<h2 class="h-section" style="margin-top:18px;">How a Barkly jacket <span class="it">actually</span> gets made.</h2>
-			<p class="lede" style="margin-top:18px;">Eight hands. Four hours. From bolt to box on your doorstep.</p>
+			<p class="lede" style="margin-top:18px;">Hand-sketched, hand-cut, hand-finished — by the same small studio every time.</p>
 			<div class="specs">
 				<div class="spec">
 					<div class="k">Sketch</div>

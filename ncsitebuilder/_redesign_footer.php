@@ -84,8 +84,8 @@ var barklyChat = (function () {
 		{ name:'Santa Fe Jacket',       tag:'Signature',  img:'gallery/santa-fe-jacket.jpeg' },
 		{ name:'Brocade Jacket',        tag:'New',        img:'gallery/scarlet-brocade-coat.jpeg' },
 		{ name:'Midnight Floral Hoodie',tag:'Bestseller', img:'gallery/midnight-floral-hoodie.jpeg' },
-		{ name:'Nordic Fairisle',       tag:'Knitwear',   img:'gallery/nordic-fairisle-sweater.jpeg' },
-		{ name:'Lunar Cheongsam',       tag:'Capsule',    img:'gallery/lunar-cheongsam.jpeg' }
+		{ name:'Kashmiri Knit Sweater', tag:'Knitwear',   img:'gallery/nordic-fairisle-sweater.jpeg' },
+		{ name:'Festival Brocade Jacket', tag:'Festival', img:'gallery/lunar-cheongsam.jpeg' }
 	];
 	var SIZES = {
 		XS: { label:'XS', chest:'8–11 in', neck:'5–8 in',   note:'For the tiniest pups.' },

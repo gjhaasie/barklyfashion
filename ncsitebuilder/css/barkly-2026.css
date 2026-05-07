@@ -511,8 +511,12 @@ button { font: inherit; cursor: pointer; }
 
 /* About-us story image is a landscape product shot of the Barkly box.
  * Source is ~4:3 (1500x1138). The shared 4:5 portrait container
- * chopped the BARKLY wordmark off both sides, so on About we match
- * the source aspect ratio — full wordmark visible, no letterbox. */
+ * chopped the BARKLY wordmark off both sides; matching aspect to
+ * source fixes that BUT a 50/50 grid then squeezes the headline next
+ * to it. Give the text column more width so both fit naturally. */
+body[data-screen="about"] .story-inner {
+  grid-template-columns: 5fr 7fr;
+}
 body[data-screen="about"] .story-img {
   aspect-ratio: 4/3;
 }
