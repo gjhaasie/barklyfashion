@@ -18,7 +18,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507d" type="text/css" />
+	<link rel="stylesheet" href="css/barkly-2026.css?ts=20260507e" type="text/css" />
 	<ga-code/>
 	<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
 	<link rel="icon" type="image/png" sizes="120x120" href="gallery/favicons/favicon-120x120.png">
@@ -72,7 +72,7 @@
 			<span class="num">01</span>
 			<div>
 				<h3>Heritage textiles, never plastic</h3>
-				<p>Hand block-printed cottons from the wood-block ateliers of Jaipur and Bagru. Brocades and silks woven near Udaipur. Bandhani tie-dye knotted by hand in Jodhpur. Every textile on a Barkly coat carries the hand of the artisan who made it — never a plastic bottle.</p>
+				<p>Block-printed cottons from Jaipur. Brocades and silks from Udaipur. Bandhani from Jodhpur. The hand of the artisan in every piece — never a plastic bottle.</p>
 			</div>
 		</div>
 		<div class="value">
